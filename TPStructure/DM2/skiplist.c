@@ -3,31 +3,85 @@
 
 #include "rng.h"
 #include "skiplist.h"
-#define NB_LEVEL 4
+#define NB_LEVEL_MAX 4
 
+/** Node struct, this is the type of our list's cells */
 typedef struct s_node{
 	int value;
 	int node_level;
-	struct s_node *tabPrecedent[NB_LEVEL];
-	struct s_node *tabSuivant[NB_LEVEL];
+	struct s_node **previous;
+	struct s_node **next;
 }*Node;
 
+/** SkipList, explicit enough */
 struct s_SkipList{
-	Node head[NB_LEVEL];
+	int level_max;
+	unsigned int size;
+	Node sentinel;
+	RNG seed;
 };
 
+
 SkipList skiplist_create(int nblevels){
+
+	/** Allows memory, set levels, size and seed */
 	SkipList s = (SkipList)malloc(sizeof(struct s_SkipList));
-	for (int i = 0;i<nblevels;i++)
-		s->head[i] = NULL;
+	s->level_max = nblevels;
+	s->size = 0;
+	s->seed = rng_initialize(0);
+
+	/** Initialize sentinel properly. Value is set to -1 and node_level to level_max */
+	s->sentinel = (Node)malloc(sizeof(struct s_node));
+	s->sentinel->next = (Node*)malloc(nblevels*sizeof(struct s_node));
+	s->sentinel->previous = (Node*)malloc(nblevels*sizeof(struct s_node));
+	s->sentinel->value = -1;
+	s->sentinel->node_level = nblevels;
+
+	/** Makes the sentinel point itself */
+	for (int i=0;i<nblevels;i++){
+		s->sentinel->next[i] = s->sentinel;
+		s->sentinel->previous[i] = s->sentinel;
+	}
 	return s;
 }
 
 void skiplist_delete(SkipList d){
-	Node elem;
-	while (d->head[0] != NULL){
-		elem = d->head[0];
-		d->head[0] = d->head[0]->tabSuivant[0];
+	Node elem = d->sentinel->next[0];
+	Node temp;
+
+	/** Clean every elements in the list */
+	while (elem != d->sentinel){
+		temp = elem;
+		free(elem->next);
+		free(elem->previous);
 		free(elem);
+		elem = temp->next[0];
 	}
+
+	/** Clean sentinel */
+	free(d->sentinel->next);
+	free(d->sentinel->previous);
+	free(d->sentinel);
+	free(d);
+}
+
+unsigned int skiplist_size(SkipList d){
+	return d->size;
+}
+
+int skiplist_ith(SkipList d, unsigned int i){
+	unsigned int n = 0;
+	Node elem = d->sentinel->next[0];
+
+	/** Va à l'index désigné par i et en renvoie la valeur */
+	while (i != n){
+		n++;
+		elem = elem->next[0];
+	}
+	return elem->value;
+}
+
+SkipList skiplist_insert(SkipList d, int value){
+	Node parcours
+	return d;
 }
