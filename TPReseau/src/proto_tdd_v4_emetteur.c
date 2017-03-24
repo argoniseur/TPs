@@ -8,6 +8,7 @@
 **************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "application.h"
 #include "couche_transport.h"
 #include "services_reseau.h"
@@ -20,14 +21,14 @@ int main(int argc, char* argv[])
 {
 	char message[MAX_INFO]; /* message de l'application */
 	int taille_msg;         /* taille du message */
-	int taille_fenetre = 4, borne_inf = 0, curseur = 0, evt, i;
+	int taille_fenetre = 4, borne_inf = 0, curseur = 0, evt, i, service = 0;
 	paquet_t ack, tab_p[NUM_SEQ_MAX],connect;        /* paquet utilisé par le protocole */
 	init_reseau(EMISSION);
 	printf("[TRP] Initialisation reseau : OK.\n");
 	printf("[TRP] Debut execution protocole transport.\n");
 
 	/* lecture de donnees provenant de la couche application */
-	de_application_mode_c(service, message, &taille_msg);
+	de_application_mode_c(&service, message, &taille_msg);
 	
 	if (service == T_CONNECT){
 		connect.type = CON_REQ;
@@ -38,11 +39,12 @@ int main(int argc, char* argv[])
 				de_reseau(&connect);
 			if (connect.type == CON_REFUSE)
 				exit (1);
-	}
+	    }
+    }
 	
-	de_application_mode_c(service, message, &taille_msg);
+	de_application_mode_c(&service, message, &taille_msg);
 	/* tant que l'émetteur a des données à envoyer */
-	while (borne_inf != curseur && service != service != T_DISCONNECT) {
+	while (borne_inf != curseur && service != T_DISCONNECT) {
 		if(dans_fenetre(borne_inf, curseur, taille_fenetre) && taille_msg != 0){
 			/* construction paquet */
 			for (i=0; i<taille_msg; i++) {
@@ -61,7 +63,7 @@ int main(int argc, char* argv[])
 			}
 			curseur = inc(curseur,NUM_SEQ_MAX);
 			// printf("%hhu -- %hhu\n", curseur, tab_p[curseur].num_seq);
-			de_application_mode_c(message, &taille_msg);
+			de_application_mode_c(&service, message, &taille_msg);
 		}
 		else{
 			

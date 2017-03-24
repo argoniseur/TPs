@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 {
     char message[MAX_INFO]; /* message pour l'application */
     paquet_t paquet, ack;        /* paquet utilisé par le protocole */
-    int fin = 0, sequence = 0;            /* condition d'arrêt */
+    int fin = 0, sequence = 0, service = 0;            /* condition d'arrêt */
     uint8_t controle;
     init_reseau(RECEPTION);
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 						message[i] = paquet.info[i];
 					}
 					/* remise des données à la couche application */
-					fin = vers_application_mode_c(message, paquet.lg_info);
+					fin = vers_application_mode_c(service, message, paquet.lg_info);
 					ack.num_seq = paquet.num_seq;
 					vers_reseau(&ack);
 					sequence = inc(sequence, 8);
@@ -56,7 +56,9 @@ int main(int argc, char* argv[])
 				break;
 			case CON_REQ:
 				//vers appli
+                vers_application_mode_c(service, message, paquet.lg_info);
 				ack.type = CON_ACCEPT;
+                if (service /* ******************** */
 				vers_reseau(&ack);
 				break;
 			case CON_CLOSE:
