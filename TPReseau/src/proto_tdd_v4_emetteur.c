@@ -21,16 +21,28 @@ int main(int argc, char* argv[])
 	char message[MAX_INFO]; /* message de l'application */
 	int taille_msg;         /* taille du message */
 	int taille_fenetre = 4, borne_inf = 0, curseur = 0, evt, i;
-	paquet_t ack, tab_p[NUM_SEQ_MAX];        /* paquet utilisé par le protocole */
+	paquet_t ack, tab_p[NUM_SEQ_MAX],connect;        /* paquet utilisé par le protocole */
 	init_reseau(EMISSION);
 	printf("[TRP] Initialisation reseau : OK.\n");
 	printf("[TRP] Debut execution protocole transport.\n");
 
 	/* lecture de donnees provenant de la couche application */
-	de_application(message, &taille_msg);
-
+	de_application_mode_c(service, message, &taille_msg);
+	
+	if (service == T_CONNECT){
+		connect.type = CON_REQ;
+		vers_reseau(&connect);
+		while (connect.type != CON_ACCEPT){
+			evt = attendre();
+			if (!evt)
+				de_reseau(&connect);
+			if (connect.type == CON_REFUSE)
+				exit (1);
+	}
+	
+	de_application_mode_c(service, message, &taille_msg);
 	/* tant que l'émetteur a des données à envoyer */
-	while ( taille_msg != 0 || borne_inf != curseur) {
+	while (borne_inf != curseur && service != service != T_DISCONNECT) {
 		if(dans_fenetre(borne_inf, curseur, taille_fenetre) && taille_msg != 0){
 			/* construction paquet */
 			for (i=0; i<taille_msg; i++) {
@@ -49,7 +61,7 @@ int main(int argc, char* argv[])
 			}
 			curseur = inc(curseur,NUM_SEQ_MAX);
 			// printf("%hhu -- %hhu\n", curseur, tab_p[curseur].num_seq);
-			de_application(message, &taille_msg);
+			de_application_mode_c(message, &taille_msg);
 		}
 		else{
 			
@@ -78,7 +90,7 @@ int main(int argc, char* argv[])
 		/* lecture des donnees suivantes de la couche application */
 		
 	}
-
+	
 	printf("[TRP] Fin execution protocole transfert de donnees (TDD).\n");
 	return 0;
 }

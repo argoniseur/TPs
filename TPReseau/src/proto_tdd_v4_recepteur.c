@@ -35,20 +35,35 @@ int main(int argc, char* argv[])
         // attendre(); /* optionnel ici car de_reseau fct bloquante... */
         de_reseau(&paquet);
         controle = generer_controle(paquet);
-        if (controle == paquet.somme_ctrl && sequence == paquet.num_seq) {
-			printf("[TRP] reception %d\n", sequence);
-			/* extraction des donnees du paquet recu */
-			for (int i=0; i<paquet.lg_info; i++) {
-				message[i] = paquet.info[i];
-			}
-			/* remise des données à la couche application */
-			fin = vers_application(message, paquet.lg_info);
-			ack.num_seq = paquet.num_seq;
-			vers_reseau(&ack);
-			sequence = inc(sequence, 8);
-		}
-		else if (controle == paquet.somme_ctrl && sequence != paquet.num_seq){
-			vers_reseau(&ack);
+        switch(paquet.type){
+			case DATA:
+				
+				if (controle == paquet.somme_ctrl && sequence == paquet.num_seq) {
+					printf("[TRP] reception %d\n", sequence);
+					/* extraction des donnees du paquet recu */
+					for (int i=0; i<paquet.lg_info; i++) {
+						message[i] = paquet.info[i];
+					}
+					/* remise des données à la couche application */
+					fin = vers_application_mode_c(message, paquet.lg_info);
+					ack.num_seq = paquet.num_seq;
+					vers_reseau(&ack);
+					sequence = inc(sequence, 8);
+				}
+				else if (controle == paquet.somme_ctrl && sequence != paquet.num_seq){
+					vers_reseau(&ack);
+				}
+				break;
+			case CON_REQ:
+				//vers appli
+				ack.type = CON_ACCEPT;
+				vers_reseau(&ack);
+				break;
+			case CON_CLOSE:
+				ack.type = CON_CLOSE_ACK;
+				vers_reseau(&ack);
+				
+				break;
 		}
     }
 
