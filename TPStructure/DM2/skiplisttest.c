@@ -15,7 +15,50 @@ void usage(const char *command) {
 }
 
 void test_construction(int num){
-	(void) num;
+	FILE *fic;
+	char *fichier;
+	
+	switch (num){
+		case 1:
+			sprintf(fichier,"test_files/construct_1.txt",num);
+			break;
+		case 2:
+			sprintf(fichier,"test_files/construct_2.txt",num);
+			break;
+		case 3:
+			sprintf(fichier,"test_files/construct_3.txt",num);
+			break;
+		case 4:
+			sprintf(fichier,"test_files/construct_4.txt",num);
+			break;
+		default:
+			break;
+	}
+
+	fic=fopen(fichier,"r");
+  	if (fic==NULL){
+  		fprintf(stderr,"\n Erreur Fichier : Impossible de lire le fichier %s\n",fichier);
+    	exit(-1);
+    }
+   
+	
+	int node, level, value;
+	fscanf(fic, "%d", &level); 
+	fscanf(fic, "%d", &node);
+	SkipList d;
+	d = skiplist_create(level); 
+	for(i = O;i < node;i++){
+		fscanf(fic, "%d", &value);
+		skiplist_insert(d, value);
+	}
+	printf("Skiplist size = %d\n",skiplist_size(d));
+
+	for(unsigned int i = 0;i < skiplist_size(d);i++){
+		printf("%d ", skiplist_ith(d, i));
+		i++;
+	}
+	skiplist_delete(d);
+	fclose(fic); 
 }
 
 void test_search(int num){

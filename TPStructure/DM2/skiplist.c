@@ -81,7 +81,20 @@ int skiplist_ith(SkipList d, unsigned int i){
 	return elem->value;
 }
 
-SkipList skiplist_insert(SkipList d, int value){
-	Node parcours
-	return d;
+bool skiplist_search(SkipList d, int value, unsigned int *nb_operations){
+  Node parcours = d->sentinel;
+  *nb_operations=1;
+
+  for(int i = (d->level_max)-1;i >= 0; --i){
+    while(value > parcours->next[i]->value){
+      parcours = parcours->next[i];
+      *nb_operations++;
+    }
+    
+    if((parcours->next[i]->value == value) && (parcours->next[i] != d->sentinel))
+      return true;
+  }
+  
+  return false;
 }
+
