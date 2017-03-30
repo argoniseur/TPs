@@ -31,20 +31,37 @@ int main(int argc, char* argv[])
 	de_application_mode_c(&service, message, &taille_msg);
 	
 	if (service == T_CONNECT){
+		/* Si on recoit une demande de connexion */
 		connect.type = CON_REQ;
-		vers_reseau(&connect);
-		while (connect.type != CON_ACCEPT){
+		evt = 1;
+		while(evt != 0){
+			/* On envoie une demande de connexion au récepteur */
+			vers_reseau(&connect);
+			depart_temporisateur(100);
 			evt = attendre();
-			if (!evt)
-				de_reseau(&connect);
-			if (connect.type == CON_REFUSE)
-				exit (1);
-	    }
+		}
+		arreter_temporisateur();
+		attendre();
+		de_reseau(&connect);
+		
+		switch(connect.type){
+			case CON_ACCEPT:
+				/* Si la réponse reçue est positive on notifie la couche application */
+				vers_application_mode_c(T_CONNECT_ACCEPT, message, taille_msg);
+				break;
+			case CON_REFUSE:
+				/* Si la réponse est négtive, on notifie application et on exit */
+				vers_application_mode_c(T_CONNECT_REFUSE, message, taille_msg);
+				exit(1);
+				break;
+		}
     }
+	
+	
 	
 	de_application_mode_c(&service, message, &taille_msg);
 	/* tant que l'émetteur a des données à envoyer */
-	while (borne_inf != curseur && service != T_DISCONNECT) {
+	while ((taille_msg != 0 || borne_inf != curseur) && service != T_DISCONNECT) {
 		if(dans_fenetre(borne_inf, curseur, taille_fenetre) && taille_msg != 0){
 			/* construction paquet */
 			for (i=0; i<taille_msg; i++) {
@@ -55,14 +72,12 @@ int main(int argc, char* argv[])
 			tab_p[curseur].num_seq = (uint8_t)curseur;
 			
 			tab_p[curseur].somme_ctrl = generer_controle(tab_p[curseur]);
-			printf("%hhu -- %hhu\n", curseur, tab_p[curseur].num_seq);
 			/* remise à la couche reseau */
 			vers_reseau(&tab_p[curseur]);
 			if(borne_inf == curseur){
 				depart_temporisateur(100);
 			}
 			curseur = inc(curseur,NUM_SEQ_MAX);
-			// printf("%hhu -- %hhu\n", curseur, tab_p[curseur].num_seq);
 			de_application_mode_c(&service, message, &taille_msg);
 		}
 		else{
@@ -70,7 +85,6 @@ int main(int argc, char* argv[])
 			evt = attendre();
 			if(!evt){
 				de_reseau(&ack);
-				printf("ack __ %d\n", ack.num_seq);
 				if(dans_fenetre(borne_inf,ack.num_seq,taille_fenetre)){
 					borne_inf = inc(ack.num_seq,NUM_SEQ_MAX);
 					arreter_temporisateur();
@@ -83,7 +97,6 @@ int main(int argc, char* argv[])
 					printf("RETRANSMISSION\n");
 					depart_temporisateur(100);
 					while(i != curseur){
-						printf("--> %d\n", i);
 						vers_reseau(&tab_p[i]);
 						i = inc(i, NUM_SEQ_MAX);
 					}
@@ -92,6 +105,20 @@ int main(int argc, char* argv[])
 		/* lecture des donnees suivantes de la couche application */
 		
 	}
+	
+	/* Fin de transmission, on demande la déconnexion */
+	connect.type = CON_CLOSE;
+	evt = 1;
+	arreter_temporisateur();
+	while(evt != 0){
+		vers_reseau(&connect);
+		depart_temporisateur(100);
+		evt = attendre();
+	}
+	
+	arreter_temporisateur();
+	attendre();
+	de_reseau(&connect);
 	
 	printf("[TRP] Fin execution protocole transfert de donnees (TDD).\n");
 	return 0;

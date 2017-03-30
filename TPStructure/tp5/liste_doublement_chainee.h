@@ -10,7 +10,10 @@
 typedef struct s_listeDouble *ListeDouble;
 
 /*définition du type Element*/
-typedef struct s_element *Element;
+typedef struct s_element{
+	unsigned int valeur;
+	char* chaine;
+}*Element;
 
 /**Constructeur: construit une liste vide
  * initialiser_liste: ->Dqueue

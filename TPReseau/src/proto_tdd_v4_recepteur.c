@@ -8,6 +8,7 @@
 **************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "application.h"
 #include "couche_transport.h"
 #include "services_reseau.h"
@@ -19,7 +20,7 @@ int main(int argc, char* argv[])
 {
     char message[MAX_INFO]; /* message pour l'application */
     paquet_t paquet, ack;        /* paquet utilisé par le protocole */
-    int fin = 0, sequence = 0, service = 0;            /* condition d'arrêt */
+    int fin = 0, sequence = 0, service = 0, connect = 0;            /* condition d'arrêt */
     uint8_t controle;
     init_reseau(RECEPTION);
 
@@ -45,7 +46,7 @@ int main(int argc, char* argv[])
 						message[i] = paquet.info[i];
 					}
 					/* remise des données à la couche application */
-					fin = vers_application_mode_c(service, message, paquet.lg_info);
+					vers_application_mode_c(T_DATA, message, paquet.lg_info);
 					ack.num_seq = paquet.num_seq;
 					vers_reseau(&ack);
 					sequence = inc(sequence, 8);
@@ -55,16 +56,30 @@ int main(int argc, char* argv[])
 				}
 				break;
 			case CON_REQ:
-				//vers appli
-                vers_application_mode_c(service, message, paquet.lg_info);
-				ack.type = CON_ACCEPT;
-                if (service /* ******************** */
-				vers_reseau(&ack);
+				if(connect){
+					/* Si on est déjà connecté, on renvoie l'ack */
+					ack.type = CON_ACCEPT;
+					vers_reseau(&ack);
+				}
+				else if(vers_application_mode_c(T_CONNECT, message, paquet.lg_info) == T_CONNECT_ACCEPT){
+					/* Si la demande connexion aboutie, on envoie l'ACK d'acceptation */
+					ack.type = CON_ACCEPT;
+					vers_reseau(&ack);
+					connect = 1;
+				}
+				else{
+					/* Sinon on refuse la connexion et on quitte */
+					ack.type = CON_REFUSE;
+					vers_reseau(&ack);
+					exit(1);
+				}					
 				break;
 			case CON_CLOSE:
+				service = T_DISCONNECT;
+				vers_application_mode_c(service, message, paquet.lg_info);
 				ack.type = CON_CLOSE_ACK;
 				vers_reseau(&ack);
-				
+				fin = 1;
 				break;
 		}
     }
