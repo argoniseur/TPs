@@ -1,74 +1,126 @@
 #include "liste_doublement_chainee.h"
 
-typedef struct s_node{
-	struct s_node *suivant;
-	Element elem;
-	struct s_node *precedent;
-}*Node;
-
-struct s_listeDouble{
-	Node sentinel;
-};
-
-
-ListeDouble initialiser_liste(){
-	ListeDouble l = (ListeDouble)malloc(sizeof(struct s_listeDouble));
-	l->sentinel = (Node)malloc(sizeof(struct s_node));
-	l->sentinel->suivant = (Node)malloc(sizeof(struct s_node));
-	l->sentinel->precedent = (Node)malloc(sizeof(struct s_node));
-	l->sentinel->suivant = l->sentinel;
-	l->sentinel->precedent = l->sentinel;
-	l->sentinel->elem = (Element)malloc(sizeof(struct s_element));
-	l->sentinel->elem->valeur = 0;
-	l->sentinel->elem->chaine = "";
-	return l;
+Deque initialiser_liste()
+{
+    Deque list=(Deque)malloc(sizeof(struct s_deque));
+    list->sentinel=(Cellule)malloc(sizeof(struct s_cellule));
+    list->sentinel->next=(Cellule)malloc(sizeof(struct s_cellule));
+    list->sentinel->previous=(Cellule)malloc(sizeof(struct s_cellule));
+    list->sentinel->previous=list->sentinel->next=list->sentinel;
+    list->size=0;
+    return list;
 }
 
-bool vide_liste(ListeDouble l){
-	return !(l->sentinel->suivant == NULL);
+bool vide_liste(Deque list)
+{
+    return(!(list->size));
+    
 }
 
-bool est_premier(ListeDouble l, Element e){
-	return (l->sentinel->suivant->elem == e);
+bool est_premier(Deque list,Cellule e)
+{
+    return(list->sentinel->next==e);
 }
 
-bool est_dernier(ListeDouble l, Element e){
-	return (l->sentinel->precedent->elem == e);
+bool est_dernier(Deque list,Cellule e)
+{
+    return(list->sentinel->previous==e);
 }
 
-Element recherche_element(ListeDouble l, char* c){
-    Node iterateur = (Node)malloc(sizeof(struct s_node));
-    iterateur = l->sentinel->suivant;
-    while(iterateur != l->sentinel){
-        if(!strcmp(c,iterateur->elem->chaine))
-            return iterateur->elem;
-        iterateur = iterateur->suivant;
+Element recherche_element(Deque list,char* chaine)
+{
+    Cellule search=(Cellule)malloc(sizeof(struct s_cellule));
+    search=list->sentinel->next;
+    while(search != list->sentinel)
+    {
+        if(!strcmp(chaine,search->elem->nom))
+        {
+                return(search->elem);
+        }
+        search=search->next;
+        
     }
-    return l->sentinel->elem;
+    return NULL;
 }
 
+Deque ajoute_element(Deque list,Cellule e)
+{
+    Cellule search=(Cellule)malloc(sizeof(struct s_cellule));
+    search=list->sentinel->next;
+    while(search != list->sentinel && e->elem->valeur>=search->elem->valeur)
+    {
+        search=search->next;
+    }
+    search->previous->next=e;
+    e->previous=search->previous;
+    search->previous=e;
+    e->next=search;
+    list->size++;
+    return list;
+}
 
-ListeDouble ajoute_element(ListeDouble l, Element e){
-	Node it = (Node)malloc(sizeof(struct s_node));
+Deque supprime_element(Deque list,Cellule e) // Oublie de gérer cas où élément est pas dans la liste
+{
+    Cellule search=(Cellule)malloc(sizeof(struct s_cellule));
+    search=list->sentinel->next;
+    while(search != list->sentinel && search!=e)
+    {
+        search=search->next;
+    }
+    search->previous->next=search->next;
+    search->next->previous=search->previous;
+    free(search);
+    list->size--;
+    return list;
+}
 
-	it = l->sentinel;
+void imprimer_liste_croissant(Deque list,bool sens)
+{
+    Cellule iterateur=(Cellule)malloc(sizeof(struct s_cellule));
+    if(sens)
+    {
+        iterateur=list->sentinel->next;
+        while(iterateur != list->sentinel)
+        {
+            printf("|%d , %s   ",iterateur->elem->valeur,iterateur->elem->nom);
+            iterateur=iterateur->next;
+        }
+    }
+    else
+    {
+        iterateur=list->sentinel->previous;
+        while(iterateur != list->sentinel)
+        {
+            printf("|%d , %s   ",iterateur->elem->valeur,iterateur->elem->nom);
+            iterateur=iterateur->previous;
+        }
+    }
+    printf("\n");
+}
+
+/* Vide le buffer de fgets */
+void viderBuffer(){
+	int c = 0;
+	while (c != '\n' && c != EOF)
+		c = getchar();
+}
+
+Element saisir(){
+	Element e = (Element)malloc(sizeof(struct s_element));
+	char* tmp;
+	char* c = (char*)malloc(100*sizeof(char));
+	int x;
 	
-	while(it->suivant != l->sentinel && it->elem->valeur <= e->valeur){
-		it = it->suivant;
-	}
-	it->elem = e;
-	it->precedent = it;
-	return l;
-}
-
-void imprimer_liste_croissant(ListeDouble l, bool sens){
-	Node it = (Node)malloc(sizeof(struct s_node));
-	it = l->sentinel;
-	if(sens){
-		while(it->suivant != l->sentinel){
-			printf("1");
-			it = it->suivant;
-			printf("%s, %d\n", it->elem->chaine, it->elem->valeur);
-		}
-	}
+	printf("Nom: ");
+	fgets(c,100,stdin);
+	tmp = strchr(c, '\n');
+	*tmp = '\0';
+	
+	printf("Note: ");
+	scanf("%d", &x);
+	
+	e->valeur = x;
+	e->nom = c;
+	viderBuffer();
+	return e;
 }
