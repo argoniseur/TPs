@@ -16,24 +16,9 @@ void usage(const char *command) {
 
 void test_construction(int num){
 	FILE *fic;
-	char *fichier;
+	char fichier[27];
 	
-	switch (num){
-		case 1:
-			sprintf(fichier,"test_files/construct_1.txt",num);
-			break;
-		case 2:
-			sprintf(fichier,"test_files/construct_2.txt",num);
-			break;
-		case 3:
-			sprintf(fichier,"test_files/construct_3.txt",num);
-			break;
-		case 4:
-			sprintf(fichier,"test_files/construct_4.txt",num);
-			break;
-		default:
-			break;
-	}
+	sprintf(fichier,"test_files/construct_%d.txt",num);
 
 	fic=fopen(fichier,"r");
   	if (fic==NULL){
@@ -47,9 +32,9 @@ void test_construction(int num){
 	fscanf(fic, "%d", &node);
 	SkipList d;
 	d = skiplist_create(level); 
-	for(i = O;i < node;i++){
+	for(int i = 0;i < node;i++){
 		fscanf(fic, "%d", &value);
-		skiplist_insert(d, value);
+		d = skiplist_insert(d, value);
 	}
 	printf("Skiplist size = %d\n",skiplist_size(d));
 
@@ -62,7 +47,80 @@ void test_construction(int num){
 }
 
 void test_search(int num){
-	(void) num;
+	SkipList d; 
+	FILE *fic;
+	char fichier[27];
+	unsigned int nb_node;
+	int nb_level;
+	int value;
+	FILE *fic2;
+	char fichier2[27];
+	unsigned int n;
+	unsigned int nb_operations;
+	unsigned int nb_found;
+	unsigned int max;
+	unsigned int min;
+	unsigned int sum;
+    
+   sprintf(fichier,"test_files/construct_%d.txt",num);
+  
+	if ((fic = fopen(fichier,"r")) == NULL){
+    	fprintf(stderr,"\n Erreur Fichier : Impossible de lire le fichier %s\n",fichier);
+    	exit(1);  
+    }
+   
+   
+	fscanf(fic, "%d", &nb_level);
+	fscanf(fic, "%u", &nb_node);
+	d = skiplist_create(nb_level);
+	for(unsigned int i = 0;i<nb_node;i++) {
+    	fscanf(fic, "%d", &value);
+    	d = skiplist_insert(d,value);
+	}
+	fclose(fic); 
+  
+	nb_node = skiplist_size(d);
+  
+	sprintf(fichier2, "test_files/search_%d.txt", num);
+  
+	if ((fic2=fopen(fichier2,"r"))==NULL){
+		fprintf(stderr, "\n Erreur Fichier : Impossible de lire le fichier %s\n", fichier2);
+ 	   exit(1); 
+	}
+	fscanf(fic2, "%u", &n);
+	nb_found = 0;
+	sum = 0;
+	min = n;
+	max = 0;
+
+	for(unsigned int i=0;i<n;i++){
+		fscanf(fic2, "%d", &value);
+		if(skiplist_search(d, value, &nb_operations)){
+			printf("%d -> true\n",value);
+			nb_found++;
+		}
+    	else
+			printf("%d -> false\n",value);
+    
+		sum = sum + nb_operations;
+		if(min > nb_operations)
+			min = nb_operations;
+    
+		if(max < nb_operations)
+			max = nb_operations;
+	}
+  
+	printf("Statistics :\n");
+	printf("    Size of the list : %u\n", nb_node);
+	printf("Search %d values :\n", n);
+	printf("    Found %d\n", nb_found);
+	printf("    Not found %d\n", n - nb_found);
+	printf("    Min number of operations : %d\n", min);//faire le calcul dans la boucle de recherche
+	printf("    Max number of operations : %d\n", max);//faire le calcul dans la boucle de recherche
+	printf("    Mean number of operations : %d\n", sum / n);
+    
+	fclose(fic2);
+	skiplist_delete(d); 
 }
 
 void test_search_iterator(int num){
