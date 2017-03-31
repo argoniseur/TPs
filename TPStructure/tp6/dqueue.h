@@ -1,45 +1,74 @@
-#ifndef _ENSEMBLEDQUEUE_H_
-#define _ENSEMBLEDQUEUE_H_
-
+#ifndef __DEQUE_H__
+#define __DEQUE_H__
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <malloc.h>
+#include <string.h>
 
-/*définition opaque du type doublement chaînée*/
-typedef struct s_dqueue *Dqueue;
+typedef struct s_element 
+{
+    unsigned int valeur;
+    char * nom;
+}*Element;
 
-/*définition du type Element*/
-typedef struct s_element *Element;
+typedef struct s_cellule
+{
+        Element elem;
+        struct s_cellule *next;
+        struct s_cellule *previous;
+}*Cellule;
 
-typedef struct s_node *Node;
+typedef struct s_deque
+{
+    Cellule sentinel;
+    int size;
+}*Deque;
 
+Deque initialiser_liste();
 
-Dqueue initialiser_liste();
+bool vide_liste(Deque list);
 
-bool vide_liste(Dqueue q);
+bool est_premier(Deque list,Cellule e);
 
-bool est_premier(Dqueue q, Element e);
+bool est_dernier(Deque list,Cellule e);
 
-bool est_dernier(Dqueue q, Element e);
+Element recherche_element(Deque list,char* chaine);
 
-Element create_elem(int v);
+Deque ajoute_element(Deque list,Cellule e);
 
-/* ************************************** ITERATOR ****************************** */
+Deque supprime_element(Deque list,Cellule e);
 
-typedef struct s_dqueue_iterator *DqueueIterator;
+void imprimer_liste_croissant(Deque list,bool sens);
+
+void viderBuffer();
+
+Element saisir();
+
+/* ************************ ITERATEUR ************************* */
+
+typedef struct s_dqueue_iterator{
+    Deque l;
+    Cellule current;
+    Cellule (*next) (Cellule);
+    Cellule begin;
+}*DqueueIterator;
+
+DqueueIterator deque_iterator_create(Deque l);
 
 bool hasNext (DqueueIterator i);
 
 bool hasPrevious (DqueueIterator i);
 
-Node next(DqueueIterator i);
+Cellule next(DqueueIterator i);
 
-Node previous(DqueueIterator i);
+Cellule previous(DqueueIterator i);
 
 DqueueIterator begin(DqueueIterator i);
 
 DqueueIterator end(DqueueIterator i);
+
+void map(Deque l, void(*process)(unsigned int *, void*), void *user_data);
 
 #endif
 

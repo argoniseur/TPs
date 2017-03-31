@@ -1,76 +1,49 @@
-#ifndef _ENSEMBLE_H_
-#define _ENSEMBLE_H_
-
+#ifndef __DEQUE_H__
+#define __DEQUE_H__
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <malloc.h>
 #include <string.h>
 
-/*définition opaque du type doublement chaînée*/
-typedef struct s_listeDouble *ListeDouble;
-
-/*définition du type Element*/
-typedef struct s_element{
-	unsigned int valeur;
-	char* chaine;
+typedef struct s_element 
+{
+    unsigned int valeur;
+    char * nom;
 }*Element;
 
-/**Constructeur: construit une liste vide
- * initialiser_liste: ->Dqueue
- */
-ListeDouble initialiser_liste();
+typedef struct s_cellule
+{
+        Element elem;
+        struct s_cellule *next;
+        struct s_cellule *previous;
+}*Cellule;
 
-/**Constructeur: ajoute un element à la liste
- * ajoute_element: Dqueue X Element -> Dqueue
- */
+typedef struct s_deque
+{
+    Cellule sentinel;
+    int size;
+}*Deque;
 
-ListeDouble ajoute_element(ListeDouble q, Element e);
+Deque initialiser_liste();
 
-/**OPERATEUR: verifie si la liste est vide
- * vide_liste:Dqueue -> BOOLEAN
- */
+bool vide_liste(Deque list);
 
-bool vide_liste(ListeDouble q);
+bool est_premier(Deque list,Cellule e);
 
+bool est_dernier(Deque list,Cellule e);
 
+Element recherche_element(Deque list,char* chaine);
 
-/**OPERATEUR: verifie si l'element est le premier
- * est_premier: Dqueue X Element -> BOOLEAN
- *@pre (!vide_liste(q))
- */
+Deque ajoute_element(Deque list,Cellule e);
 
-bool est_premier(ListeDouble q, Element e);
+Deque supprime_element(Deque list,Cellule e);
 
+void imprimer_liste_croissant(Deque list,bool sens);
 
-/**OPERATEUR: verifie si l'element est le dernier
- * est_dernier: Dqueue X Element -> BOOLEAN
- *@pre (!vide_liste(q))
- */
+void viderBuffer();
 
-bool est_dernier(ListeDouble q, Element e);
-
-
-/**OPERATEUR: verifie l'appartenance de l'element à la liste
- * recherche_element: Dqueue X Element -> Element
- */
-
-Element recherche_element(ListeDouble q, char* c);
-
-/**OPERATEUR-DESTRUCTEUR: supprime un element
- * supprime_element:Dqueue X Element -> Dqueue
- *@pre (!vide_liste(q))
- */
-
-ListeDouble supprime_element(ListeDouble q, Element e);
-
-/**OPERATEUR:Affiche la liste dans l'ordre croissant ou décroissant selon la valeur du boolean. 
- * VRAI->croissant
- * FAUX ->decroissant
- */
-
-void imprimer_liste_croissant(ListeDouble q, bool croissant);
-
+Element saisir();
 
 #endif
-
 
