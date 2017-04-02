@@ -6,12 +6,14 @@
 #define NB_LEVEL_MAX 4
 
 /** Node struct, this is the type of our list's cells */
-typedef struct s_node{
+typedef struct s_node *Node;
+
+struct s_node{
+	Node *next;
 	int value;
 	int node_level;
-	struct s_node **previous;
-	struct s_node **next;
-}*Node;
+	Node *previous;
+};
 
 /** SkipList, explicit enough */
 struct s_SkipList{
@@ -34,7 +36,7 @@ SkipList skiplist_create(int nblevels){
 	s->sentinel = (Node)malloc(sizeof(struct s_node));
 	s->sentinel->next = (Node*)malloc(nblevels*sizeof(struct s_node));
 	s->sentinel->previous = (Node*)malloc(nblevels*sizeof(struct s_node));
-	s->sentinel->value = -1;
+	s->sentinel->value = 0;
 	s->sentinel->node_level = nblevels;
 
 	/** Makes the sentinel point itself */
@@ -47,15 +49,14 @@ SkipList skiplist_create(int nblevels){
 
 void skiplist_delete(SkipList d){
 	Node elem = d->sentinel->next[0];
-	Node temp;
-
+	
 	/** Clean every elements in the list */
 	while (elem != d->sentinel){
-		temp = elem;
-		free(elem->next);
-		free(elem->previous);
-		free(elem);
-		elem = temp->next[0];
+		Node temp = elem;
+		elem = elem->next[0];
+		free(temp->next);
+		free(temp->previous);
+		free(temp);
 	}
 
 	/** Clean sentinel */
@@ -73,10 +74,9 @@ int skiplist_ith(SkipList d, unsigned int i){
 	unsigned int n = 0;
 	Node elem = d->sentinel->next[0];
 
-	/** Va à l'index désigné par i et en renvoie la valeur */
 	while (i != n){
-		n++;
 		elem = elem->next[0];
+		n++;
 	}
 	return elem->value;
 }
@@ -88,7 +88,7 @@ SkipList skiplist_insert(SkipList d, int value){
 	Node current = d->sentinel;
   
   	for(int i = d->level_max-1;i>=0;--i){
-		while(value>current->next[i]->value)
+		while(value > current->next[i]->value)
 			current = current->next[i];
 		e[i] = current->next[i];
 	}
@@ -101,8 +101,8 @@ SkipList skiplist_insert(SkipList d, int value){
 	int niveau;
   	niveau = rng_get_value(&(d->seed),(d->level_max)-1);
  	current = (Node)malloc(sizeof(struct s_node));
-	current->next = (Node*)malloc(niveau*sizeof(struct s_node));
-	current->previous = (Node*)malloc(niveau*sizeof(struct s_node));
+	current->next = (Node*)malloc((niveau+1) * sizeof(struct s_node));
+	current->previous = (Node*)malloc((niveau+1) * sizeof(struct s_node));
 	current->value = value;
 	current->node_level = niveau+1;
   
@@ -118,26 +118,26 @@ SkipList skiplist_insert(SkipList d, int value){
 }
 
 void skiplist_map(SkipList d, ScanOperator f, void *user_data){
-  Node current = d->sentinel->next[0];
+	Node current = d->sentinel->next[0];
   
-  for(unsigned int i = 0;i<d->size;i++){
-    f(current->value,user_data);
-    current = current->next[0];
-  }
+	for(unsigned int i = 0;i<d->size;i++){
+		f(current->value,user_data);
+		current = current->next[0];
+	}
 }
 
 bool skiplist_search(SkipList d, int value, unsigned int *nb_operations){
-  Node parcours = d->sentinel;
-  *nb_operations = 1;
-
-  for(int i = (d->level_max)-1;i >= 0; --i){
-    while(value > parcours->next[i]->value){
-      parcours = parcours->next[i];
-      *nb_operations++;
-    }
+	Node parcours = d->sentinel;
+	*nb_operations = 1;
+	d->sentinel->value=value;
+	for(int i = (d->level_max)-1;i >= 0; --i){
+		while(value > parcours->next[i]->value){
+			parcours = parcours->next[i];
+			*nb_operations = *nb_operations + 1;
+			}
     
-    if((parcours->next[i]->value == value) && (parcours->next[i] != d->sentinel))
-      return true;
+		if((parcours->next[i]->value == value) && (parcours->next[i] != d->sentinel))
+			return true;
 	}
   
   	return false;
@@ -145,10 +145,10 @@ bool skiplist_search(SkipList d, int value, unsigned int *nb_operations){
 
   
 struct s_SkipListIterator{
-  SkipList d;
-  Node begin;
-  Node current;
-  Node (*next)(Node);
+	SkipList d;
+	Node begin;
+	Node current;
+	Node (*next)(Node);
 };
 
 Node next(Node e){
