@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall
 OBJ=dequeue_iterator.o dqueue.o unit_test_iterator.o
-
+EXEC=unit_test_iterator
 All: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o unit_test_iterator
 
