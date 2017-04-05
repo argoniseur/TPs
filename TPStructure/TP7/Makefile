@@ -2,10 +2,10 @@ CC=gcc
 OPT=-Wall
 EXEC=arbreGRD
 
-all : $(EXEC)
+all: $(EXEC)
 
-$(EXEC): main.o arbreGRD.o
-	$(CC) $(OPT) main.c arbreGRD.c arbreGRD.h -o $(EXEC)
+$(EXEC): main.o arbreGRD.o queue.o
+	$(CC) $(OPT) main.c arbreGRD.c queue.c -o $(EXEC)
 
 clean:
-	rm -rf *.o $(EXEC)
+	rm -rf *.o $(EXEC) *.txt

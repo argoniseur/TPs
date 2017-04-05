@@ -6,19 +6,28 @@
 #include <stdio.h>
 
 #define TMAX 5
-typedef struct Queue_s
-{
+
+typedef struct Queue_s{
 	int tab[TMAX];
 	int head;
 	int tail;
 	int nb_elem;
-} Queue;
+}Queue;
 
 void init_Queue(Queue *q);
+
 bool empty_Queue (Queue q);
+
 bool full_Queue (Queue q);
+
 void affiche_Queue (Queue q);
+
 void push (Queue *q, int e);
+
 void pop (Queue *q);
+
 int nb_elem(Queue *q);
+
+void vider_queue(FILE *f_in, Queue *q);
+
 #endif
