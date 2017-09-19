@@ -1,0 +1,46 @@
+begin library "opam-core"
+  sort = false
+  files   = [
+    "opamCompat.ml"
+    "opamScript.ml"
+    "opamJson.ml"
+    "opamMisc.ml"
+    "opamGlobals.ml"
+    "opamVersion.ml"
+    "opamProcess.ml"
+    "opamParallel.ml"
+    "opamSystem.ml"
+    "opamFilename.ml"
+    "opamActionGraph.ml"
+    "opamSwitch.ml"
+    "opamPackage.ml"
+    "opamFormula.ml"
+    "opamCompiler.ml"
+    "opamVariable.ml"
+    "opamRepositoryName.ml"
+    "opamTypes.mli"
+    "opamTypesBase.ml"
+    "opamFormat.ml"
+    "opamParser.mly"
+    "opamLexer.mll"
+    "opamLineLexer.mll"
+    "opamPath.ml"
+    "opamFilter.ml"
+    "opamFile.ml"
+    "opamRepository.ml"
+  ]
+
+  requires = [
+    "cudf"
+    "dose3"
+    "dose3.algo"
+    "dose3.common"
+    "dose3.debian"
+    "unix"
+    "ocamlgraph"
+    "re.glob"
+    "re.str"
+    "jsonm"
+  ]
+
+end

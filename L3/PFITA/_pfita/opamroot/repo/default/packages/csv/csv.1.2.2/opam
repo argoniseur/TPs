@@ -1,0 +1,14 @@
+opam-version: "1.2"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "csv"]]
+depends: [
+  "ocamlfind"
+  "oasis" {= "0.3.0"}
+  "ocamlbuild" {build}
+]
+install: ["ocaml" "setup.ml" "-install"]

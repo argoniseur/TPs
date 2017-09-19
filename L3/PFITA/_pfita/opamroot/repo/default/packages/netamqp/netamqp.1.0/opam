@@ -1,0 +1,11 @@
+opam-version: "1"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+build: make
+remove: [["ocamlfind" "remove" "netamqp"]]
+depends: [
+  "ocamlfind"
+  "ocamlnet" {= "3.6.0"}
+  "pcre"
+  "omake"
+]
+install: [make "install"]

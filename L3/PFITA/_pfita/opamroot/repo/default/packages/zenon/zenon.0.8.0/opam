@@ -1,0 +1,13 @@
+opam-version: "1.2"
+homepage: "http://zenon-prover.org/"
+dev-repo: "https://scm.gforge.inria.fr/anonscm/git/zenon/zenon.git"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+authors: [ "R. Bonichon" "D. Delahaye" "D. Doligez" ]
+bug-reports: "zenon.prover at gmail.com"
+depends: ["coq"]
+build: [
+  ["./configure" "--prefix" "%{prefix}%" "--libdir" "%{zenon:lib}%"]
+  [make]
+]
+install: [[make "install"]]
+remove:  [[make "uninstall"]]

@@ -1,0 +1,5 @@
+name: "default"
+address: "https://opam.ocaml.org"
+kind: "http"
+priority: 0
+root: "/home/dfl1826a/Github/TPs/L3/PFITA/_pfita/opamroot/repo/default"

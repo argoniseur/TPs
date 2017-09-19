@@ -1,0 +1,12 @@
+opam-version: "1"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+remove: [["ocamlfind" "remove" "menhirLib"]]
+depends: ["ocamlfind"]
+install: [
+  make
+  "install"
+  "PREFIX=%{prefix}%"
+  "docdir=%{doc}%/menhir"
+  "libdir=%{lib}%/menhir"
+  "mandir=%{man}%/man1"
+]

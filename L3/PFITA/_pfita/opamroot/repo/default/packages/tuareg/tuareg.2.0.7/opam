@@ -1,0 +1,4 @@
+opam-version: "1"
+maintainer: "Christophe.Troestler@umons.ac.be"
+remove: [[make "uninstall"]]
+install: [make "install" "INSTALL_DIR=%{prefix}%/share/tuareg"]

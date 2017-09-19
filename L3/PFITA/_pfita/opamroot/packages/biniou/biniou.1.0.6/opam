@@ -1,0 +1,8 @@
+opam-version: "1"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+homepage: "http://mjambon.com/biniou.html"
+license: "BSD-3-Clause"
+build: [make]
+install: [make "install" "BINDIR=%{bin}%"]
+remove: ["ocamlfind" "remove" "biniou"]
+depends: ["ocamlfind" "easy-format"]

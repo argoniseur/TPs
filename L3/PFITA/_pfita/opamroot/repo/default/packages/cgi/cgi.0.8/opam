@@ -1,0 +1,10 @@
+opam-version: "1"
+maintainer: "rixed-opam@happyleptic.org"
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [["ocamlfind" "remove" "cgi"]]
+depends: ["ocamlfind"]
+patches: ["ocamlfind.patch"]
+install: [make "install"]
