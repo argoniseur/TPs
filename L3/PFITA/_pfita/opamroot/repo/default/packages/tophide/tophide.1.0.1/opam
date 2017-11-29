@@ -1,8 +1,0 @@
-opam-version: "1"
-maintainer: "https://github.com/ocaml/opam-repository/issues"
-homepage: "https://github.com/mjambon/tophide"
-build: make
-remove: [["ocamlfind" "remove" "tophide"]]
-depends: ["ocamlfind"]
-available: ocaml-version = "3.12.1"
-install: [make "install"]
