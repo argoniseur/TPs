@@ -1,0 +1,2 @@
+net.			120	IN	NS	a.gtld-servers.net.
+a.gtld-servers.net.	120	IN	A	127.0.0.20

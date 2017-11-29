@@ -1,0 +1,2 @@
+fr.			120	IN	NS	a.ext.nic.fr.
+a.ext.nic.fr.		120	IN	A	127.0.0.10

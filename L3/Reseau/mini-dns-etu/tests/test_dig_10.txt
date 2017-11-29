@@ -1,0 +1,10 @@
+bob.univ-tlse3.fr
+alice.univ-tlse3.fr
+mercure.univ-tlse3.fr
+venus.univ-tlse3.fr
+terre.univ-tlse3.fr
+mars.univ-tlse3.fr
+jupiter.univ-tlse3.fr
+saturne.univ-tlse3.fr
+uranus.univ-tlse3.fr
+neptune.univ-tlse3.fr

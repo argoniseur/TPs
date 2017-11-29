@@ -1,0 +1,2 @@
+wikipedia.fr.		120	IN	NS	dns.gandi.fr.
+dns.gandi.fr.		120	IN	A	127.0.0.101

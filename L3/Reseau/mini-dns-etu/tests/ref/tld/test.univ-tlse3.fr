@@ -1,0 +1,2 @@
+univ-tlse3.fr.		120	IN	NS	nsa1.cict.fr.
+nsa1.cict.fr.		120	IN	A	127.0.0.100
