@@ -21,7 +21,7 @@ char * readText(char *filename){;
   char *str = (char *) malloc(MAX_TEXT_LENGTH * sizeof(char));
   while ((i<MAX_TEXT_LENGTH-1) && (fread(&str[i],1,sizeof(char),f)))
     i++;
-  str[i] = 0;  //caractere ascii '\0'
+  str[i] = 0;
   fclose(f);
   return str;
 }
@@ -33,7 +33,7 @@ int encodePrimeFactorization(int number){
     code = code * 2;
     int f = prime_factors[i];
       if (number % f == 0){
-    code = code + 1;
+  code = code + 1;
       }
   }
   return code;
@@ -44,7 +44,7 @@ int decodePrimeFactorization(int code){
   int prod = 1;
     for (int j=0; j<PF_NUMBER ; j++){
       if ((code & 1) == 1){
-    prod = prod * prime_factors[j];
+  prod = prod * prime_factors[j];
       }
       code = code / 2;
     }
@@ -54,50 +54,45 @@ int decodePrimeFactorization(int code){
 // ------------------------------------------------------
 int computeKeyLength(char *text){
   int length = strlen(text);
-  int *num_facts = malloc((1<<PF_NUMBER) * sizeof(int));  //1<<PF_NUMBER : 1 décallé a gauche 8 fois, donc 1 vaut 256
+  int *num_facts = malloc((1<<PF_NUMBER) * sizeof(int));
   int max_num_facts = 0;
-//   int most_frequent_fact[4];
   
   #pragma omp parallel num_threads(4)
   {
-    #pragma omp for schedule (static,1)
+    printf("\n%d\n",1<<PF_NUMBER);
+    #pragma omp for
     for (int i=0; i<(1<<PF_NUMBER) ; i++)
       num_facts[i] = 0;
 
-    #pragma omp for schedule (static,100)
+    #pragma omp for schedule (static,120)
     for (int i=0; i<length; i++){
       for (int j=i+1; j<length; j++){
-    if (text[i] == text[j]){
-      int k;
-      //paral cette boucle for ?
-      for(k=1;text[i+k]==text[j+k];k++){}
-//       while (text[i+k] == text[j+k])
-//         k++;
-      if (k >= 3){
-        int fact = encodePrimeFactorization(j-i);
-        num_facts[fact] ++;
-        break;
-      }
+  if (text[i] == text[j]){
+    int k;
+    for(k=1;text[i+k]==text[j+k];k++){}
+    if (k >= 3){
+      int fact = encodePrimeFactorization(j-i);
+      num_facts[fact] ++;
+      break;
     }
+  }
       }
     }
   
     
-    #pragma omp for reduction (max:max_num_facts)
+    #pragma omp for
     for (int i=0; i<(1<<PF_NUMBER) ; i++){
       if (num_facts[i] > max_num_facts){
-    max_num_facts = num_facts[i]; 
-//     most_frequent_fact[omp_get_thread_num()] = i;
+  max_num_facts = num_facts[i]; 
       }
     }
   }
+  
   int key_length;
-  printf("\n%d %d\n",num_facts[0],max_num_facts);
   #pragma omp for
   for(int i=0;i<(1<<PF_NUMBER);i++){
     if(num_facts[i]==max_num_facts){
-    printf("\n%d\n",i);
-    key_length = decodePrimeFactorization(i);
+  key_length = decodePrimeFactorization(i);
     }
   }
   
@@ -113,25 +108,25 @@ char *computeKey(int key_length, char *text){
   
   #pragma omp parallel num_threads(4)
   {
-    #pragma omp OMP_SET_NESTED(true) for 
+    #pragma omp for
     for (int i=0; i<key_length ; i++){
       histogram[i] = malloc(26 * sizeof(int));
       for (int j=0; j<26 ; j++)
-    histogram[i][j] = 0;
+  histogram[i][j] = 0;
     }
     
     #pragma omp for schedule(dynamic,1)
     for (int i=0; i<key_length; i++){
       for (int j=i; j<text_length ; j+=key_length){
-    histogram[i][text[j]-'A']++;
+  histogram[i][text[j]-'A']++;
       }
       int max = 0;
       int most_frequent_letter;
       for (int j=0; j<26 ; j++){
-    if (histogram[i][j] > max){
-      max = histogram[i][j];
-      most_frequent_letter = j;
-    }
+  if (histogram[i][j] > max){
+    max = histogram[i][j];
+    most_frequent_letter = j;
+  }
       }
       key[i] = (char) (((most_frequent_letter - ('E'-'A') + 26) % 26) + 'A') ;
     }
@@ -164,8 +159,8 @@ char *decipher(char *ciphertext, char *key){
 // ------------------------------------------------------
 int main(int argc, char **argv) {
     
-    double t,start,stop;
-    start = omp_get_wtime();
+    double debut, fin;
+    debut = omp_get_wtime();
     
     if (argc!=2){
       printf("Usage : vigenere <input file>\n\n");
@@ -189,9 +184,7 @@ int main(int argc, char **argv) {
   free(key);
   free(cleartext);
   
-  stop=omp_get_wtime();
-  t=stop-start;
-  printf("Version paralelle - temps: %f\t",t);
+  fin = omp_get_wtime();
+  printf("Temps: %f\t",fin-debut);
   return 0;
 }
-
