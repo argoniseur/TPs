@@ -33,14 +33,14 @@ int main(int argc, char * argv[]) {
 
     
 
-    if (argc!=4 && argc!=6) {
+    if (argc != 4 && argc != 6) {
         printf("Usage: %s -s @IP_serveur_DNS [-p port] nom_de_domaine\n", argv[0]);
         exit(EXIT_FAILURE);
     }
     
     /*Initialisation*/
     strcpy(server_ip, argv[2]);
-    if(argc==6){
+    if(argc == 6){
         server_port = atoi(argv[4]);
         strcpy(domaine_name,argv[5]);
     }
@@ -53,8 +53,7 @@ int main(int argc, char * argv[]) {
 
     /* Creation d'une socket en mode datagramme  */
     /*-------------------------------------------*/
-    sock_id = socket(AF_INET, SOCK_DGRAM, 0);
-    if ( sock_id < 0 ) {
+    if((sock_id = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ){
         perror("socket error");
         exit(EXIT_FAILURE);
     }
@@ -63,24 +62,22 @@ int main(int argc, char * argv[]) {
     /*-----------------------------------------*/
     memset(&server_adr, 0, sizeof(server_adr));
     server_adr.sin_family = AF_INET;
-    server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
+    server_adr.sin_port = htons(server_port);
     server_adr.sin_addr.s_addr = inet_addr(server_ip);
      
     /*Construction de la requète dns*/
     size_server = sizeof(server_adr);
     size = build_dns_request(message,domaine_name);
+
     /* Envoi du message au serveur */
     /*-----------------------------*/
-    
-    
-    if ( (sendto(sock_id, message, size, 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0) {
+    if((sendto(sock_id, message, size, 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0){
         perror("sendto error");
         exit(EXIT_FAILURE);
     }
 
     /* Réception de la réponse */
     /*-------------------------*/
-
     if((recvfrom(sock_id,message, MSG_MAX_SIZE, 0, (struct sockaddr*) &server_adr, &size_server)) < 0){
         perror("recvfrom()");
         exit(EXIT_FAILURE);
@@ -92,8 +89,9 @@ int main(int argc, char * argv[]) {
         ip_from_answer(message,ip_addr_domaine);
         print_ip_v4(ip_addr_domaine);
     }
-    else
+    else{
         printf("No such name\n");
+    }
 
     /* Fermeture de la socket */
     /*------------------------*/

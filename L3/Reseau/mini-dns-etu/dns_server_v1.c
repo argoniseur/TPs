@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <arpa/inet.h> // inet_addr, htons
+#include <arpa/inet.h>
 #include "dns_packet_parsing.h"
 #include "dns_server_rr_files.h"
 
@@ -26,6 +26,7 @@ int main(int argc,char *argv[]){
     char sub_domain[4];
     int server_type;
     char my_domain[4];
+
     /*Vérification de la cohérence des arguments*/
     if(argc != 3){
         fprintf(stderr, "Usage : ./%s ressourceRecords portUDP \n",argv[0] );
