@@ -9,8 +9,8 @@ dns_client: dns_client.o dns_packet_parsing.o utils.o
 dns_server_v0: $(LIBS) dns_server_v0.o
 	$(CC) $(FLAGS) $(LIBS) dns_server_v0.o -o $@
 
-dns_server_v1: $(LIBS) dns_server_hierarchy.o
-	$(CC) $(FLAGS) $(LIBS) dns_server_hierarchy.o -o $@
+dns_server_v1: $(LIBS) dns_server_v1.o
+	$(CC) $(FLAGS) $(LIBS) dns_server_v1.o -o $@
 
 dns_server_local_v1: $(LIBS) dns_server_local.o
 	$(CC) $(FLAGS) $(LIBS) dns_server_local.o -o $@
