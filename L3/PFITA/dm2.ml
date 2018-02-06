@@ -9,12 +9,11 @@ val put : ('var, 'valeur) env -> 'var -> 'valeur -> ('var, 'valeur) env
 end;;
 
 module Env : tENV = struct
-	type ('var, 'valeur) env = VIDE | LIAISON of ('var * 'valeur) *
-('var, 'valeur) env
+	type ('var, 'valeur) env = VIDE | LIAISON of ('var * 'valeur) * ('var, 'valeur) env
 	let empty = VIDE
-	let rec get env_donne variable = match env_donne with LIAISON ((var,valeur), nouveau_env) -> if var = variable then valeur else
-get nouveau_env variable | VIDE -> failwith "Error"
-	let put env_donne nouvelle_var nouvelle_valeur = LIAISON ((nouvelle_var,nouvelle_valeur),env_donne)
+	let rec get envDonner var = match envDonner with LIAISON ((var,valeur), newEnv) -> if var = var
+		then valeur else get newEnv var | VIDE -> failwith "Error"
+	let put envDonner newVar newVal = LIAISON ((newVar, newVal), envDonner)
 end;;
 
 type expr =
@@ -24,11 +23,15 @@ type expr =
 | Alternative of expr * expr * expr
 | Definition of string * expr * expr;;
 
+let cond p a b = if p a b then 1 else 0;;
 
 let rec eval env = function
 	| Variable s -> Env.get env s
-	| Constante ent -> ent
-	| AppelFonction (fonction_ent, expr1, expr2) -> fonction_ent (eval env expr1) (eval env expr2)
+	| Constante v -> v
+	| AppelFonction (fct, expr1, expr2) -> fct (eval env expr1) (eval env expr2)
+	(*| Alternative(AppelFonction(cond (<), AppelFonction((eval), Variable "env", Variable "expr1"), Constante 1),
+		AppelFonction((eval), Variable "env", Variable "expr2"),
+		AppelFonction((eval), Variable "env", Variable "expr3"))*)
 	| Alternative (expr1, expr2, expr3) -> if (eval env expr1) > 0 then (eval env expr2) else (eval env expr3)
 	| Definition (s, valeur, expr1) -> eval (Env.put env s (eval env valeur)) expr1;;
 
@@ -64,7 +67,7 @@ let rec listeVarsLibres = function
 
 let rec eliminer env = function
 	| Variable s -> eliminer env (Env.get env s)
-	| Constante ent -> Constante ent
-	| AppelFonction (fonction, expr1, expr2) -> AppelFonction (fonction, (eliminer env expr1), (eliminer env expr2))
+	| Constante v -> Constante v
+	| AppelFonction (fct, expr1, expr2) -> AppelFonction (fct, (eliminer env expr1), (eliminer env expr2))
 	| Alternative (expr1, expr2, expr3) -> Alternative ((eliminer env expr1),(eliminer env expr2),(eliminer env expr3))
 	| Definition (s, expr1, expr2) -> eliminer (Env.put env s (eliminer env expr1)) expr2;;
