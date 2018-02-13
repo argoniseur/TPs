@@ -12,17 +12,17 @@ dns_server_v0: $(LIBS) dns_server_v0.o
 dns_server_v1: $(LIBS) dns_server_v1.o
 	$(CC) $(FLAGS) $(LIBS) dns_server_v1.o -o $@
 
-dns_server_local_v1: $(LIBS) dns_server_local.o
-	$(CC) $(FLAGS) $(LIBS) dns_server_local.o -o $@
+#dns_server_local_v1: $(LIBS) dns_server_local.o
+#	$(CC) $(FLAGS) $(LIBS) dns_server_local.o -o $@
 
-all: dns_client dns_server_v0 dns_server_v1 dns_server_local_v1
+all: dns_client dns_server_v0 dns_server_v1 #dns_server_local_v1
 
 test_v1: all
 	xterm -e ./dns_server_v1 RR/univ-tlse3.fr.conf 12700 &
 	xterm -e ./dns_server_v1 RR/wikipedia.fr.conf 12827 &
 	xterm -e ./dns_server_v1 RR/tld.fr.conf 1270 &
 	xterm -e ./dns_server_v1 RR/root.conf 8888 &
-	xterm -e ./dns_server_local_v1 5300 &
+	#xterm -e ./dns_server_local_v1 5300 &
 
 kill_test:
 	for p in `pgrep dns_serv`; do kill $$p; done

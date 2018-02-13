@@ -1,25 +1,23 @@
-/*********************************
-**      TP SOCKETS TCP/IP       **
-**  Hello World UDP (serveur)   **
-*********************************/
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <arpa/inet.h> // inet_addr, htons
+#include <arpa/inet.h>
 #include "utils.h"
 #include "dns_server_rr_files.h"
 #include "dns_packet_parsing.h"
 
 #define BUF_SIZE 1024
 
-/*==============
-= MAIN PROGRAM =
-===============*/
 int main(int argc, char *argv[]){
+
+    if(argc != 3){
+        printf("Usage: %s fichier_ressource port_UDP\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+    
     int sock_id,server_port;
     struct sockaddr_in server_adr;
     struct sockaddr_in client_adr;
@@ -33,55 +31,46 @@ int main(int argc, char *argv[]){
     unsigned char ipv4_adress[4];
     int packet_size;
         
-    if(argc != 3){
-        printf("Usage: %s fichierRessource portUDP\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
+    
     
     if((fich = fopen(argv[1],"r")) == NULL){
-        perror("Erreur: ouverture du fichier");
+        perror("Erreur fichier");
         exit(EXIT_FAILURE);
     }
     
     file_name = argv[1];
 
     /* Creation d'une socket en mode datagramme  */
-    /*-------------------------------------------*/
     if((sock_id = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ){
-        perror("socket error");
+        perror("Erreur socket");
         exit(EXIT_FAILURE);
     }
-
-    
-    /* Association adresse et port à la socket (bind)  */
-    /*-------------------------------------------------*/
 
     /* Initialisation adresse locale du serveur  */
     server_port = atoi(argv[2]);
     memset(&server_adr, 0, sizeof(server_adr));
     server_adr.sin_family = AF_INET;
-    server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
-    server_adr.sin_addr.s_addr = htonl(INADDR_ANY); // wildcard address
+    server_adr.sin_port = htons(server_port);
+    server_adr.sin_addr.s_addr = htonl(INADDR_ANY);
     
 
     if(bind(sock_id, (struct sockaddr *) &server_adr, sizeof(server_adr)) < 0){
-        perror("bind error");
+        perror("Erreur bind");
         exit(EXIT_FAILURE);
     }
 
-    /* Réception des messages (attente active)  */
-    /*------------------------------------------*/
+    /* Réception des messages */
     while(1){
 
         printf("\nServeur en attente...\n");
         client_adr_len = sizeof(client_adr);
         if(recvfrom(sock_id, buffer, BUF_SIZE, 0, (struct sockaddr *)&client_adr, &client_adr_len) < 0){
-            perror("recvfrom error");
+            perror("Erreur recvfrom");
             exit(EXIT_FAILURE);
         }
         //Verification de la validité du nom de domaine
         if((qname_from_question(buffer, sizeof(buffer), domain_name)) == -1){
-            fprintf(stderr,"invalid qname");
+            fprintf(stderr,"Qname invalide");
         }
         
         /*Recupération du préfixe*/
@@ -90,7 +79,7 @@ int main(int argc, char *argv[]){
         while(i < strlen(domain_name) && !fin){
             if(domain_name[i] == '.'){
                 domain_name[i] = ' ';
-                fin = 1; //fini = true
+                fin = 1;
             }
             i++;
         }
@@ -110,10 +99,7 @@ int main(int argc, char *argv[]){
                     rr_data[i] = ' ';
                 }
             }
-            char test1[2];
-            char test2[2];
-            char test3[2];
-            char test4[2];
+            char test1[2], test2[2], test3[2], test4[2];
             sscanf(rr_data, "%s %s %s %s", test1, test2, test3, test4);
             ipv4_adress[0] = atoi(test1);
             ipv4_adress[1] = atoi(test2);
@@ -122,9 +108,6 @@ int main(int argc, char *argv[]){
             packet_size = build_dns_answer(buffer, ipv4_adress);         
         }
             
-        
-        
-
         /* Envoi de la réponse  */
         if((sendto(sock_id, buffer, packet_size, 0, (struct sockaddr *)&client_adr, sizeof(client_adr))) < 0){
             perror("sendto()");
