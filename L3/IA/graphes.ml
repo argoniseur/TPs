@@ -162,6 +162,8 @@ let rec profondeur attente estBut etatsSuivants = match attente with
 					profondeur ((etatsSuivants x)@reste) estBut etatsSuivants);;
 
 (*pour G3 il boucle. Il faut une liste de dejaVus pour palier au problème.*)
-
+let getOP = fun(op;_;_) -> op;;
+let getCout = fun(_;cout;_) -> cout;;
+let getEtat = fun(_;_;etat) -> etat;;
 (*'a (etat) -> int (cout pour y arriver) -> (’a -> (’a * int * ’b) list) (opPoss) -> (’a -> int) (hEtat) -> (’a (etat) * int (g) * int (h)) list *)
-let creerLesFils etat g opPoss hEtat = 
+let creerLesFils etat cout opPoss hEtat = 
