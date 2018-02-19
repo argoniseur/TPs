@@ -13,47 +13,28 @@ const float acne_eps = 1e-4;
 
 bool intersectPlane(Ray *ray, Intersection *intersection, Object *obj) {
 	
-    bool existIntersection = false;
-    float t = ray->tmin;
-    
-    //Vérification que l'objet est un plan
     if(obj->geom.type == SPHERE){
         return false;
     }
-      
+    
     vec3 normal = obj->geom.plane.normal;
+    vec3 direction = ray->dir;
+    
+    if(dot(direction,normal) == 0.f)
+		return false;
+		
     float dist = obj->geom.plane.dist;
-    point3 r;
-    
-    //Calcul de l'intersection rayon/objet 
-    while( (t<=ray->tmax) && !existIntersection ){
-        r.x = ray->orig.x + t*ray->dir.x;
-        r.y = ray->orig.y + t*ray->dir.y;
-        r.z = ray->orig.z + t*ray->dir.z;
-        
-        if( dot(normal, r) + dist == 0 )
-            existIntersection = true;
-        else
-            t++;
-    }
-        
-    //Si il n'y a pas d'intersection --> false
-    if (!existIntersection)
-        return false;
-    
-    //Sinon calculer la valeur de t pour le point d'intersection
-    float d = dot(normal,ray->dir);
-    if(d !=0)
-        t = (-1*dist - (dot(normal, ray->orig)))/d;
-    else
-        return false;
-    
-    // tmin<=t<=tmax? -> false / true + mise à jour de intersection
-    if(t<ray->tmin || t>ray->tmax)
+	float d = dot(normal, direction);
+
+
+	float t = -1*((dot(ray->orig, normal) + dist)/d);
+
+
+    if(t < ray->tmin || t > ray->tmax)
         return false;
 
     intersection->normal = normal;
-    intersection->position = r;
+    intersection->position = rayAt(*ray, t);
     ray->tmax = t;
   
     return true;
@@ -61,14 +42,46 @@ bool intersectPlane(Ray *ray, Intersection *intersection, Object *obj) {
 
 bool intersectSphere(Ray *ray, Intersection *intersection, Object *obj) {
 
-    bool intersec = false;
-    int b, c, delta;
-    if(obj->geom.type == SPHERE){
-		b = dot((ray->dir), ((ray->orig)-(obj->geom.sphere.center)))*2;
-		c = dot(((ray->orig)-(obj->geom.sphere.center)), ((ray->orig)-(obj->geom.sphere.center)))-((obj->geom.sphere.radius)*(obj->geom.sphere.radius));
-	}	
-  return intersec;
+    if(obj->geom.type == PLANE){
+        return false;
+    }
+      
+    vec3 center = obj->geom.sphere.center;
+    float radius = obj->geom.sphere.radius;
+
+    vec3 OminC = ray->orig - center;
+    float OCdotOC = dot(OminC, OminC);
+    float dDotOC = dot(ray->dir,OminC);
+    float b = 2*dDotOC;
+    float c = OCdotOC - (radius*radius);
+    float delta = (b*b) - 4*c;
+    float t;
+    if (delta > 0){
+		float k = ((-b) - sqrt(delta))/2;
+		float l = ((-b) + sqrt(delta))/2;
+		if (k < l && k > ray->tmin)
+			t = k;
+		else
+			t = l;
+	}else if (delta == 0){
+		t = (-b)/2;
+	}
+	else{
+		return false;
+	}
+
+    // tmin<=t<=tmax
+    if(t < ray->tmin || t > ray->tmax)
+        return false;
+
+	point3 p = rayAt(*ray, t);
+    intersection->normal = normalize(p-center);
+    intersection->position = p;
+    ray->tmax = t;
+  
+    return true;
 }
+
 
 bool intersectScene(const Scene *scene, Ray *ray, Intersection *intersection) {
   bool hasIntersection = false;
