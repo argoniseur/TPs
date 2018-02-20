@@ -1,0 +1,34 @@
+begin library "opam-client"
+
+  files   = [
+    "opamState.ml"
+    "opamAction.ml"
+    "opamSolution.ml"
+    "opamSwitchCommand.ml"
+    "opamConfigCommand.ml"
+    "opamRepositoryCommand.ml"
+    "opamPinCommand.ml"
+    "opamClient.ml"
+  ]
+
+  requires = [
+    "opam-core"
+    "opam-solver"
+    "opam-repositories"
+    "cmdliner"
+  ]
+
+end
+
+begin program "opam"
+
+  files    = [
+    "opamGitVersion.ml"
+    "opamArg.ml"
+    "opamMain.ml"
+  ]
+  requires = [
+    "opam-client"
+ ]
+
+end

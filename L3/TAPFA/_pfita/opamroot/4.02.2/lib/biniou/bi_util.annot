@@ -1,0 +1,1288 @@
+"bi_util.ml" 3 27 31 "bi_util.ml" 3 27 36
+type(
+  string -> 'a
+)
+ident(
+  def error "bi_util.ml" 10 89 89 "bi_util.ml" 1 0 -1
+)
+"bi_util.ml" 3 27 37 "bi_util.ml" 3 27 38
+type(
+  string
+)
+ident(
+  def s "bi_util.ml" 3 27 41 "bi_util.ml" 3 27 56
+)
+"bi_util.ml" 3 27 41 "bi_util.ml" 3 27 46
+type(
+  exn -> 'a
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"bi_util.ml" 3 27 54 "bi_util.ml" 3 27 55
+type(
+  string
+)
+ident(
+  int_ref s "bi_util.ml" 3 27 37 "bi_util.ml" 3 27 38
+)
+"bi_util.ml" 3 27 47 "bi_util.ml" 3 27 56
+type(
+  exn
+)
+"bi_util.ml" 3 27 41 "bi_util.ml" 3 27 56
+type(
+  'a
+)
+"bi_util.ml" 10 89 93 "bi_util.ml" 10 89 107
+type(
+  int -> bytes
+)
+ident(
+  def string8_of_int "bi_util.ml" 17 226 226 "bi_util.ml" 1 0 -1
+)
+"bi_util.ml" 10 89 108 "bi_util.ml" 10 89 109
+type(
+  int
+)
+ident(
+  def x "bi_util.ml" 11 112 114 "bi_util.ml" 15 221 224
+)
+"bi_util.ml" 11 112 118 "bi_util.ml" 11 112 119
+type(
+  bytes
+)
+ident(
+  def s "bi_util.ml" 12 141 143 "bi_util.ml" 15 221 224
+)
+"bi_util.ml" 11 112 122 "bi_util.ml" 11 112 135
+type(
+  int -> bytes
+)
+ident(
+  ext_ref String.create
+)
+"bi_util.ml" 11 112 136 "bi_util.ml" 11 112 137
+type(
+  int
+)
+"bi_util.ml" 11 112 122 "bi_util.ml" 11 112 137
+type(
+  bytes
+)
+"bi_util.ml" 12 141 151 "bi_util.ml" 12 141 152
+type(
+  int
+)
+"bi_util.ml" 12 141 156 "bi_util.ml" 12 141 157
+type(
+  int
+)
+"bi_util.ml" 13 161 165 "bi_util.ml" 13 161 166
+type(
+  bytes
+)
+ident(
+  int_ref s "bi_util.ml" 11 112 118 "bi_util.ml" 11 112 119
+)
+"bi_util.ml" 13 161 168 "bi_util.ml" 13 161 169
+type(
+  int
+)
+"bi_util.ml" 13 161 169 "bi_util.ml" 13 161 170
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"bi_util.ml" 13 161 170 "bi_util.ml" 13 161 171
+type(
+  int
+)
+ident(
+  int_ref i "bi_util.ml" 12 141 143 "bi_util.ml" 14 213 219
+)
+"bi_util.ml" 13 161 168 "bi_util.ml" 13 161 171
+type(
+  int
+)
+"bi_util.ml" 13 161 176 "bi_util.ml" 13 161 184
+type(
+  int -> char
+)
+ident(
+  ext_ref Char.chr
+)
+"bi_util.ml" 13 161 186 "bi_util.ml" 13 161 190
+type(
+  int
+)
+"bi_util.ml" 13 161 191 "bi_util.ml" 13 161 195
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( land )
+)
+"bi_util.ml" 13 161 197 "bi_util.ml" 13 161 198
+type(
+  int
+)
+ident(
+  int_ref x "bi_util.ml" 10 89 108 "bi_util.ml" 10 89 109
+)
+"bi_util.ml" 13 161 199 "bi_util.ml" 13 161 202
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsr )
+)
+"bi_util.ml" 13 161 204 "bi_util.ml" 13 161 205
+type(
+  int
+)
+"bi_util.ml" 13 161 206 "bi_util.ml" 13 161 207
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"bi_util.ml" 13 161 208 "bi_util.ml" 13 161 209
+type(
+  int
+)
+ident(
+  int_ref i "bi_util.ml" 12 141 143 "bi_util.ml" 14 213 219
+)
+"bi_util.ml" 13 161 203 "bi_util.ml" 13 161 210
+type(
+  int
+)
+"bi_util.ml" 13 161 196 "bi_util.ml" 13 161 211
+type(
+  int
+)
+"bi_util.ml" 13 161 185 "bi_util.ml" 13 161 212
+type(
+  int
+)
+"bi_util.ml" 13 161 176 "bi_util.ml" 13 161 212
+call(
+  stack
+)
+type(
+  char
+)
+"bi_util.ml" 13 161 165 "bi_util.ml" 13 161 212
+type(
+  unit
+)
+"bi_util.ml" 12 141 143 "bi_util.ml" 14 213 219
+type(
+  unit
+)
+"bi_util.ml" 15 221 223 "bi_util.ml" 15 221 224
+type(
+  bytes
+)
+ident(
+  int_ref s "bi_util.ml" 11 112 118 "bi_util.ml" 11 112 119
+)
+"bi_util.ml" 12 141 143 "bi_util.ml" 15 221 224
+type(
+  bytes
+)
+"bi_util.ml" 11 112 114 "bi_util.ml" 15 221 224
+type(
+  bytes
+)
+"bi_util.ml" 17 226 230 "bi_util.ml" 17 226 244
+type(
+  int -> bytes
+)
+ident(
+  def string4_of_int "bi_util.ml" 24 363 363 "bi_util.ml" 1 0 -1
+)
+"bi_util.ml" 17 226 245 "bi_util.ml" 17 226 246
+type(
+  int
+)
+ident(
+  def x "bi_util.ml" 18 249 251 "bi_util.ml" 22 358 361
+)
+"bi_util.ml" 18 249 255 "bi_util.ml" 18 249 256
+type(
+  bytes
+)
+ident(
+  def s "bi_util.ml" 19 278 280 "bi_util.ml" 22 358 361
+)
+"bi_util.ml" 18 249 259 "bi_util.ml" 18 249 272
+type(
+  int -> bytes
+)
+ident(
+  ext_ref String.create
+)
+"bi_util.ml" 18 249 273 "bi_util.ml" 18 249 274
+type(
+  int
+)
+"bi_util.ml" 18 249 259 "bi_util.ml" 18 249 274
+type(
+  bytes
+)
+"bi_util.ml" 19 278 288 "bi_util.ml" 19 278 289
+type(
+  int
+)
+"bi_util.ml" 19 278 293 "bi_util.ml" 19 278 294
+type(
+  int
+)
+"bi_util.ml" 20 298 302 "bi_util.ml" 20 298 303
+type(
+  bytes
+)
+ident(
+  int_ref s "bi_util.ml" 18 249 255 "bi_util.ml" 18 249 256
+)
+"bi_util.ml" 20 298 305 "bi_util.ml" 20 298 306
+type(
+  int
+)
+"bi_util.ml" 20 298 306 "bi_util.ml" 20 298 307
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"bi_util.ml" 20 298 307 "bi_util.ml" 20 298 308
+type(
+  int
+)
+ident(
+  int_ref i "bi_util.ml" 19 278 280 "bi_util.ml" 21 350 356
+)
+"bi_util.ml" 20 298 305 "bi_util.ml" 20 298 308
+type(
+  int
+)
+"bi_util.ml" 20 298 313 "bi_util.ml" 20 298 321
+type(
+  int -> char
+)
+ident(
+  ext_ref Char.chr
+)
+"bi_util.ml" 20 298 323 "bi_util.ml" 20 298 327
+type(
+  int
+)
+"bi_util.ml" 20 298 328 "bi_util.ml" 20 298 332
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( land )
+)
+"bi_util.ml" 20 298 334 "bi_util.ml" 20 298 335
+type(
+  int
+)
+ident(
+  int_ref x "bi_util.ml" 17 226 245 "bi_util.ml" 17 226 246
+)
+"bi_util.ml" 20 298 336 "bi_util.ml" 20 298 339
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsr )
+)
+"bi_util.ml" 20 298 341 "bi_util.ml" 20 298 342
+type(
+  int
+)
+"bi_util.ml" 20 298 343 "bi_util.ml" 20 298 344
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"bi_util.ml" 20 298 345 "bi_util.ml" 20 298 346
+type(
+  int
+)
+ident(
+  int_ref i "bi_util.ml" 19 278 280 "bi_util.ml" 21 350 356
+)
+"bi_util.ml" 20 298 340 "bi_util.ml" 20 298 347
+type(
+  int
+)
+"bi_util.ml" 20 298 333 "bi_util.ml" 20 298 348
+type(
+  int
+)
+"bi_util.ml" 20 298 322 "bi_util.ml" 20 298 349
+type(
+  int
+)
+"bi_util.ml" 20 298 313 "bi_util.ml" 20 298 349
+call(
+  stack
+)
+type(
+  char
+)
+"bi_util.ml" 20 298 302 "bi_util.ml" 20 298 349
+type(
+  unit
+)
+"bi_util.ml" 19 278 280 "bi_util.ml" 21 350 356
+type(
+  unit
+)
+"bi_util.ml" 22 358 360 "bi_util.ml" 22 358 361
+type(
+  bytes
+)
+ident(
+  int_ref s "bi_util.ml" 18 249 255 "bi_util.ml" 18 249 256
+)
+"bi_util.ml" 19 278 280 "bi_util.ml" 22 358 361
+type(
+  bytes
+)
+"bi_util.ml" 18 249 251 "bi_util.ml" 22 358 361
+type(
+  bytes
+)
+"bi_util.ml" 24 363 367 "bi_util.ml" 24 363 377
+type(
+  ?pos:int -> ?len:int -> string -> bytes
+)
+ident(
+  def print_bits "bi_util.ml" 48 992 992 "bi_util.ml" 1 0 -1
+)
+"bi_util.ml" 24 363 380 "bi_util.ml" 24 363 383
+type(
+  int
+)
+"bi_util.ml" 24 363 386 "bi_util.ml" 24 363 387
+type(
+  int
+)
+type(
+  int
+)
+ident(
+  int_ref *sth* "bi_util.ml" 24 363 386 "bi_util.ml" 24 363 387
+)
+type(
+  int option
+)
+type(
+  int option
+)
+type(
+  int
+)
+"bi_util.ml" 24 363 390 "bi_util.ml" 24 363 393
+type(
+  int option
+)
+ident(
+  def len "bi_util.ml" 24 363 394 "bi_util.ml" 45 964 967
+)
+"bi_util.ml" 24 363 394 "bi_util.ml" 24 363 395
+type(
+  string
+)
+ident(
+  def s "bi_util.ml" 25 398 400 "bi_util.ml" 45 964 967
+)
+"bi_util.ml" 25 398 404 "bi_util.ml" 25 398 408
+type(
+  int
+)
+ident(
+  def slen "bi_util.ml" 26 430 432 "bi_util.ml" 45 964 967
+)
+"bi_util.ml" 25 398 411 "bi_util.ml" 25 398 424
+type(
+  string -> int
+)
+ident(
+  ext_ref String.length
+)
+"bi_util.ml" 25 398 425 "bi_util.ml" 25 398 426
+type(
+  string
+)
+ident(
+  int_ref s "bi_util.ml" 24 363 394 "bi_util.ml" 24 363 395
+)
+"bi_util.ml" 25 398 411 "bi_util.ml" 25 398 426
+type(
+  int
+)
+"bi_util.ml" 26 430 435 "bi_util.ml" 26 430 438
+type(
+  int
+)
+ident(
+  int_ref pos "bi_util.ml" 24 363 380 "bi_util.ml" 24 363 383
+)
+"bi_util.ml" 26 430 439 "bi_util.ml" 26 430 440
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( < )
+)
+"bi_util.ml" 26 430 441 "bi_util.ml" 26 430 442
+type(
+  int
+)
+"bi_util.ml" 26 430 435 "bi_util.ml" 26 430 442
+type(
+  bool
+)
+"bi_util.ml" 26 430 443 "bi_util.ml" 26 430 445
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"bi_util.ml" 26 430 447 "bi_util.ml" 26 430 450
+type(
+  int
+)
+ident(
+  int_ref pos "bi_util.ml" 24 363 380 "bi_util.ml" 24 363 383
+)
+"bi_util.ml" 26 430 451 "bi_util.ml" 26 430 452
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"bi_util.ml" 26 430 453 "bi_util.ml" 26 430 454
+type(
+  int
+)
+"bi_util.ml" 26 430 447 "bi_util.ml" 26 430 454
+type(
+  bool
+)
+"bi_util.ml" 26 430 455 "bi_util.ml" 26 430 457
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"bi_util.ml" 26 430 458 "bi_util.ml" 26 430 461
+type(
+  int
+)
+ident(
+  int_ref pos "bi_util.ml" 24 363 380 "bi_util.ml" 24 363 383
+)
+"bi_util.ml" 26 430 462 "bi_util.ml" 26 430 464
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( >= )
+)
+"bi_util.ml" 26 430 465 "bi_util.ml" 26 430 469
+type(
+  int
+)
+ident(
+  int_ref slen "bi_util.ml" 25 398 404 "bi_util.ml" 25 398 408
+)
+"bi_util.ml" 26 430 458 "bi_util.ml" 26 430 469
+type(
+  bool
+)
+"bi_util.ml" 26 430 446 "bi_util.ml" 26 430 470
+type(
+  bool
+)
+"bi_util.ml" 26 430 435 "bi_util.ml" 26 430 470
+type(
+  bool
+)
+"bi_util.ml" 27 476 480 "bi_util.ml" 27 476 491
+type(
+  string -> unit
+)
+ident(
+  ext_ref Pervasives.invalid_arg
+)
+"bi_util.ml" 27 476 492 "bi_util.ml" 27 476 512
+type(
+  string
+)
+"bi_util.ml" 27 476 480 "bi_util.ml" 27 476 512
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_util.ml" 26 430 432 "bi_util.ml" 27 476 512
+type(
+  unit
+)
+"bi_util.ml" 28 514 520 "bi_util.ml" 28 514 523
+type(
+  int
+)
+ident(
+  def len "bi_util.ml" 36 685 687 "bi_util.ml" 45 964 967
+)
+"bi_util.ml" 29 526 536 "bi_util.ml" 29 526 539
+type(
+  int option
+)
+ident(
+  int_ref len "bi_util.ml" 24 363 390 "bi_util.ml" 24 363 393
+)
+"bi_util.ml" 30 545 553 "bi_util.ml" 30 545 557
+type(
+  int option
+)
+"bi_util.ml" 30 545 561 "bi_util.ml" 30 545 565
+type(
+  int
+)
+ident(
+  int_ref slen "bi_util.ml" 25 398 404 "bi_util.ml" 25 398 408
+)
+"bi_util.ml" 30 545 566 "bi_util.ml" 30 545 567
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"bi_util.ml" 30 545 568 "bi_util.ml" 30 545 571
+type(
+  int
+)
+ident(
+  int_ref pos "bi_util.ml" 24 363 380 "bi_util.ml" 24 363 383
+)
+"bi_util.ml" 30 545 561 "bi_util.ml" 30 545 571
+type(
+  int
+)
+"bi_util.ml" 31 572 585 "bi_util.ml" 31 572 588
+type(
+  int
+)
+ident(
+  def len "bi_util.ml" 32 592 602 "bi_util.ml" 33 660 678
+)
+"bi_util.ml" 31 572 580 "bi_util.ml" 31 572 588
+type(
+  int option
+)
+"bi_util.ml" 32 592 605 "bi_util.ml" 32 592 608
+type(
+  int
+)
+ident(
+  int_ref len "bi_util.ml" 31 572 585 "bi_util.ml" 31 572 588
+)
+"bi_util.ml" 32 592 609 "bi_util.ml" 32 592 610
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"bi_util.ml" 32 592 611 "bi_util.ml" 32 592 615
+type(
+  int
+)
+ident(
+  int_ref slen "bi_util.ml" 25 398 404 "bi_util.ml" 25 398 408
+)
+"bi_util.ml" 32 592 616 "bi_util.ml" 32 592 617
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"bi_util.ml" 32 592 618 "bi_util.ml" 32 592 621
+type(
+  int
+)
+ident(
+  int_ref pos "bi_util.ml" 24 363 380 "bi_util.ml" 24 363 383
+)
+"bi_util.ml" 32 592 611 "bi_util.ml" 32 592 621
+type(
+  int
+)
+"bi_util.ml" 32 592 605 "bi_util.ml" 32 592 621
+type(
+  bool
+)
+"bi_util.ml" 32 592 627 "bi_util.ml" 32 592 638
+type(
+  string -> int
+)
+ident(
+  ext_ref Pervasives.invalid_arg
+)
+"bi_util.ml" 32 592 639 "bi_util.ml" 32 592 659
+type(
+  string
+)
+"bi_util.ml" 32 592 627 "bi_util.ml" 32 592 659
+call(
+  stack
+)
+type(
+  int
+)
+"bi_util.ml" 33 660 675 "bi_util.ml" 33 660 678
+type(
+  int
+)
+ident(
+  int_ref len "bi_util.ml" 31 572 585 "bi_util.ml" 31 572 588
+)
+"bi_util.ml" 32 592 602 "bi_util.ml" 33 660 678
+type(
+  int
+)
+"bi_util.ml" 29 526 530 "bi_util.ml" 33 660 678
+type(
+  int
+)
+"bi_util.ml" 36 685 691 "bi_util.ml" 36 685 692
+type(
+  bytes
+)
+ident(
+  def r "bi_util.ml" 37 722 724 "bi_util.ml" 45 964 967
+)
+"bi_util.ml" 36 685 695 "bi_util.ml" 36 685 708
+type(
+  int -> bytes
+)
+ident(
+  ext_ref String.create
+)
+"bi_util.ml" 36 685 710 "bi_util.ml" 36 685 713
+type(
+  int
+)
+ident(
+  int_ref len "bi_util.ml" 28 514 520 "bi_util.ml" 28 514 523
+)
+"bi_util.ml" 36 685 714 "bi_util.ml" 36 685 715
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"bi_util.ml" 36 685 716 "bi_util.ml" 36 685 717
+type(
+  int
+)
+"bi_util.ml" 36 685 709 "bi_util.ml" 36 685 718
+type(
+  int
+)
+"bi_util.ml" 36 685 695 "bi_util.ml" 36 685 718
+type(
+  bytes
+)
+"bi_util.ml" 37 722 732 "bi_util.ml" 37 722 733
+type(
+  int
+)
+"bi_util.ml" 37 722 737 "bi_util.ml" 37 722 740
+type(
+  int
+)
+ident(
+  int_ref len "bi_util.ml" 28 514 520 "bi_util.ml" 28 514 523
+)
+"bi_util.ml" 37 722 741 "bi_util.ml" 37 722 742
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"bi_util.ml" 37 722 743 "bi_util.ml" 37 722 744
+type(
+  int
+)
+"bi_util.ml" 37 722 737 "bi_util.ml" 37 722 744
+type(
+  int
+)
+"bi_util.ml" 38 748 756 "bi_util.ml" 38 748 757
+type(
+  int
+)
+ident(
+  def k "bi_util.ml" 39 769 773 "bi_util.ml" 43 901 955
+)
+"bi_util.ml" 38 748 760 "bi_util.ml" 38 748 761
+type(
+  int
+)
+ident(
+  int_ref i "bi_util.ml" 37 722 724 "bi_util.ml" 44 956 962
+)
+"bi_util.ml" 38 748 762 "bi_util.ml" 38 748 763
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"bi_util.ml" 38 748 764 "bi_util.ml" 38 748 765
+type(
+  int
+)
+"bi_util.ml" 38 748 760 "bi_util.ml" 38 748 765
+type(
+  int
+)
+"bi_util.ml" 39 769 777 "bi_util.ml" 39 769 778
+type(
+  int
+)
+ident(
+  def x "bi_util.ml" 40 804 808 "bi_util.ml" 43 901 955
+)
+"bi_util.ml" 39 769 781 "bi_util.ml" 39 769 790
+type(
+  char -> int
+)
+ident(
+  ext_ref Char.code
+)
+"bi_util.ml" 39 769 791 "bi_util.ml" 39 769 792
+type(
+  string
+)
+ident(
+  int_ref s "bi_util.ml" 24 363 394 "bi_util.ml" 24 363 395
+)
+"bi_util.ml" 39 769 794 "bi_util.ml" 39 769 797
+type(
+  int
+)
+ident(
+  int_ref pos "bi_util.ml" 24 363 380 "bi_util.ml" 24 363 383
+)
+"bi_util.ml" 39 769 797 "bi_util.ml" 39 769 798
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"bi_util.ml" 39 769 798 "bi_util.ml" 39 769 799
+type(
+  int
+)
+ident(
+  int_ref i "bi_util.ml" 37 722 724 "bi_util.ml" 44 956 962
+)
+"bi_util.ml" 39 769 794 "bi_util.ml" 39 769 799
+type(
+  int
+)
+"bi_util.ml" 39 769 791 "bi_util.ml" 39 769 800
+type(
+  char
+)
+"bi_util.ml" 39 769 781 "bi_util.ml" 39 769 800
+type(
+  int
+)
+"bi_util.ml" 40 804 816 "bi_util.ml" 40 804 817
+type(
+  int
+)
+"bi_util.ml" 40 804 821 "bi_util.ml" 40 804 822
+type(
+  int
+)
+"bi_util.ml" 41 826 832 "bi_util.ml" 41 826 833
+type(
+  bytes
+)
+ident(
+  int_ref r "bi_util.ml" 36 685 691 "bi_util.ml" 36 685 692
+)
+"bi_util.ml" 41 826 835 "bi_util.ml" 41 826 836
+type(
+  int
+)
+ident(
+  int_ref k "bi_util.ml" 38 748 756 "bi_util.ml" 38 748 757
+)
+"bi_util.ml" 41 826 836 "bi_util.ml" 41 826 837
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"bi_util.ml" 41 826 837 "bi_util.ml" 41 826 838
+type(
+  int
+)
+ident(
+  int_ref j "bi_util.ml" 40 804 808 "bi_util.ml" 42 891 899
+)
+"bi_util.ml" 41 826 835 "bi_util.ml" 41 826 838
+type(
+  int
+)
+"bi_util.ml" 41 826 847 "bi_util.ml" 41 826 848
+type(
+  int
+)
+ident(
+  int_ref x "bi_util.ml" 39 769 777 "bi_util.ml" 39 769 778
+)
+"bi_util.ml" 41 826 849 "bi_util.ml" 41 826 852
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsr )
+)
+"bi_util.ml" 41 826 854 "bi_util.ml" 41 826 855
+type(
+  int
+)
+"bi_util.ml" 41 826 856 "bi_util.ml" 41 826 857
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"bi_util.ml" 41 826 858 "bi_util.ml" 41 826 859
+type(
+  int
+)
+ident(
+  int_ref j "bi_util.ml" 40 804 808 "bi_util.ml" 42 891 899
+)
+"bi_util.ml" 41 826 853 "bi_util.ml" 41 826 860
+type(
+  int
+)
+"bi_util.ml" 41 826 846 "bi_util.ml" 41 826 861
+type(
+  int
+)
+"bi_util.ml" 41 826 862 "bi_util.ml" 41 826 866
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( land )
+)
+"bi_util.ml" 41 826 867 "bi_util.ml" 41 826 868
+type(
+  int
+)
+"bi_util.ml" 41 826 846 "bi_util.ml" 41 826 868
+type(
+  int
+)
+"bi_util.ml" 41 826 869 "bi_util.ml" 41 826 870
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"bi_util.ml" 41 826 871 "bi_util.ml" 41 826 872
+type(
+  int
+)
+"bi_util.ml" 41 826 846 "bi_util.ml" 41 826 872
+type(
+  bool
+)
+"bi_util.ml" 41 826 878 "bi_util.ml" 41 826 881
+type(
+  char
+)
+"bi_util.ml" 41 826 887 "bi_util.ml" 41 826 890
+type(
+  char
+)
+"bi_util.ml" 41 826 843 "bi_util.ml" 41 826 890
+type(
+  char
+)
+"bi_util.ml" 41 826 832 "bi_util.ml" 41 826 890
+type(
+  unit
+)
+"bi_util.ml" 40 804 808 "bi_util.ml" 42 891 899
+type(
+  unit
+)
+"bi_util.ml" 43 901 905 "bi_util.ml" 43 901 906
+type(
+  bytes
+)
+ident(
+  int_ref r "bi_util.ml" 36 685 691 "bi_util.ml" 36 685 692
+)
+"bi_util.ml" 43 901 908 "bi_util.ml" 43 901 909
+type(
+  int
+)
+ident(
+  int_ref k "bi_util.ml" 38 748 756 "bi_util.ml" 38 748 757
+)
+"bi_util.ml" 43 901 909 "bi_util.ml" 43 901 910
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"bi_util.ml" 43 901 910 "bi_util.ml" 43 901 911
+type(
+  int
+)
+"bi_util.ml" 43 901 908 "bi_util.ml" 43 901 911
+type(
+  int
+)
+"bi_util.ml" 43 901 920 "bi_util.ml" 43 901 921
+type(
+  int
+)
+ident(
+  int_ref i "bi_util.ml" 37 722 724 "bi_util.ml" 44 956 962
+)
+"bi_util.ml" 43 901 922 "bi_util.ml" 43 901 923
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"bi_util.ml" 43 901 924 "bi_util.ml" 43 901 925
+type(
+  int
+)
+"bi_util.ml" 43 901 919 "bi_util.ml" 43 901 926
+type(
+  int
+)
+"bi_util.ml" 43 901 927 "bi_util.ml" 43 901 930
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"bi_util.ml" 43 901 931 "bi_util.ml" 43 901 932
+type(
+  int
+)
+"bi_util.ml" 43 901 919 "bi_util.ml" 43 901 932
+type(
+  int
+)
+"bi_util.ml" 43 901 933 "bi_util.ml" 43 901 934
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"bi_util.ml" 43 901 935 "bi_util.ml" 43 901 936
+type(
+  int
+)
+"bi_util.ml" 43 901 919 "bi_util.ml" 43 901 936
+type(
+  bool
+)
+"bi_util.ml" 43 901 942 "bi_util.ml" 43 901 946
+type(
+  char
+)
+"bi_util.ml" 43 901 952 "bi_util.ml" 43 901 955
+type(
+  char
+)
+"bi_util.ml" 43 901 916 "bi_util.ml" 43 901 955
+type(
+  char
+)
+"bi_util.ml" 43 901 905 "bi_util.ml" 43 901 955
+type(
+  unit
+)
+"bi_util.ml" 40 804 808 "bi_util.ml" 43 901 955
+type(
+  unit
+)
+"bi_util.ml" 39 769 773 "bi_util.ml" 43 901 955
+type(
+  unit
+)
+"bi_util.ml" 38 748 752 "bi_util.ml" 43 901 955
+type(
+  unit
+)
+"bi_util.ml" 37 722 724 "bi_util.ml" 44 956 962
+type(
+  unit
+)
+"bi_util.ml" 45 964 966 "bi_util.ml" 45 964 967
+type(
+  bytes
+)
+ident(
+  int_ref r "bi_util.ml" 36 685 691 "bi_util.ml" 36 685 692
+)
+"bi_util.ml" 37 722 724 "bi_util.ml" 45 964 967
+type(
+  bytes
+)
+"bi_util.ml" 36 685 687 "bi_util.ml" 45 964 967
+type(
+  bytes
+)
+"bi_util.ml" 28 514 516 "bi_util.ml" 45 964 967
+type(
+  bytes
+)
+"bi_util.ml" 26 430 432 "bi_util.ml" 45 964 967
+type(
+  bytes
+)
+"bi_util.ml" 25 398 400 "bi_util.ml" 45 964 967
+type(
+  bytes
+)
+"bi_util.ml" 48 992 996 "bi_util.ml" 48 992 1004
+type(
+  int
+)
+ident(
+  def int_size "bi_util.ml" 55 1105 1109 "bi_util.ml" 1 0 -1
+)
+"bi_util.ml" 49 1007 1013 "bi_util.ml" 49 1007 1014
+type(
+  int ref
+)
+ident(
+  def c "bi_util.ml" 50 1026 1028 "bi_util.ml" 55 1105 1109
+)
+"bi_util.ml" 49 1007 1017 "bi_util.ml" 49 1007 1020
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_util.ml" 49 1007 1021 "bi_util.ml" 49 1007 1022
+type(
+  int
+)
+"bi_util.ml" 49 1007 1017 "bi_util.ml" 49 1007 1022
+type(
+  int ref
+)
+"bi_util.ml" 50 1026 1032 "bi_util.ml" 50 1026 1033
+type(
+  int ref
+)
+ident(
+  def r "bi_util.ml" 51 1048 1050 "bi_util.ml" 55 1105 1109
+)
+"bi_util.ml" 50 1026 1036 "bi_util.ml" 50 1026 1039
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_util.ml" 50 1026 1040 "bi_util.ml" 50 1026 1044
+type(
+  int
+)
+"bi_util.ml" 50 1026 1036 "bi_util.ml" 50 1026 1044
+type(
+  int ref
+)
+"bi_util.ml" 51 1048 1056 "bi_util.ml" 51 1048 1057
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_util.ml" 51 1048 1057 "bi_util.ml" 51 1048 1058
+type(
+  int ref
+)
+ident(
+  int_ref r "bi_util.ml" 50 1026 1032 "bi_util.ml" 50 1026 1033
+)
+"bi_util.ml" 51 1048 1056 "bi_util.ml" 51 1048 1058
+type(
+  int
+)
+"bi_util.ml" 51 1048 1059 "bi_util.ml" 51 1048 1061
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"bi_util.ml" 51 1048 1062 "bi_util.ml" 51 1048 1063
+type(
+  int
+)
+"bi_util.ml" 51 1048 1056 "bi_util.ml" 51 1048 1063
+type(
+  bool
+)
+"bi_util.ml" 52 1067 1071 "bi_util.ml" 52 1067 1072
+type(
+  int ref
+)
+ident(
+  int_ref r "bi_util.ml" 50 1026 1032 "bi_util.ml" 50 1026 1033
+)
+"bi_util.ml" 52 1067 1073 "bi_util.ml" 52 1067 1075
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_util.ml" 52 1067 1076 "bi_util.ml" 52 1067 1077
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_util.ml" 52 1067 1077 "bi_util.ml" 52 1067 1078
+type(
+  int ref
+)
+ident(
+  int_ref r "bi_util.ml" 50 1026 1032 "bi_util.ml" 50 1026 1033
+)
+"bi_util.ml" 52 1067 1076 "bi_util.ml" 52 1067 1078
+type(
+  int
+)
+"bi_util.ml" 52 1067 1079 "bi_util.ml" 52 1067 1082
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsr )
+)
+"bi_util.ml" 52 1067 1083 "bi_util.ml" 52 1067 1084
+type(
+  int
+)
+"bi_util.ml" 52 1067 1076 "bi_util.ml" 52 1067 1084
+type(
+  int
+)
+"bi_util.ml" 52 1067 1071 "bi_util.ml" 52 1067 1084
+type(
+  unit
+)
+"bi_util.ml" 53 1086 1090 "bi_util.ml" 53 1086 1094
+type(
+  int ref -> unit
+)
+ident(
+  ext_ref Pervasives.incr
+)
+"bi_util.ml" 53 1086 1095 "bi_util.ml" 53 1086 1096
+type(
+  int ref
+)
+ident(
+  int_ref c "bi_util.ml" 49 1007 1013 "bi_util.ml" 49 1007 1014
+)
+"bi_util.ml" 53 1086 1090 "bi_util.ml" 53 1086 1096
+type(
+  unit
+)
+"bi_util.ml" 52 1067 1071 "bi_util.ml" 53 1086 1096
+type(
+  unit
+)
+"bi_util.ml" 51 1048 1050 "bi_util.ml" 54 1097 1103
+type(
+  unit
+)
+"bi_util.ml" 55 1105 1107 "bi_util.ml" 55 1105 1108
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_util.ml" 55 1105 1108 "bi_util.ml" 55 1105 1109
+type(
+  int ref
+)
+ident(
+  int_ref c "bi_util.ml" 49 1007 1013 "bi_util.ml" 49 1007 1014
+)
+"bi_util.ml" 55 1105 1107 "bi_util.ml" 55 1105 1109
+type(
+  int
+)
+"bi_util.ml" 51 1048 1050 "bi_util.ml" 55 1105 1109
+type(
+  int
+)
+"bi_util.ml" 50 1026 1028 "bi_util.ml" 55 1105 1109
+type(
+  int
+)
+"bi_util.ml" 49 1007 1009 "bi_util.ml" 55 1105 1109
+type(
+  int
+)

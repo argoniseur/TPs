@@ -1,0 +1,3411 @@
+"bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+type(
+  string -> 'a
+)
+ident(
+  def error "bi_stream.ml" 5 57 57 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 3 13 23 "bi_stream.ml" 3 13 24
+type(
+  string
+)
+ident(
+  def s "bi_stream.ml" 3 13 27 "bi_stream.ml" 3 13 55
+)
+"bi_stream.ml" 3 13 27 "bi_stream.ml" 3 13 35
+type(
+  string -> 'a
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"bi_stream.ml" 3 13 37 "bi_stream.ml" 3 13 50
+type(
+  string
+)
+"bi_stream.ml" 3 13 51 "bi_stream.ml" 3 13 52
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"bi_stream.ml" 3 13 53 "bi_stream.ml" 3 13 54
+type(
+  string
+)
+ident(
+  int_ref s "bi_stream.ml" 3 13 23 "bi_stream.ml" 3 13 24
+)
+"bi_stream.ml" 3 13 36 "bi_stream.ml" 3 13 55
+call(
+  stack
+)
+type(
+  string
+)
+"bi_stream.ml" 3 13 27 "bi_stream.ml" 3 13 55
+call(
+  tail
+)
+type(
+  'a
+)
+"bi_stream.ml" 5 57 61 "bi_stream.ml" 5 57 72
+type(
+  in_channel -> int
+)
+ident(
+  def input_int64 "bi_stream.ml" 30 772 772 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 5 57 73 "bi_stream.ml" 5 57 75
+type(
+  in_channel
+)
+ident(
+  def ic "bi_stream.ml" 6 78 80 "bi_stream.ml" 28 716 770
+)
+"bi_stream.ml" 6 78 86 "bi_stream.ml" 6 78 99
+type(
+  int
+)
+ident(
+  ext_ref Sys.word_size
+)
+"bi_stream.ml" 7 105 111 "bi_stream.ml" 7 105 113
+type(
+  int
+)
+"bi_stream.ml" 8 117 129 "bi_stream.ml" 8 117 130
+type(
+  int ref
+)
+ident(
+  def n "bi_stream.ml" 9 142 150 "bi_stream.ml" 14 312 322
+)
+"bi_stream.ml" 8 117 133 "bi_stream.ml" 8 117 136
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 8 117 137 "bi_stream.ml" 8 117 138
+type(
+  int
+)
+"bi_stream.ml" 8 117 133 "bi_stream.ml" 8 117 138
+type(
+  int ref
+)
+"bi_stream.ml" 9 142 158 "bi_stream.ml" 9 142 159
+type(
+  int
+)
+"bi_stream.ml" 9 142 163 "bi_stream.ml" 9 142 164
+type(
+  int
+)
+"bi_stream.ml" 10 168 178 "bi_stream.ml" 10 168 179
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 8 117 129 "bi_stream.ml" 8 117 130
+)
+"bi_stream.ml" 10 168 180 "bi_stream.ml" 10 168 182
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 10 168 184 "bi_stream.ml" 10 168 185
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 10 168 185 "bi_stream.ml" 10 168 186
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 8 117 129 "bi_stream.ml" 8 117 130
+)
+"bi_stream.ml" 10 168 184 "bi_stream.ml" 10 168 186
+type(
+  int
+)
+"bi_stream.ml" 10 168 187 "bi_stream.ml" 10 168 190
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsl )
+)
+"bi_stream.ml" 10 168 191 "bi_stream.ml" 10 168 192
+type(
+  int
+)
+"bi_stream.ml" 10 168 183 "bi_stream.ml" 10 168 193
+type(
+  int
+)
+"bi_stream.ml" 10 168 194 "bi_stream.ml" 10 168 197
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lor )
+)
+"bi_stream.ml" 10 168 199 "bi_stream.ml" 10 168 209
+type(
+  in_channel -> int
+)
+ident(
+  ext_ref Pervasives.input_byte
+)
+"bi_stream.ml" 10 168 210 "bi_stream.ml" 10 168 212
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 5 57 73 "bi_stream.ml" 5 57 75
+)
+"bi_stream.ml" 10 168 198 "bi_stream.ml" 10 168 213
+call(
+  stack
+)
+type(
+  int
+)
+"bi_stream.ml" 10 168 183 "bi_stream.ml" 10 168 213
+type(
+  int
+)
+"bi_stream.ml" 10 168 178 "bi_stream.ml" 10 168 214
+type(
+  unit
+)
+"bi_stream.ml" 9 142 150 "bi_stream.ml" 11 215 227
+type(
+  unit
+)
+"bi_stream.ml" 12 229 240 "bi_stream.ml" 12 229 241
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 12 229 241 "bi_stream.ml" 12 229 242
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 8 117 129 "bi_stream.ml" 8 117 130
+)
+"bi_stream.ml" 12 229 240 "bi_stream.ml" 12 229 242
+type(
+  int
+)
+"bi_stream.ml" 12 229 243 "bi_stream.ml" 12 229 244
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( < )
+)
+"bi_stream.ml" 12 229 245 "bi_stream.ml" 12 229 246
+type(
+  int
+)
+"bi_stream.ml" 12 229 240 "bi_stream.ml" 12 229 246
+type(
+  bool
+)
+"bi_stream.ml" 13 252 262 "bi_stream.ml" 13 252 267
+type(
+  string -> unit
+)
+ident(
+  int_ref error "bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+)
+"bi_stream.ml" 13 252 268 "bi_stream.ml" 13 252 310
+type(
+  string
+)
+"bi_stream.ml" 13 252 262 "bi_stream.ml" 13 252 310
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 12 229 237 "bi_stream.ml" 13 252 310
+type(
+  unit
+)
+"bi_stream.ml" 14 312 320 "bi_stream.ml" 14 312 321
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 14 312 321 "bi_stream.ml" 14 312 322
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 8 117 129 "bi_stream.ml" 8 117 130
+)
+"bi_stream.ml" 14 312 320 "bi_stream.ml" 14 312 322
+type(
+  int
+)
+"bi_stream.ml" 12 229 237 "bi_stream.ml" 14 312 322
+type(
+  int
+)
+"bi_stream.ml" 9 142 150 "bi_stream.ml" 14 312 322
+type(
+  int
+)
+"bi_stream.ml" 8 117 125 "bi_stream.ml" 14 312 322
+type(
+  int
+)
+"bi_stream.ml" 15 323 329 "bi_stream.ml" 15 323 331
+type(
+  int
+)
+"bi_stream.ml" 16 335 351 "bi_stream.ml" 16 335 352
+type(
+  int
+)
+"bi_stream.ml" 16 335 356 "bi_stream.ml" 16 335 357
+type(
+  int
+)
+"bi_stream.ml" 17 361 374 "bi_stream.ml" 17 361 384
+type(
+  in_channel -> int
+)
+ident(
+  ext_ref Pervasives.input_byte
+)
+"bi_stream.ml" 17 361 385 "bi_stream.ml" 17 361 387
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 5 57 73 "bi_stream.ml" 5 57 75
+)
+"bi_stream.ml" 17 361 374 "bi_stream.ml" 17 361 387
+call(
+  stack
+)
+type(
+  int
+)
+"bi_stream.ml" 17 361 388 "bi_stream.ml" 17 361 390
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"bi_stream.ml" 17 361 391 "bi_stream.ml" 17 361 392
+type(
+  int
+)
+"bi_stream.ml" 17 361 374 "bi_stream.ml" 17 361 392
+type(
+  bool
+)
+"bi_stream.ml" 18 398 410 "bi_stream.ml" 18 398 415
+type(
+  string -> unit
+)
+ident(
+  int_ref error "bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+)
+"bi_stream.ml" 18 398 416 "bi_stream.ml" 18 398 471
+type(
+  string
+)
+"bi_stream.ml" 18 398 410 "bi_stream.ml" 18 398 471
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 17 361 371 "bi_stream.ml" 18 398 471
+type(
+  unit
+)
+"bi_stream.ml" 16 335 343 "bi_stream.ml" 19 472 484
+type(
+  unit
+)
+"bi_stream.ml" 20 486 498 "bi_stream.ml" 20 486 499
+type(
+  int ref
+)
+ident(
+  def n "bi_stream.ml" 21 511 519 "bi_stream.ml" 26 694 704
+)
+"bi_stream.ml" 20 486 502 "bi_stream.ml" 20 486 505
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 20 486 506 "bi_stream.ml" 20 486 507
+type(
+  int
+)
+"bi_stream.ml" 20 486 502 "bi_stream.ml" 20 486 507
+type(
+  int ref
+)
+"bi_stream.ml" 21 511 527 "bi_stream.ml" 21 511 528
+type(
+  int
+)
+"bi_stream.ml" 21 511 532 "bi_stream.ml" 21 511 533
+type(
+  int
+)
+"bi_stream.ml" 22 537 547 "bi_stream.ml" 22 537 548
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 20 486 498 "bi_stream.ml" 20 486 499
+)
+"bi_stream.ml" 22 537 549 "bi_stream.ml" 22 537 551
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 22 537 553 "bi_stream.ml" 22 537 554
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 22 537 554 "bi_stream.ml" 22 537 555
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 20 486 498 "bi_stream.ml" 20 486 499
+)
+"bi_stream.ml" 22 537 553 "bi_stream.ml" 22 537 555
+type(
+  int
+)
+"bi_stream.ml" 22 537 556 "bi_stream.ml" 22 537 559
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsl )
+)
+"bi_stream.ml" 22 537 560 "bi_stream.ml" 22 537 561
+type(
+  int
+)
+"bi_stream.ml" 22 537 552 "bi_stream.ml" 22 537 562
+type(
+  int
+)
+"bi_stream.ml" 22 537 563 "bi_stream.ml" 22 537 566
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lor )
+)
+"bi_stream.ml" 22 537 568 "bi_stream.ml" 22 537 578
+type(
+  in_channel -> int
+)
+ident(
+  ext_ref Pervasives.input_byte
+)
+"bi_stream.ml" 22 537 579 "bi_stream.ml" 22 537 581
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 5 57 73 "bi_stream.ml" 5 57 75
+)
+"bi_stream.ml" 22 537 567 "bi_stream.ml" 22 537 582
+call(
+  stack
+)
+type(
+  int
+)
+"bi_stream.ml" 22 537 552 "bi_stream.ml" 22 537 582
+type(
+  int
+)
+"bi_stream.ml" 22 537 547 "bi_stream.ml" 22 537 583
+type(
+  unit
+)
+"bi_stream.ml" 21 511 519 "bi_stream.ml" 23 584 596
+type(
+  unit
+)
+"bi_stream.ml" 24 598 609 "bi_stream.ml" 24 598 610
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 24 598 610 "bi_stream.ml" 24 598 611
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 20 486 498 "bi_stream.ml" 20 486 499
+)
+"bi_stream.ml" 24 598 609 "bi_stream.ml" 24 598 611
+type(
+  int
+)
+"bi_stream.ml" 24 598 612 "bi_stream.ml" 24 598 613
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( < )
+)
+"bi_stream.ml" 24 598 614 "bi_stream.ml" 24 598 615
+type(
+  int
+)
+"bi_stream.ml" 24 598 609 "bi_stream.ml" 24 598 615
+type(
+  bool
+)
+"bi_stream.ml" 25 621 631 "bi_stream.ml" 25 621 636
+type(
+  string -> unit
+)
+ident(
+  int_ref error "bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+)
+"bi_stream.ml" 25 621 637 "bi_stream.ml" 25 621 692
+type(
+  string
+)
+"bi_stream.ml" 25 621 631 "bi_stream.ml" 25 621 692
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 24 598 606 "bi_stream.ml" 25 621 692
+type(
+  unit
+)
+"bi_stream.ml" 26 694 702 "bi_stream.ml" 26 694 703
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 26 694 703 "bi_stream.ml" 26 694 704
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 20 486 498 "bi_stream.ml" 20 486 499
+)
+"bi_stream.ml" 26 694 702 "bi_stream.ml" 26 694 704
+type(
+  int
+)
+"bi_stream.ml" 24 598 606 "bi_stream.ml" 26 694 704
+type(
+  int
+)
+"bi_stream.ml" 21 511 519 "bi_stream.ml" 26 694 704
+type(
+  int
+)
+"bi_stream.ml" 20 486 494 "bi_stream.ml" 26 694 704
+type(
+  int
+)
+"bi_stream.ml" 16 335 343 "bi_stream.ml" 26 694 704
+type(
+  int
+)
+"bi_stream.ml" 27 705 711 "bi_stream.ml" 27 705 712
+type(
+  int
+)
+ident(
+  def n "bi_stream.ml" 28 716 724 "bi_stream.ml" 28 716 770
+)
+"bi_stream.ml" 28 716 724 "bi_stream.ml" 28 716 729
+type(
+  string -> int
+)
+ident(
+  int_ref error "bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+)
+"bi_stream.ml" 28 716 731 "bi_stream.ml" 28 716 738
+type(
+  (int -> string, unit, string) format -> int -> string
+)
+ident(
+  ext_ref Printf.sprintf
+)
+"bi_stream.ml" 28 716 739 "bi_stream.ml" 28 716 767
+type(
+  (int -> string, unit, string) format
+)
+"bi_stream.ml" 28 716 768 "bi_stream.ml" 28 716 769
+type(
+  int
+)
+ident(
+  int_ref n "bi_stream.ml" 27 705 711 "bi_stream.ml" 27 705 712
+)
+"bi_stream.ml" 28 716 730 "bi_stream.ml" 28 716 770
+call(
+  stack
+)
+type(
+  string
+)
+"bi_stream.ml" 28 716 724 "bi_stream.ml" 28 716 770
+call(
+  tail
+)
+type(
+  int
+)
+"bi_stream.ml" 6 78 80 "bi_stream.ml" 28 716 770
+type(
+  int
+)
+"bi_stream.ml" 30 772 776 "bi_stream.ml" 30 772 788
+type(
+  out_channel -> int -> unit
+)
+ident(
+  def output_int64 "bi_stream.ml" 48 1239 1239 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 30 772 789 "bi_stream.ml" 30 772 791
+type(
+  out_channel
+)
+ident(
+  def oc "bi_stream.ml" 30 772 792 "bi_stream.ml" 46 1183 1237
+)
+"bi_stream.ml" 30 772 792 "bi_stream.ml" 30 772 793
+type(
+  int
+)
+ident(
+  def n "bi_stream.ml" 31 796 798 "bi_stream.ml" 46 1183 1237
+)
+"bi_stream.ml" 31 796 804 "bi_stream.ml" 31 796 817
+type(
+  int
+)
+ident(
+  ext_ref Sys.word_size
+)
+"bi_stream.ml" 32 823 829 "bi_stream.ml" 32 823 831
+type(
+  int
+)
+"bi_stream.ml" 33 835 847 "bi_stream.ml" 33 835 848
+type(
+  int ref
+)
+ident(
+  def n "bi_stream.ml" 34 860 868 "bi_stream.ml" 37 962 974
+)
+"bi_stream.ml" 33 835 851 "bi_stream.ml" 33 835 854
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 33 835 855 "bi_stream.ml" 33 835 856
+type(
+  int
+)
+ident(
+  int_ref n "bi_stream.ml" 30 772 792 "bi_stream.ml" 30 772 793
+)
+"bi_stream.ml" 33 835 851 "bi_stream.ml" 33 835 856
+type(
+  int ref
+)
+"bi_stream.ml" 34 860 876 "bi_stream.ml" 34 860 877
+type(
+  int
+)
+"bi_stream.ml" 34 860 881 "bi_stream.ml" 34 860 882
+type(
+  int
+)
+"bi_stream.ml" 35 886 896 "bi_stream.ml" 35 886 907
+type(
+  out_channel -> char -> unit
+)
+ident(
+  ext_ref Pervasives.output_char
+)
+"bi_stream.ml" 35 886 908 "bi_stream.ml" 35 886 910
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 30 772 789 "bi_stream.ml" 30 772 791
+)
+"bi_stream.ml" 35 886 912 "bi_stream.ml" 35 886 923
+type(
+  int -> char
+)
+ident(
+  ext_ref Pervasives.char_of_int
+)
+"bi_stream.ml" 35 886 925 "bi_stream.ml" 35 886 926
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 35 886 926 "bi_stream.ml" 35 886 927
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 33 835 847 "bi_stream.ml" 33 835 848
+)
+"bi_stream.ml" 35 886 925 "bi_stream.ml" 35 886 927
+type(
+  int
+)
+"bi_stream.ml" 35 886 928 "bi_stream.ml" 35 886 931
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsr )
+)
+"bi_stream.ml" 35 886 932 "bi_stream.ml" 35 886 934
+type(
+  int
+)
+"bi_stream.ml" 35 886 924 "bi_stream.ml" 35 886 935
+type(
+  int
+)
+"bi_stream.ml" 35 886 911 "bi_stream.ml" 35 886 936
+call(
+  stack
+)
+type(
+  char
+)
+"bi_stream.ml" 35 886 896 "bi_stream.ml" 35 886 936
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 36 938 948 "bi_stream.ml" 36 938 949
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 33 835 847 "bi_stream.ml" 33 835 848
+)
+"bi_stream.ml" 36 938 950 "bi_stream.ml" 36 938 952
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 36 938 953 "bi_stream.ml" 36 938 954
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 36 938 954 "bi_stream.ml" 36 938 955
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 33 835 847 "bi_stream.ml" 33 835 848
+)
+"bi_stream.ml" 36 938 953 "bi_stream.ml" 36 938 955
+type(
+  int
+)
+"bi_stream.ml" 36 938 956 "bi_stream.ml" 36 938 959
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsl )
+)
+"bi_stream.ml" 36 938 960 "bi_stream.ml" 36 938 961
+type(
+  int
+)
+"bi_stream.ml" 36 938 953 "bi_stream.ml" 36 938 961
+type(
+  int
+)
+"bi_stream.ml" 36 938 948 "bi_stream.ml" 36 938 961
+type(
+  unit
+)
+"bi_stream.ml" 35 886 896 "bi_stream.ml" 36 938 961
+type(
+  unit
+)
+"bi_stream.ml" 34 860 868 "bi_stream.ml" 37 962 974
+type(
+  unit
+)
+"bi_stream.ml" 33 835 843 "bi_stream.ml" 37 962 974
+type(
+  unit
+)
+"bi_stream.ml" 38 975 981 "bi_stream.ml" 38 975 983
+type(
+  int
+)
+"bi_stream.ml" 39 987 995 "bi_stream.ml" 39 987 1008
+type(
+  out_channel -> string -> unit
+)
+ident(
+  ext_ref Pervasives.output_string
+)
+"bi_stream.ml" 39 987 1009 "bi_stream.ml" 39 987 1011
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 30 772 789 "bi_stream.ml" 30 772 791
+)
+"bi_stream.ml" 39 987 1012 "bi_stream.ml" 39 987 1030
+type(
+  string
+)
+"bi_stream.ml" 39 987 995 "bi_stream.ml" 39 987 1030
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 40 1032 1044 "bi_stream.ml" 40 1032 1045
+type(
+  int ref
+)
+ident(
+  def n "bi_stream.ml" 41 1057 1065 "bi_stream.ml" 44 1159 1171
+)
+"bi_stream.ml" 40 1032 1048 "bi_stream.ml" 40 1032 1051
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 40 1032 1052 "bi_stream.ml" 40 1032 1053
+type(
+  int
+)
+ident(
+  int_ref n "bi_stream.ml" 30 772 792 "bi_stream.ml" 30 772 793
+)
+"bi_stream.ml" 40 1032 1048 "bi_stream.ml" 40 1032 1053
+type(
+  int ref
+)
+"bi_stream.ml" 41 1057 1073 "bi_stream.ml" 41 1057 1074
+type(
+  int
+)
+"bi_stream.ml" 41 1057 1078 "bi_stream.ml" 41 1057 1079
+type(
+  int
+)
+"bi_stream.ml" 42 1083 1093 "bi_stream.ml" 42 1083 1104
+type(
+  out_channel -> char -> unit
+)
+ident(
+  ext_ref Pervasives.output_char
+)
+"bi_stream.ml" 42 1083 1105 "bi_stream.ml" 42 1083 1107
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 30 772 789 "bi_stream.ml" 30 772 791
+)
+"bi_stream.ml" 42 1083 1109 "bi_stream.ml" 42 1083 1120
+type(
+  int -> char
+)
+ident(
+  ext_ref Pervasives.char_of_int
+)
+"bi_stream.ml" 42 1083 1122 "bi_stream.ml" 42 1083 1123
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 42 1083 1123 "bi_stream.ml" 42 1083 1124
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 40 1032 1044 "bi_stream.ml" 40 1032 1045
+)
+"bi_stream.ml" 42 1083 1122 "bi_stream.ml" 42 1083 1124
+type(
+  int
+)
+"bi_stream.ml" 42 1083 1125 "bi_stream.ml" 42 1083 1128
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsr )
+)
+"bi_stream.ml" 42 1083 1129 "bi_stream.ml" 42 1083 1131
+type(
+  int
+)
+"bi_stream.ml" 42 1083 1121 "bi_stream.ml" 42 1083 1132
+type(
+  int
+)
+"bi_stream.ml" 42 1083 1108 "bi_stream.ml" 42 1083 1133
+call(
+  stack
+)
+type(
+  char
+)
+"bi_stream.ml" 42 1083 1093 "bi_stream.ml" 42 1083 1133
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 43 1135 1145 "bi_stream.ml" 43 1135 1146
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 40 1032 1044 "bi_stream.ml" 40 1032 1045
+)
+"bi_stream.ml" 43 1135 1147 "bi_stream.ml" 43 1135 1149
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 43 1135 1150 "bi_stream.ml" 43 1135 1151
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 43 1135 1151 "bi_stream.ml" 43 1135 1152
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 40 1032 1044 "bi_stream.ml" 40 1032 1045
+)
+"bi_stream.ml" 43 1135 1150 "bi_stream.ml" 43 1135 1152
+type(
+  int
+)
+"bi_stream.ml" 43 1135 1153 "bi_stream.ml" 43 1135 1156
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( lsl )
+)
+"bi_stream.ml" 43 1135 1157 "bi_stream.ml" 43 1135 1158
+type(
+  int
+)
+"bi_stream.ml" 43 1135 1150 "bi_stream.ml" 43 1135 1158
+type(
+  int
+)
+"bi_stream.ml" 43 1135 1145 "bi_stream.ml" 43 1135 1158
+type(
+  unit
+)
+"bi_stream.ml" 42 1083 1093 "bi_stream.ml" 43 1135 1158
+type(
+  unit
+)
+"bi_stream.ml" 41 1057 1065 "bi_stream.ml" 44 1159 1171
+type(
+  unit
+)
+"bi_stream.ml" 40 1032 1040 "bi_stream.ml" 44 1159 1171
+type(
+  unit
+)
+"bi_stream.ml" 39 987 995 "bi_stream.ml" 44 1159 1171
+type(
+  unit
+)
+"bi_stream.ml" 45 1172 1178 "bi_stream.ml" 45 1172 1179
+type(
+  int
+)
+ident(
+  def n "bi_stream.ml" 46 1183 1191 "bi_stream.ml" 46 1183 1237
+)
+"bi_stream.ml" 46 1183 1191 "bi_stream.ml" 46 1183 1196
+type(
+  string -> unit
+)
+ident(
+  int_ref error "bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+)
+"bi_stream.ml" 46 1183 1198 "bi_stream.ml" 46 1183 1205
+type(
+  (int -> string, unit, string) format -> int -> string
+)
+ident(
+  ext_ref Printf.sprintf
+)
+"bi_stream.ml" 46 1183 1206 "bi_stream.ml" 46 1183 1234
+type(
+  (int -> string, unit, string) format
+)
+"bi_stream.ml" 46 1183 1235 "bi_stream.ml" 46 1183 1236
+type(
+  int
+)
+ident(
+  int_ref n "bi_stream.ml" 45 1172 1178 "bi_stream.ml" 45 1172 1179
+)
+"bi_stream.ml" 46 1183 1197 "bi_stream.ml" 46 1183 1237
+call(
+  stack
+)
+type(
+  string
+)
+"bi_stream.ml" 46 1183 1191 "bi_stream.ml" 46 1183 1237
+call(
+  tail
+)
+type(
+  unit
+)
+"bi_stream.ml" 31 796 798 "bi_stream.ml" 46 1183 1237
+type(
+  unit
+)
+"bi_stream.ml" 48 1239 1247 "bi_stream.ml" 48 1239 1257
+type(
+  (bytes -> 'a) -> in_channel -> 'a option
+)
+ident(
+  def read_chunk "bi_stream.ml" 48 1239 1239 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 48 1239 1258 "bi_stream.ml" 48 1239 1267
+type(
+  bytes -> 'a
+)
+ident(
+  def of_string "bi_stream.ml" 48 1239 1268 "bi_stream.ml" 62 1628 1679
+)
+"bi_stream.ml" 48 1239 1268 "bi_stream.ml" 48 1239 1270
+type(
+  in_channel
+)
+ident(
+  def ic "bi_stream.ml" 49 1273 1275 "bi_stream.ml" 62 1628 1679
+)
+"bi_stream.ml" 49 1273 1281 "bi_stream.ml" 49 1273 1291
+type(
+  in_channel -> char
+)
+ident(
+  ext_ref Pervasives.input_char
+)
+"bi_stream.ml" 49 1273 1292 "bi_stream.ml" 49 1273 1294
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 48 1239 1268 "bi_stream.ml" 48 1239 1270
+)
+"bi_stream.ml" 49 1273 1281 "bi_stream.ml" 49 1273 1294
+call(
+  stack
+)
+type(
+  char
+)
+"bi_stream.ml" 50 1300 1306 "bi_stream.ml" 50 1300 1312
+type(
+  char
+)
+"bi_stream.ml" 51 1316 1328 "bi_stream.ml" 51 1316 1331
+type(
+  int
+)
+ident(
+  def len "bi_stream.ml" 52 1352 1360 "bi_stream.ml" 58 1578 1604
+)
+"bi_stream.ml" 51 1316 1334 "bi_stream.ml" 51 1316 1345
+type(
+  in_channel -> int
+)
+ident(
+  int_ref input_int64 "bi_stream.ml" 5 57 61 "bi_stream.ml" 5 57 72
+)
+"bi_stream.ml" 51 1316 1346 "bi_stream.ml" 51 1316 1348
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 48 1239 1268 "bi_stream.ml" 48 1239 1270
+)
+"bi_stream.ml" 51 1316 1334 "bi_stream.ml" 51 1316 1348
+call(
+  stack
+)
+type(
+  int
+)
+"bi_stream.ml" 52 1352 1363 "bi_stream.ml" 52 1352 1366
+type(
+  int
+)
+ident(
+  int_ref len "bi_stream.ml" 51 1316 1328 "bi_stream.ml" 51 1316 1331
+)
+"bi_stream.ml" 52 1352 1367 "bi_stream.ml" 52 1352 1368
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"bi_stream.ml" 52 1352 1369 "bi_stream.ml" 52 1352 1390
+type(
+  int
+)
+ident(
+  ext_ref Sys.max_string_length
+)
+"bi_stream.ml" 52 1352 1363 "bi_stream.ml" 52 1352 1390
+type(
+  bool
+)
+"bi_stream.ml" 53 1396 1406 "bi_stream.ml" 53 1396 1411
+type(
+  string -> unit
+)
+ident(
+  int_ref error "bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+)
+"bi_stream.ml" 54 1412 1425 "bi_stream.ml" 54 1412 1432
+type(
+  (int -> string, unit, string) format -> int -> string
+)
+ident(
+  ext_ref Printf.sprintf
+)
+"bi_stream.ml" 55 1433 1448 "bi_stream.ml" 55 1433 1501
+type(
+  (int -> string, unit, string) format
+)
+"bi_stream.ml" 55 1433 1502 "bi_stream.ml" 55 1433 1505
+type(
+  int
+)
+ident(
+  int_ref len "bi_stream.ml" 51 1316 1328 "bi_stream.ml" 51 1316 1331
+)
+"bi_stream.ml" 54 1412 1424 "bi_stream.ml" 55 1433 1506
+call(
+  stack
+)
+type(
+  string
+)
+"bi_stream.ml" 53 1396 1406 "bi_stream.ml" 55 1433 1506
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 52 1352 1360 "bi_stream.ml" 55 1433 1506
+type(
+  unit
+)
+"bi_stream.ml" 56 1508 1520 "bi_stream.ml" 56 1508 1521
+type(
+  bytes
+)
+ident(
+  def s "bi_stream.ml" 57 1545 1553 "bi_stream.ml" 58 1578 1604
+)
+"bi_stream.ml" 56 1508 1524 "bi_stream.ml" 56 1508 1537
+type(
+  int -> bytes
+)
+ident(
+  ext_ref String.create
+)
+"bi_stream.ml" 56 1508 1538 "bi_stream.ml" 56 1508 1541
+type(
+  int
+)
+ident(
+  int_ref len "bi_stream.ml" 51 1316 1328 "bi_stream.ml" 51 1316 1331
+)
+"bi_stream.ml" 56 1508 1524 "bi_stream.ml" 56 1508 1541
+type(
+  bytes
+)
+"bi_stream.ml" 57 1545 1553 "bi_stream.ml" 57 1545 1565
+type(
+  in_channel -> bytes -> int -> int -> unit
+)
+ident(
+  ext_ref Pervasives.really_input
+)
+"bi_stream.ml" 57 1545 1566 "bi_stream.ml" 57 1545 1568
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 48 1239 1268 "bi_stream.ml" 48 1239 1270
+)
+"bi_stream.ml" 57 1545 1569 "bi_stream.ml" 57 1545 1570
+type(
+  bytes
+)
+ident(
+  int_ref s "bi_stream.ml" 56 1508 1520 "bi_stream.ml" 56 1508 1521
+)
+"bi_stream.ml" 57 1545 1571 "bi_stream.ml" 57 1545 1572
+type(
+  int
+)
+"bi_stream.ml" 57 1545 1573 "bi_stream.ml" 57 1545 1576
+type(
+  int
+)
+ident(
+  int_ref len "bi_stream.ml" 51 1316 1328 "bi_stream.ml" 51 1316 1331
+)
+"bi_stream.ml" 57 1545 1553 "bi_stream.ml" 57 1545 1576
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 58 1578 1592 "bi_stream.ml" 58 1578 1601
+type(
+  bytes -> 'a
+)
+ident(
+  int_ref of_string "bi_stream.ml" 48 1239 1258 "bi_stream.ml" 48 1239 1267
+)
+"bi_stream.ml" 58 1578 1602 "bi_stream.ml" 58 1578 1603
+type(
+  bytes
+)
+ident(
+  int_ref s "bi_stream.ml" 56 1508 1520 "bi_stream.ml" 56 1508 1521
+)
+"bi_stream.ml" 58 1578 1591 "bi_stream.ml" 58 1578 1604
+call(
+  stack
+)
+type(
+  'a
+)
+"bi_stream.ml" 58 1578 1586 "bi_stream.ml" 58 1578 1604
+type(
+  'a option
+)
+"bi_stream.ml" 57 1545 1553 "bi_stream.ml" 58 1578 1604
+type(
+  'a option
+)
+"bi_stream.ml" 56 1508 1516 "bi_stream.ml" 58 1578 1604
+type(
+  'a option
+)
+"bi_stream.ml" 52 1352 1360 "bi_stream.ml" 58 1578 1604
+type(
+  'a option
+)
+"bi_stream.ml" 51 1316 1324 "bi_stream.ml" 58 1578 1604
+type(
+  'a option
+)
+"bi_stream.ml" 60 1606 1612 "bi_stream.ml" 60 1606 1618
+type(
+  char
+)
+"bi_stream.ml" 60 1606 1622 "bi_stream.ml" 60 1606 1626
+type(
+  'a option
+)
+"bi_stream.ml" 62 1628 1634 "bi_stream.ml" 62 1628 1635
+type(
+  char
+)
+ident(
+  def c "bi_stream.ml" 62 1628 1639 "bi_stream.ml" 62 1628 1679
+)
+"bi_stream.ml" 62 1628 1639 "bi_stream.ml" 62 1628 1644
+type(
+  string -> 'a option
+)
+ident(
+  int_ref error "bi_stream.ml" 3 13 17 "bi_stream.ml" 3 13 22
+)
+"bi_stream.ml" 62 1628 1646 "bi_stream.ml" 62 1628 1653
+type(
+  (char -> string, unit, string) format -> char -> string
+)
+ident(
+  ext_ref Printf.sprintf
+)
+"bi_stream.ml" 62 1628 1654 "bi_stream.ml" 62 1628 1676
+type(
+  (char -> string, unit, string) format
+)
+"bi_stream.ml" 62 1628 1677 "bi_stream.ml" 62 1628 1678
+type(
+  char
+)
+ident(
+  int_ref c "bi_stream.ml" 62 1628 1634 "bi_stream.ml" 62 1628 1635
+)
+"bi_stream.ml" 62 1628 1645 "bi_stream.ml" 62 1628 1679
+call(
+  stack
+)
+type(
+  string
+)
+"bi_stream.ml" 62 1628 1639 "bi_stream.ml" 62 1628 1679
+call(
+  tail
+)
+type(
+  'a option
+)
+"bi_stream.ml" 49 1273 1275 "bi_stream.ml" 62 1628 1679
+type(
+  'a option
+)
+"bi_stream.ml" 65 1682 1686 "bi_stream.ml" 65 1682 1693
+type(
+  'a array Stream.t -> 'a Stream.t
+)
+ident(
+  def flatten "bi_stream.ml" 87 2073 2073 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 65 1682 1694 "bi_stream.ml" 65 1682 1696
+type(
+  'a array Stream.t
+)
+ident(
+  def st "bi_stream.ml" 66 1699 1701 "bi_stream.ml" 84 2052 2070
+)
+"bi_stream.ml" 66 1699 1705 "bi_stream.ml" 66 1699 1706
+type(
+  'a array ref
+)
+ident(
+  def a "bi_stream.ml" 67 1722 1724 "bi_stream.ml" 84 2052 2070
+)
+"bi_stream.ml" 66 1699 1709 "bi_stream.ml" 66 1699 1712
+type(
+  'a array -> 'a array ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 66 1699 1713 "bi_stream.ml" 66 1699 1718
+type(
+  'a array
+)
+"bi_stream.ml" 66 1699 1709 "bi_stream.ml" 66 1699 1718
+type(
+  'a array ref
+)
+"bi_stream.ml" 67 1722 1728 "bi_stream.ml" 67 1722 1731
+type(
+  int ref
+)
+ident(
+  def pos "bi_stream.ml" 68 1743 1745 "bi_stream.ml" 84 2052 2070
+)
+"bi_stream.ml" 67 1722 1734 "bi_stream.ml" 67 1722 1737
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 67 1722 1738 "bi_stream.ml" 67 1722 1739
+type(
+  int
+)
+"bi_stream.ml" 67 1722 1734 "bi_stream.ml" 67 1722 1739
+type(
+  int ref
+)
+"bi_stream.ml" 68 1743 1753 "bi_stream.ml" 68 1743 1757
+type(
+  'b -> 'a option
+)
+ident(
+  def next "bi_stream.ml" 68 1743 1745 "bi_stream.ml" 84 2052 2070
+)
+"bi_stream.ml" 68 1743 1758 "bi_stream.ml" 68 1743 1759
+type(
+  'b
+)
+ident(
+  def i "bi_stream.ml" 69 1762 1766 "bi_stream.ml" 82 2041 2046
+)
+"bi_stream.ml" 69 1762 1769 "bi_stream.ml" 69 1762 1770
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 69 1762 1770 "bi_stream.ml" 69 1762 1773
+type(
+  int ref
+)
+ident(
+  int_ref pos "bi_stream.ml" 67 1722 1728 "bi_stream.ml" 67 1722 1731
+)
+"bi_stream.ml" 69 1762 1769 "bi_stream.ml" 69 1762 1773
+type(
+  int
+)
+"bi_stream.ml" 69 1762 1774 "bi_stream.ml" 69 1762 1776
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( >= )
+)
+"bi_stream.ml" 69 1762 1777 "bi_stream.ml" 69 1762 1789
+type(
+  'a array -> int
+)
+ident(
+  ext_ref Array.length
+)
+"bi_stream.ml" 69 1762 1790 "bi_stream.ml" 69 1762 1791
+type(
+  'a array ref -> 'a array
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 69 1762 1791 "bi_stream.ml" 69 1762 1792
+type(
+  'a array ref
+)
+ident(
+  int_ref a "bi_stream.ml" 66 1699 1705 "bi_stream.ml" 66 1699 1706
+)
+"bi_stream.ml" 69 1762 1790 "bi_stream.ml" 69 1762 1792
+type(
+  'a array
+)
+"bi_stream.ml" 69 1762 1777 "bi_stream.ml" 69 1762 1792
+type(
+  int
+)
+"bi_stream.ml" 69 1762 1769 "bi_stream.ml" 69 1762 1792
+type(
+  bool
+)
+"bi_stream.ml" 70 1800 1812 "bi_stream.ml" 70 1800 1823
+type(
+  'a array Stream.t -> 'a array option
+)
+ident(
+  ext_ref Stream.peek
+)
+"bi_stream.ml" 70 1800 1824 "bi_stream.ml" 70 1800 1826
+type(
+  'a array Stream.t
+)
+ident(
+  int_ref st "bi_stream.ml" 65 1682 1694 "bi_stream.ml" 65 1682 1696
+)
+"bi_stream.ml" 70 1800 1812 "bi_stream.ml" 70 1800 1826
+call(
+  stack
+)
+type(
+  'a array option
+)
+"bi_stream.ml" 71 1832 1842 "bi_stream.ml" 71 1832 1846
+type(
+  'a array option
+)
+"bi_stream.ml" 71 1832 1850 "bi_stream.ml" 71 1832 1854
+type(
+  'a option
+)
+"bi_stream.ml" 72 1855 1870 "bi_stream.ml" 72 1855 1872
+type(
+  'a array
+)
+ident(
+  def a' "bi_stream.ml" 73 1876 1888 "bi_stream.ml" 76 1947 1965
+)
+"bi_stream.ml" 72 1855 1865 "bi_stream.ml" 72 1855 1872
+type(
+  'a array option
+)
+"bi_stream.ml" 73 1876 1888 "bi_stream.ml" 73 1876 1899
+type(
+  'a array Stream.t -> unit
+)
+ident(
+  ext_ref Stream.junk
+)
+"bi_stream.ml" 73 1876 1900 "bi_stream.ml" 73 1876 1902
+type(
+  'a array Stream.t
+)
+ident(
+  int_ref st "bi_stream.ml" 65 1682 1694 "bi_stream.ml" 65 1682 1696
+)
+"bi_stream.ml" 73 1876 1888 "bi_stream.ml" 73 1876 1902
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 74 1904 1916 "bi_stream.ml" 74 1904 1917
+type(
+  'a array ref
+)
+ident(
+  int_ref a "bi_stream.ml" 66 1699 1705 "bi_stream.ml" 66 1699 1706
+)
+"bi_stream.ml" 74 1904 1918 "bi_stream.ml" 74 1904 1920
+type(
+  'a array ref -> 'a array -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 74 1904 1921 "bi_stream.ml" 74 1904 1923
+type(
+  'a array
+)
+ident(
+  int_ref a' "bi_stream.ml" 72 1855 1870 "bi_stream.ml" 72 1855 1872
+)
+"bi_stream.ml" 74 1904 1916 "bi_stream.ml" 74 1904 1923
+type(
+  unit
+)
+"bi_stream.ml" 75 1925 1937 "bi_stream.ml" 75 1925 1940
+type(
+  int ref
+)
+ident(
+  int_ref pos "bi_stream.ml" 67 1722 1728 "bi_stream.ml" 67 1722 1731
+)
+"bi_stream.ml" 75 1925 1941 "bi_stream.ml" 75 1925 1943
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 75 1925 1944 "bi_stream.ml" 75 1925 1945
+type(
+  int
+)
+"bi_stream.ml" 75 1925 1937 "bi_stream.ml" 75 1925 1945
+type(
+  unit
+)
+"bi_stream.ml" 76 1947 1959 "bi_stream.ml" 76 1947 1963
+type(
+  'b -> 'a option
+)
+ident(
+  int_ref next "bi_stream.ml" 68 1743 1753 "bi_stream.ml" 68 1743 1757
+)
+"bi_stream.ml" 76 1947 1964 "bi_stream.ml" 76 1947 1965
+type(
+  'b
+)
+ident(
+  int_ref i "bi_stream.ml" 68 1743 1758 "bi_stream.ml" 68 1743 1759
+)
+"bi_stream.ml" 76 1947 1959 "bi_stream.ml" 76 1947 1965
+call(
+  tail
+)
+type(
+  'a option
+)
+"bi_stream.ml" 75 1925 1937 "bi_stream.ml" 76 1947 1965
+type(
+  'a option
+)
+"bi_stream.ml" 74 1904 1916 "bi_stream.ml" 76 1947 1965
+type(
+  'a option
+)
+"bi_stream.ml" 73 1876 1888 "bi_stream.ml" 76 1947 1965
+type(
+  'a option
+)
+"bi_stream.ml" 69 1762 1798 "bi_stream.ml" 77 1966 1971
+type(
+  'a option
+)
+"bi_stream.ml" 79 1983 1993 "bi_stream.ml" 79 1983 1994
+type(
+  'a
+)
+ident(
+  def x "bi_stream.ml" 80 2012 2018 "bi_stream.ml" 81 2028 2040
+)
+"bi_stream.ml" 79 1983 1998 "bi_stream.ml" 79 1983 1999
+type(
+  'a array ref -> 'a array
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 79 1983 1999 "bi_stream.ml" 79 1983 2000
+type(
+  'a array ref
+)
+ident(
+  int_ref a "bi_stream.ml" 66 1699 1705 "bi_stream.ml" 66 1699 1706
+)
+"bi_stream.ml" 79 1983 1997 "bi_stream.ml" 79 1983 2001
+type(
+  'a array
+)
+"bi_stream.ml" 79 1983 2003 "bi_stream.ml" 79 1983 2004
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 79 1983 2004 "bi_stream.ml" 79 1983 2007
+type(
+  int ref
+)
+ident(
+  int_ref pos "bi_stream.ml" 67 1722 1728 "bi_stream.ml" 67 1722 1731
+)
+"bi_stream.ml" 79 1983 2003 "bi_stream.ml" 79 1983 2007
+type(
+  int
+)
+"bi_stream.ml" 79 1983 1997 "bi_stream.ml" 79 1983 2008
+type(
+  'a
+)
+"bi_stream.ml" 80 2012 2018 "bi_stream.ml" 80 2012 2022
+type(
+  int ref -> unit
+)
+ident(
+  ext_ref Pervasives.incr
+)
+"bi_stream.ml" 80 2012 2023 "bi_stream.ml" 80 2012 2026
+type(
+  int ref
+)
+ident(
+  int_ref pos "bi_stream.ml" 67 1722 1728 "bi_stream.ml" 67 1722 1731
+)
+"bi_stream.ml" 80 2012 2018 "bi_stream.ml" 80 2012 2026
+type(
+  unit
+)
+"bi_stream.ml" 81 2028 2039 "bi_stream.ml" 81 2028 2040
+type(
+  'a
+)
+ident(
+  int_ref x "bi_stream.ml" 79 1983 1993 "bi_stream.ml" 79 1983 1994
+)
+"bi_stream.ml" 81 2028 2034 "bi_stream.ml" 81 2028 2040
+type(
+  'a option
+)
+"bi_stream.ml" 80 2012 2018 "bi_stream.ml" 81 2028 2040
+type(
+  'a option
+)
+"bi_stream.ml" 78 1972 1981 "bi_stream.ml" 82 2041 2046
+type(
+  'a option
+)
+"bi_stream.ml" 69 1762 1766 "bi_stream.ml" 82 2041 2046
+type(
+  'a option
+)
+"bi_stream.ml" 84 2052 2054 "bi_stream.ml" 84 2052 2065
+type(
+  (int -> 'a option) -> 'a Stream.t
+)
+ident(
+  ext_ref Stream.from
+)
+"bi_stream.ml" 84 2052 2066 "bi_stream.ml" 84 2052 2070
+type(
+  int -> 'a option
+)
+ident(
+  int_ref next "bi_stream.ml" 68 1743 1753 "bi_stream.ml" 68 1743 1757
+)
+"bi_stream.ml" 84 2052 2054 "bi_stream.ml" 84 2052 2070
+call(
+  tail
+)
+type(
+  'a Stream.t
+)
+"bi_stream.ml" 68 1743 1745 "bi_stream.ml" 84 2052 2070
+type(
+  'a Stream.t
+)
+"bi_stream.ml" 67 1722 1724 "bi_stream.ml" 84 2052 2070
+type(
+  'a Stream.t
+)
+"bi_stream.ml" 66 1699 1701 "bi_stream.ml" 84 2052 2070
+type(
+  'a Stream.t
+)
+"bi_stream.ml" 87 2073 2077 "bi_stream.ml" 87 2073 2088
+type(
+  (bytes -> 'a array) -> in_channel -> 'a Stream.t
+)
+ident(
+  def read_stream "bi_stream.ml" 90 2164 2164 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 87 2073 2089 "bi_stream.ml" 87 2073 2098
+type(
+  bytes -> 'a array
+)
+ident(
+  def of_string "bi_stream.ml" 87 2073 2099 "bi_stream.ml" 88 2104 2162
+)
+"bi_stream.ml" 87 2073 2099 "bi_stream.ml" 87 2073 2101
+type(
+  in_channel
+)
+ident(
+  def ic "bi_stream.ml" 88 2104 2106 "bi_stream.ml" 88 2104 2162
+)
+"bi_stream.ml" 88 2104 2106 "bi_stream.ml" 88 2104 2113
+type(
+  'a array Stream.t -> 'a Stream.t
+)
+ident(
+  int_ref flatten "bi_stream.ml" 65 1682 1686 "bi_stream.ml" 65 1682 1693
+)
+"bi_stream.ml" 88 2104 2115 "bi_stream.ml" 88 2104 2126
+type(
+  (int -> 'a array option) -> 'a array Stream.t
+)
+ident(
+  ext_ref Stream.from
+)
+"bi_stream.ml" 88 2104 2132 "bi_stream.ml" 88 2104 2133
+type(
+  int
+)
+ident(
+  def i "bi_stream.ml" 88 2104 2137 "bi_stream.ml" 88 2104 2160
+)
+"bi_stream.ml" 88 2104 2137 "bi_stream.ml" 88 2104 2147
+type(
+  (bytes -> 'a array) -> in_channel -> 'a array option
+)
+ident(
+  int_ref read_chunk "bi_stream.ml" 48 1239 1247 "bi_stream.ml" 48 1239 1257
+)
+"bi_stream.ml" 88 2104 2148 "bi_stream.ml" 88 2104 2157
+type(
+  bytes -> 'a array
+)
+ident(
+  int_ref of_string "bi_stream.ml" 87 2073 2089 "bi_stream.ml" 87 2073 2098
+)
+"bi_stream.ml" 88 2104 2158 "bi_stream.ml" 88 2104 2160
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 87 2073 2099 "bi_stream.ml" 87 2073 2101
+)
+"bi_stream.ml" 88 2104 2137 "bi_stream.ml" 88 2104 2160
+call(
+  tail
+)
+type(
+  'a array option
+)
+"bi_stream.ml" 88 2104 2127 "bi_stream.ml" 88 2104 2161
+type(
+  int -> 'a array option
+)
+"bi_stream.ml" 88 2104 2114 "bi_stream.ml" 88 2104 2162
+call(
+  stack
+)
+type(
+  'a array Stream.t
+)
+"bi_stream.ml" 88 2104 2106 "bi_stream.ml" 88 2104 2162
+call(
+  tail
+)
+type(
+  'a Stream.t
+)
+"bi_stream.ml" 90 2164 2168 "bi_stream.ml" 90 2164 2185
+type(
+  'a list -> 'a array
+)
+ident(
+  def rev_array_of_list "bi_stream.ml" 106 2534 2534 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 90 2164 2186 "bi_stream.ml" 90 2164 2187
+type(
+  'a list
+)
+ident(
+  def l "bi_stream.ml" 91 2190 2192 "bi_stream.ml" 104 2523 2532
+)
+"bi_stream.ml" 91 2190 2198 "bi_stream.ml" 91 2190 2199
+type(
+  'a list
+)
+ident(
+  int_ref l "bi_stream.ml" 90 2164 2186 "bi_stream.ml" 90 2164 2187
+)
+"bi_stream.ml" 92 2205 2211 "bi_stream.ml" 92 2205 2213
+type(
+  'a list
+)
+"bi_stream.ml" 92 2205 2217 "bi_stream.ml" 92 2205 2221
+type(
+  'a array
+)
+"bi_stream.ml" 93 2222 2228 "bi_stream.ml" 93 2222 2229
+type(
+  'a
+)
+ident(
+  def x "bi_stream.ml" 94 2239 2247 "bi_stream.ml" 104 2523 2532
+)
+"bi_stream.ml" 93 2222 2233 "bi_stream.ml" 93 2222 2235
+type(
+  'a list
+)
+ident(
+  def tl "bi_stream.ml" 94 2239 2247 "bi_stream.ml" 104 2523 2532
+)
+"bi_stream.ml" 93 2222 2228 "bi_stream.ml" 93 2222 2235
+type(
+  'a list
+)
+"bi_stream.ml" 94 2239 2251 "bi_stream.ml" 94 2239 2252
+type(
+  'a list ref
+)
+ident(
+  def r "bi_stream.ml" 95 2265 2273 "bi_stream.ml" 104 2523 2532
+)
+"bi_stream.ml" 94 2239 2255 "bi_stream.ml" 94 2239 2258
+type(
+  'a list -> 'a list ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 94 2239 2259 "bi_stream.ml" 94 2239 2261
+type(
+  'a list
+)
+ident(
+  int_ref tl "bi_stream.ml" 93 2222 2233 "bi_stream.ml" 93 2222 2235
+)
+"bi_stream.ml" 94 2239 2255 "bi_stream.ml" 94 2239 2261
+type(
+  'a list ref
+)
+"bi_stream.ml" 95 2265 2277 "bi_stream.ml" 95 2265 2280
+type(
+  int
+)
+ident(
+  def len "bi_stream.ml" 96 2300 2308 "bi_stream.ml" 104 2523 2532
+)
+"bi_stream.ml" 95 2265 2283 "bi_stream.ml" 95 2265 2294
+type(
+  'a list -> int
+)
+ident(
+  ext_ref List.length
+)
+"bi_stream.ml" 95 2265 2295 "bi_stream.ml" 95 2265 2296
+type(
+  'a list
+)
+ident(
+  int_ref l "bi_stream.ml" 90 2164 2186 "bi_stream.ml" 90 2164 2187
+)
+"bi_stream.ml" 95 2265 2283 "bi_stream.ml" 95 2265 2296
+call(
+  stack
+)
+type(
+  int
+)
+"bi_stream.ml" 96 2300 2312 "bi_stream.ml" 96 2300 2313
+type(
+  'a array
+)
+ident(
+  def a "bi_stream.ml" 97 2336 2344 "bi_stream.ml" 104 2523 2532
+)
+"bi_stream.ml" 96 2300 2316 "bi_stream.ml" 96 2300 2326
+type(
+  int -> 'a -> 'a array
+)
+ident(
+  ext_ref Array.make
+)
+"bi_stream.ml" 96 2300 2327 "bi_stream.ml" 96 2300 2330
+type(
+  int
+)
+ident(
+  int_ref len "bi_stream.ml" 95 2265 2277 "bi_stream.ml" 95 2265 2280
+)
+"bi_stream.ml" 96 2300 2331 "bi_stream.ml" 96 2300 2332
+type(
+  'a
+)
+ident(
+  int_ref x "bi_stream.ml" 93 2222 2228 "bi_stream.ml" 93 2222 2229
+)
+"bi_stream.ml" 96 2300 2316 "bi_stream.ml" 96 2300 2332
+type(
+  'a array
+)
+"bi_stream.ml" 97 2336 2352 "bi_stream.ml" 97 2336 2355
+type(
+  int
+)
+ident(
+  int_ref len "bi_stream.ml" 95 2265 2277 "bi_stream.ml" 95 2265 2280
+)
+"bi_stream.ml" 97 2336 2356 "bi_stream.ml" 97 2336 2357
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"bi_stream.ml" 97 2336 2358 "bi_stream.ml" 97 2336 2359
+type(
+  int
+)
+"bi_stream.ml" 97 2336 2352 "bi_stream.ml" 97 2336 2359
+type(
+  int
+)
+"bi_stream.ml" 97 2336 2367 "bi_stream.ml" 97 2336 2368
+type(
+  int
+)
+"bi_stream.ml" 98 2372 2388 "bi_stream.ml" 98 2372 2389
+type(
+  'a list ref -> 'a list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 98 2372 2389 "bi_stream.ml" 98 2372 2390
+type(
+  'a list ref
+)
+ident(
+  int_ref r "bi_stream.ml" 94 2239 2251 "bi_stream.ml" 94 2239 2252
+)
+"bi_stream.ml" 98 2372 2388 "bi_stream.ml" 98 2372 2390
+type(
+  'a list
+)
+"bi_stream.ml" 99 2396 2410 "bi_stream.ml" 99 2396 2412
+type(
+  'a
+)
+ident(
+  def hd "bi_stream.ml" 100 2422 2438 "bi_stream.ml" 101 2451 2475
+)
+"bi_stream.ml" 99 2396 2416 "bi_stream.ml" 99 2396 2418
+type(
+  'a list
+)
+ident(
+  def tl "bi_stream.ml" 100 2422 2438 "bi_stream.ml" 101 2451 2475
+)
+"bi_stream.ml" 99 2396 2410 "bi_stream.ml" 99 2396 2418
+type(
+  'a list
+)
+"bi_stream.ml" 100 2422 2438 "bi_stream.ml" 100 2422 2439
+type(
+  'a array
+)
+ident(
+  int_ref a "bi_stream.ml" 96 2300 2312 "bi_stream.ml" 96 2300 2313
+)
+"bi_stream.ml" 100 2422 2441 "bi_stream.ml" 100 2422 2442
+type(
+  int
+)
+ident(
+  int_ref i "bi_stream.ml" 97 2336 2344 "bi_stream.ml" 103 2509 2521
+)
+"bi_stream.ml" 100 2422 2447 "bi_stream.ml" 100 2422 2449
+type(
+  'a
+)
+ident(
+  int_ref hd "bi_stream.ml" 99 2396 2410 "bi_stream.ml" 99 2396 2412
+)
+"bi_stream.ml" 100 2422 2438 "bi_stream.ml" 100 2422 2449
+type(
+  unit
+)
+"bi_stream.ml" 101 2451 2467 "bi_stream.ml" 101 2451 2468
+type(
+  'a list ref
+)
+ident(
+  int_ref r "bi_stream.ml" 94 2239 2251 "bi_stream.ml" 94 2239 2252
+)
+"bi_stream.ml" 101 2451 2469 "bi_stream.ml" 101 2451 2471
+type(
+  'a list ref -> 'a list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 101 2451 2472 "bi_stream.ml" 101 2451 2474
+type(
+  'a list
+)
+ident(
+  int_ref tl "bi_stream.ml" 99 2396 2416 "bi_stream.ml" 99 2396 2418
+)
+"bi_stream.ml" 101 2451 2467 "bi_stream.ml" 101 2451 2475
+type(
+  unit
+)
+"bi_stream.ml" 100 2422 2438 "bi_stream.ml" 101 2451 2475
+type(
+  unit
+)
+"bi_stream.ml" 102 2476 2490 "bi_stream.ml" 102 2476 2492
+type(
+  'a list
+)
+"bi_stream.ml" 102 2476 2503 "bi_stream.ml" 102 2476 2508
+type(
+  bool
+)
+"bi_stream.ml" 102 2476 2496 "bi_stream.ml" 102 2476 2508
+type(
+  unit
+)
+"bi_stream.ml" 98 2372 2382 "bi_stream.ml" 102 2476 2508
+type(
+  unit
+)
+"bi_stream.ml" 97 2336 2344 "bi_stream.ml" 103 2509 2521
+type(
+  unit
+)
+"bi_stream.ml" 104 2523 2531 "bi_stream.ml" 104 2523 2532
+type(
+  'a array
+)
+ident(
+  int_ref a "bi_stream.ml" 96 2300 2312 "bi_stream.ml" 96 2300 2313
+)
+"bi_stream.ml" 97 2336 2344 "bi_stream.ml" 104 2523 2532
+type(
+  'a array
+)
+"bi_stream.ml" 96 2300 2308 "bi_stream.ml" 104 2523 2532
+type(
+  'a array
+)
+"bi_stream.ml" 95 2265 2273 "bi_stream.ml" 104 2523 2532
+type(
+  'a array
+)
+"bi_stream.ml" 94 2239 2247 "bi_stream.ml" 104 2523 2532
+type(
+  'a array
+)
+"bi_stream.ml" 91 2190 2192 "bi_stream.ml" 104 2523 2532
+type(
+  'a array
+)
+"bi_stream.ml" 106 2534 2538 "bi_stream.ml" 106 2534 2550
+type(
+  ?chunk_len:int ->
+  ('a array -> string) -> out_channel -> 'a Stream.t -> unit
+)
+ident(
+  def write_stream "bi_stream.ml" 130 3030 3030 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 106 2534 2553 "bi_stream.ml" 106 2534 2562
+type(
+  int
+)
+"bi_stream.ml" 106 2534 2565 "bi_stream.ml" 106 2534 2569
+type(
+  int
+)
+type(
+  int
+)
+ident(
+  int_ref *sth* "bi_stream.ml" 106 2534 2565 "bi_stream.ml" 106 2534 2569
+)
+type(
+  int option
+)
+type(
+  int option
+)
+type(
+  int
+)
+"bi_stream.ml" 106 2534 2571 "bi_stream.ml" 106 2534 2580
+type(
+  'a array -> string
+)
+ident(
+  def to_string "bi_stream.ml" 106 2534 2581 "bi_stream.ml" 127 3004 3027
+)
+"bi_stream.ml" 106 2534 2581 "bi_stream.ml" 106 2534 2583
+type(
+  out_channel
+)
+ident(
+  def oc "bi_stream.ml" 106 2534 2584 "bi_stream.ml" 127 3004 3027
+)
+"bi_stream.ml" 106 2534 2584 "bi_stream.ml" 106 2534 2586
+type(
+  'a Stream.t
+)
+ident(
+  def st "bi_stream.ml" 107 2589 2591 "bi_stream.ml" 127 3004 3027
+)
+"bi_stream.ml" 107 2589 2595 "bi_stream.ml" 107 2589 2596
+type(
+  int ref
+)
+ident(
+  def n "bi_stream.ml" 108 2608 2610 "bi_stream.ml" 127 3004 3027
+)
+"bi_stream.ml" 107 2589 2599 "bi_stream.ml" 107 2589 2602
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 107 2589 2603 "bi_stream.ml" 107 2589 2604
+type(
+  int
+)
+"bi_stream.ml" 107 2589 2599 "bi_stream.ml" 107 2589 2604
+type(
+  int ref
+)
+"bi_stream.ml" 108 2608 2614 "bi_stream.ml" 108 2608 2617
+type(
+  'a list ref
+)
+ident(
+  def acc "bi_stream.ml" 109 2630 2632 "bi_stream.ml" 127 3004 3027
+)
+"bi_stream.ml" 108 2608 2620 "bi_stream.ml" 108 2608 2623
+type(
+  'a list -> 'a list ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 108 2608 2624 "bi_stream.ml" 108 2608 2626
+type(
+  'a list
+)
+"bi_stream.ml" 108 2608 2620 "bi_stream.ml" 108 2608 2626
+type(
+  'a list ref
+)
+"bi_stream.ml" 109 2630 2636 "bi_stream.ml" 109 2630 2647
+type(
+  unit -> unit
+)
+ident(
+  def flush_chunk "bi_stream.ml" 118 2839 2841 "bi_stream.ml" 127 3004 3027
+)
+"bi_stream.ml" 109 2630 2648 "bi_stream.ml" 109 2630 2650
+type(
+  unit
+)
+"bi_stream.ml" 110 2653 2661 "bi_stream.ml" 110 2653 2662
+type(
+  'a array
+)
+ident(
+  def a "bi_stream.ml" 111 2691 2695 "bi_stream.ml" 116 2811 2833
+)
+"bi_stream.ml" 110 2653 2665 "bi_stream.ml" 110 2653 2682
+type(
+  'a list -> 'a array
+)
+ident(
+  int_ref rev_array_of_list "bi_stream.ml" 90 2164 2168 "bi_stream.ml" 90 2164 2185
+)
+"bi_stream.ml" 110 2653 2683 "bi_stream.ml" 110 2653 2684
+type(
+  'a list ref -> 'a list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 110 2653 2684 "bi_stream.ml" 110 2653 2687
+type(
+  'a list ref
+)
+ident(
+  int_ref acc "bi_stream.ml" 108 2608 2614 "bi_stream.ml" 108 2608 2617
+)
+"bi_stream.ml" 110 2653 2683 "bi_stream.ml" 110 2653 2687
+type(
+  'a list
+)
+"bi_stream.ml" 110 2653 2665 "bi_stream.ml" 110 2653 2687
+call(
+  stack
+)
+type(
+  'a array
+)
+"bi_stream.ml" 111 2691 2695 "bi_stream.ml" 111 2691 2698
+type(
+  'a list ref
+)
+ident(
+  int_ref acc "bi_stream.ml" 108 2608 2614 "bi_stream.ml" 108 2608 2617
+)
+"bi_stream.ml" 111 2691 2699 "bi_stream.ml" 111 2691 2701
+type(
+  'a list ref -> 'a list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 111 2691 2702 "bi_stream.ml" 111 2691 2704
+type(
+  'a list
+)
+"bi_stream.ml" 111 2691 2695 "bi_stream.ml" 111 2691 2704
+type(
+  unit
+)
+"bi_stream.ml" 112 2706 2710 "bi_stream.ml" 112 2706 2711
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 107 2589 2595 "bi_stream.ml" 107 2589 2596
+)
+"bi_stream.ml" 112 2706 2712 "bi_stream.ml" 112 2706 2714
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 112 2706 2715 "bi_stream.ml" 112 2706 2716
+type(
+  int
+)
+"bi_stream.ml" 112 2706 2710 "bi_stream.ml" 112 2706 2716
+type(
+  unit
+)
+"bi_stream.ml" 113 2718 2726 "bi_stream.ml" 113 2718 2727
+type(
+  string
+)
+ident(
+  def s "bi_stream.ml" 114 2745 2749 "bi_stream.ml" 116 2811 2833
+)
+"bi_stream.ml" 113 2718 2730 "bi_stream.ml" 113 2718 2739
+type(
+  'a array -> string
+)
+ident(
+  int_ref to_string "bi_stream.ml" 106 2534 2571 "bi_stream.ml" 106 2534 2580
+)
+"bi_stream.ml" 113 2718 2740 "bi_stream.ml" 113 2718 2741
+type(
+  'a array
+)
+ident(
+  int_ref a "bi_stream.ml" 110 2653 2661 "bi_stream.ml" 110 2653 2662
+)
+"bi_stream.ml" 113 2718 2730 "bi_stream.ml" 113 2718 2741
+call(
+  stack
+)
+type(
+  string
+)
+"bi_stream.ml" 114 2745 2749 "bi_stream.ml" 114 2745 2760
+type(
+  out_channel -> char -> unit
+)
+ident(
+  ext_ref Pervasives.output_char
+)
+"bi_stream.ml" 114 2745 2761 "bi_stream.ml" 114 2745 2763
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 106 2534 2581 "bi_stream.ml" 106 2534 2583
+)
+"bi_stream.ml" 114 2745 2764 "bi_stream.ml" 114 2745 2770
+type(
+  char
+)
+"bi_stream.ml" 114 2745 2749 "bi_stream.ml" 114 2745 2770
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 115 2772 2776 "bi_stream.ml" 115 2772 2788
+type(
+  out_channel -> int -> unit
+)
+ident(
+  int_ref output_int64 "bi_stream.ml" 30 772 776 "bi_stream.ml" 30 772 788
+)
+"bi_stream.ml" 115 2772 2789 "bi_stream.ml" 115 2772 2791
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 106 2534 2581 "bi_stream.ml" 106 2534 2583
+)
+"bi_stream.ml" 115 2772 2793 "bi_stream.ml" 115 2772 2806
+type(
+  string -> int
+)
+ident(
+  ext_ref String.length
+)
+"bi_stream.ml" 115 2772 2807 "bi_stream.ml" 115 2772 2808
+type(
+  string
+)
+ident(
+  int_ref s "bi_stream.ml" 113 2718 2726 "bi_stream.ml" 113 2718 2727
+)
+"bi_stream.ml" 115 2772 2792 "bi_stream.ml" 115 2772 2809
+type(
+  int
+)
+"bi_stream.ml" 115 2772 2776 "bi_stream.ml" 115 2772 2809
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 116 2811 2815 "bi_stream.ml" 116 2811 2828
+type(
+  out_channel -> string -> unit
+)
+ident(
+  ext_ref Pervasives.output_string
+)
+"bi_stream.ml" 116 2811 2829 "bi_stream.ml" 116 2811 2831
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 106 2534 2581 "bi_stream.ml" 106 2534 2583
+)
+"bi_stream.ml" 116 2811 2832 "bi_stream.ml" 116 2811 2833
+type(
+  string
+)
+ident(
+  int_ref s "bi_stream.ml" 113 2718 2726 "bi_stream.ml" 113 2718 2727
+)
+"bi_stream.ml" 116 2811 2815 "bi_stream.ml" 116 2811 2833
+call(
+  tail
+)
+type(
+  unit
+)
+"bi_stream.ml" 115 2772 2776 "bi_stream.ml" 116 2811 2833
+type(
+  unit
+)
+"bi_stream.ml" 114 2745 2749 "bi_stream.ml" 116 2811 2833
+type(
+  unit
+)
+"bi_stream.ml" 113 2718 2722 "bi_stream.ml" 116 2811 2833
+type(
+  unit
+)
+"bi_stream.ml" 112 2706 2710 "bi_stream.ml" 116 2811 2833
+type(
+  unit
+)
+"bi_stream.ml" 111 2691 2695 "bi_stream.ml" 116 2811 2833
+type(
+  unit
+)
+"bi_stream.ml" 110 2653 2657 "bi_stream.ml" 116 2811 2833
+type(
+  unit
+)
+"bi_stream.ml" 118 2839 2841 "bi_stream.ml" 118 2839 2852
+type(
+  ('a -> unit) -> 'a Stream.t -> unit
+)
+ident(
+  ext_ref Stream.iter
+)
+"bi_stream.ml" 119 2855 2863 "bi_stream.ml" 119 2855 2864
+type(
+  'a
+)
+ident(
+  def x "bi_stream.ml" 120 2868 2874 "bi_stream.ml" 123 2936 2958
+)
+"bi_stream.ml" 120 2868 2874 "bi_stream.ml" 120 2868 2878
+type(
+  int ref -> unit
+)
+ident(
+  ext_ref Pervasives.incr
+)
+"bi_stream.ml" 120 2868 2879 "bi_stream.ml" 120 2868 2880
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 107 2589 2595 "bi_stream.ml" 107 2589 2596
+)
+"bi_stream.ml" 120 2868 2874 "bi_stream.ml" 120 2868 2880
+type(
+  unit
+)
+"bi_stream.ml" 121 2882 2888 "bi_stream.ml" 121 2882 2891
+type(
+  'a list ref
+)
+ident(
+  int_ref acc "bi_stream.ml" 108 2608 2614 "bi_stream.ml" 108 2608 2617
+)
+"bi_stream.ml" 121 2882 2892 "bi_stream.ml" 121 2882 2894
+type(
+  'a list ref -> 'a list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 121 2882 2895 "bi_stream.ml" 121 2882 2896
+type(
+  'a
+)
+ident(
+  int_ref x "bi_stream.ml" 119 2855 2863 "bi_stream.ml" 119 2855 2864
+)
+"bi_stream.ml" 121 2882 2900 "bi_stream.ml" 121 2882 2901
+type(
+  'a list ref -> 'a list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 121 2882 2901 "bi_stream.ml" 121 2882 2904
+type(
+  'a list ref
+)
+ident(
+  int_ref acc "bi_stream.ml" 108 2608 2614 "bi_stream.ml" 108 2608 2617
+)
+"bi_stream.ml" 121 2882 2900 "bi_stream.ml" 121 2882 2904
+type(
+  'a list
+)
+"bi_stream.ml" 121 2882 2895 "bi_stream.ml" 121 2882 2904
+type(
+  'a list
+)
+"bi_stream.ml" 121 2882 2888 "bi_stream.ml" 121 2882 2904
+type(
+  unit
+)
+"bi_stream.ml" 122 2906 2915 "bi_stream.ml" 122 2906 2916
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 122 2906 2916 "bi_stream.ml" 122 2906 2917
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 107 2589 2595 "bi_stream.ml" 107 2589 2596
+)
+"bi_stream.ml" 122 2906 2915 "bi_stream.ml" 122 2906 2917
+type(
+  int
+)
+"bi_stream.ml" 122 2906 2918 "bi_stream.ml" 122 2906 2920
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( >= )
+)
+"bi_stream.ml" 122 2906 2921 "bi_stream.ml" 122 2906 2930
+type(
+  int
+)
+ident(
+  int_ref chunk_len "bi_stream.ml" 106 2534 2553 "bi_stream.ml" 106 2534 2562
+)
+"bi_stream.ml" 122 2906 2915 "bi_stream.ml" 122 2906 2930
+type(
+  bool
+)
+"bi_stream.ml" 123 2936 2944 "bi_stream.ml" 123 2936 2955
+type(
+  unit -> unit
+)
+ident(
+  int_ref flush_chunk "bi_stream.ml" 109 2630 2636 "bi_stream.ml" 109 2630 2647
+)
+"bi_stream.ml" 123 2936 2956 "bi_stream.ml" 123 2936 2958
+type(
+  unit
+)
+"bi_stream.ml" 123 2936 2944 "bi_stream.ml" 123 2936 2958
+call(
+  tail
+)
+type(
+  unit
+)
+"bi_stream.ml" 122 2906 2912 "bi_stream.ml" 123 2936 2958
+type(
+  unit
+)
+"bi_stream.ml" 121 2882 2888 "bi_stream.ml" 123 2936 2958
+type(
+  unit
+)
+"bi_stream.ml" 120 2868 2874 "bi_stream.ml" 123 2936 2958
+type(
+  unit
+)
+"bi_stream.ml" 118 2839 2853 "bi_stream.ml" 124 2959 2962
+type(
+  'a -> unit
+)
+"bi_stream.ml" 124 2959 2963 "bi_stream.ml" 124 2959 2965
+type(
+  'a Stream.t
+)
+ident(
+  int_ref st "bi_stream.ml" 106 2534 2584 "bi_stream.ml" 106 2534 2586
+)
+"bi_stream.ml" 118 2839 2841 "bi_stream.ml" 124 2959 2965
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 125 2967 2972 "bi_stream.ml" 125 2967 2973
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 125 2967 2973 "bi_stream.ml" 125 2967 2974
+type(
+  int ref
+)
+ident(
+  int_ref n "bi_stream.ml" 107 2589 2595 "bi_stream.ml" 107 2589 2596
+)
+"bi_stream.ml" 125 2967 2972 "bi_stream.ml" 125 2967 2974
+type(
+  int
+)
+"bi_stream.ml" 125 2967 2975 "bi_stream.ml" 125 2967 2976
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"bi_stream.ml" 125 2967 2977 "bi_stream.ml" 125 2967 2978
+type(
+  int
+)
+"bi_stream.ml" 125 2967 2972 "bi_stream.ml" 125 2967 2978
+type(
+  bool
+)
+"bi_stream.ml" 126 2984 2988 "bi_stream.ml" 126 2984 2999
+type(
+  unit -> unit
+)
+ident(
+  int_ref flush_chunk "bi_stream.ml" 109 2630 2636 "bi_stream.ml" 109 2630 2647
+)
+"bi_stream.ml" 126 2984 3000 "bi_stream.ml" 126 2984 3002
+type(
+  unit
+)
+"bi_stream.ml" 126 2984 2988 "bi_stream.ml" 126 2984 3002
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 125 2967 2969 "bi_stream.ml" 126 2984 3002
+type(
+  unit
+)
+"bi_stream.ml" 127 3004 3006 "bi_stream.ml" 127 3004 3017
+type(
+  out_channel -> char -> unit
+)
+ident(
+  ext_ref Pervasives.output_char
+)
+"bi_stream.ml" 127 3004 3018 "bi_stream.ml" 127 3004 3020
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 106 2534 2581 "bi_stream.ml" 106 2534 2583
+)
+"bi_stream.ml" 127 3004 3021 "bi_stream.ml" 127 3004 3027
+type(
+  char
+)
+"bi_stream.ml" 127 3004 3006 "bi_stream.ml" 127 3004 3027
+call(
+  tail
+)
+type(
+  unit
+)
+"bi_stream.ml" 125 2967 2969 "bi_stream.ml" 127 3004 3027
+type(
+  unit
+)
+"bi_stream.ml" 118 2839 2841 "bi_stream.ml" 127 3004 3027
+type(
+  unit
+)
+"bi_stream.ml" 109 2630 2632 "bi_stream.ml" 127 3004 3027
+type(
+  unit
+)
+"bi_stream.ml" 108 2608 2610 "bi_stream.ml" 127 3004 3027
+type(
+  unit
+)
+"bi_stream.ml" 107 2589 2591 "bi_stream.ml" 127 3004 3027
+type(
+  unit
+)
+"bi_stream.ml" 130 3030 3034 "bi_stream.ml" 130 3030 3038
+type(
+  int list -> bool
+)
+ident(
+  def test "bi_stream.ml" 148 3584 3602 "bi_stream.ml" 1 0 -1
+)
+"bi_stream.ml" 130 3030 3039 "bi_stream.ml" 130 3030 3040
+type(
+  int list
+)
+ident(
+  def l "bi_stream.ml" 131 3043 3045 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 131 3043 3045 "bi_stream.ml" 131 3043 3054
+type(
+  (int -> unit) -> int list -> unit
+)
+ident(
+  ext_ref List.iter
+)
+"bi_stream.ml" 131 3043 3060 "bi_stream.ml" 131 3043 3061
+type(
+  int
+)
+ident(
+  def x "bi_stream.ml" 131 3043 3065 "bi_stream.ml" 131 3043 3090
+)
+"bi_stream.ml" 131 3043 3073 "bi_stream.ml" 131 3043 3074
+type(
+  int
+)
+ident(
+  int_ref x "bi_stream.ml" 131 3043 3060 "bi_stream.ml" 131 3043 3061
+)
+"bi_stream.ml" 131 3043 3075 "bi_stream.ml" 131 3043 3077
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( >= )
+)
+"bi_stream.ml" 131 3043 3078 "bi_stream.ml" 131 3043 3079
+type(
+  int
+)
+"bi_stream.ml" 131 3043 3073 "bi_stream.ml" 131 3043 3079
+type(
+  bool
+)
+"bi_stream.ml" 131 3043 3080 "bi_stream.ml" 131 3043 3082
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"bi_stream.ml" 131 3043 3083 "bi_stream.ml" 131 3043 3084
+type(
+  int
+)
+ident(
+  int_ref x "bi_stream.ml" 131 3043 3060 "bi_stream.ml" 131 3043 3061
+)
+"bi_stream.ml" 131 3043 3085 "bi_stream.ml" 131 3043 3087
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( <= )
+)
+"bi_stream.ml" 131 3043 3088 "bi_stream.ml" 131 3043 3089
+type(
+  int
+)
+"bi_stream.ml" 131 3043 3083 "bi_stream.ml" 131 3043 3089
+type(
+  bool
+)
+"bi_stream.ml" 131 3043 3072 "bi_stream.ml" 131 3043 3090
+type(
+  bool
+)
+"bi_stream.ml" 131 3043 3065 "bi_stream.ml" 131 3043 3090
+type(
+  unit
+)
+"bi_stream.ml" 131 3043 3055 "bi_stream.ml" 131 3043 3091
+type(
+  int -> unit
+)
+"bi_stream.ml" 131 3043 3092 "bi_stream.ml" 131 3043 3093
+type(
+  int list
+)
+ident(
+  int_ref l "bi_stream.ml" 130 3030 3039 "bi_stream.ml" 130 3030 3040
+)
+"bi_stream.ml" 131 3043 3045 "bi_stream.ml" 131 3043 3093
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 132 3095 3101 "bi_stream.ml" 132 3095 3110
+type(
+  int array -> string
+)
+ident(
+  def to_string "bi_stream.ml" 135 3184 3186 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 132 3095 3111 "bi_stream.ml" 132 3095 3112
+type(
+  int array
+)
+ident(
+  def a "bi_stream.ml" 133 3115 3119 "bi_stream.ml" 133 3115 3178
+)
+"bi_stream.ml" 133 3115 3119 "bi_stream.ml" 133 3115 3132
+type(
+  string -> string list -> string
+)
+ident(
+  ext_ref String.concat
+)
+"bi_stream.ml" 133 3115 3133 "bi_stream.ml" 133 3115 3135
+type(
+  string
+)
+"bi_stream.ml" 133 3115 3137 "bi_stream.ml" 133 3115 3145
+type(
+  (int -> string) -> int list -> string list
+)
+ident(
+  ext_ref List.map
+)
+"bi_stream.ml" 133 3115 3146 "bi_stream.ml" 133 3115 3159
+type(
+  int -> string
+)
+ident(
+  ext_ref Pervasives.string_of_int
+)
+"bi_stream.ml" 133 3115 3161 "bi_stream.ml" 133 3115 3174
+type(
+  int array -> int list
+)
+ident(
+  ext_ref Array.to_list
+)
+"bi_stream.ml" 133 3115 3175 "bi_stream.ml" 133 3115 3176
+type(
+  int array
+)
+ident(
+  int_ref a "bi_stream.ml" 132 3095 3111 "bi_stream.ml" 132 3095 3112
+)
+"bi_stream.ml" 133 3115 3160 "bi_stream.ml" 133 3115 3177
+call(
+  stack
+)
+type(
+  int list
+)
+"bi_stream.ml" 133 3115 3136 "bi_stream.ml" 133 3115 3178
+call(
+  stack
+)
+type(
+  string list
+)
+"bi_stream.ml" 133 3115 3119 "bi_stream.ml" 133 3115 3178
+call(
+  tail
+)
+type(
+  string
+)
+"bi_stream.ml" 135 3184 3190 "bi_stream.ml" 135 3184 3199
+type(
+  string -> int array
+)
+ident(
+  def of_string "bi_stream.ml" 138 3289 3291 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 135 3184 3200 "bi_stream.ml" 135 3184 3201
+type(
+  string
+)
+ident(
+  def s "bi_stream.ml" 136 3204 3208 "bi_stream.ml" 136 3204 3283
+)
+"bi_stream.ml" 136 3204 3208 "bi_stream.ml" 136 3204 3218
+type(
+  int -> (int -> int) -> int array
+)
+ident(
+  ext_ref Array.init
+)
+"bi_stream.ml" 136 3204 3220 "bi_stream.ml" 136 3204 3233
+type(
+  string -> int
+)
+ident(
+  ext_ref String.length
+)
+"bi_stream.ml" 136 3204 3234 "bi_stream.ml" 136 3204 3235
+type(
+  string
+)
+ident(
+  int_ref s "bi_stream.ml" 135 3184 3200 "bi_stream.ml" 135 3184 3201
+)
+"bi_stream.ml" 136 3204 3219 "bi_stream.ml" 136 3204 3236
+type(
+  int
+)
+"bi_stream.ml" 136 3204 3242 "bi_stream.ml" 136 3204 3243
+type(
+  int
+)
+ident(
+  def i "bi_stream.ml" 136 3204 3247 "bi_stream.ml" 136 3204 3282
+)
+"bi_stream.ml" 136 3204 3247 "bi_stream.ml" 136 3204 3260
+type(
+  string -> int
+)
+ident(
+  ext_ref Pervasives.int_of_string
+)
+"bi_stream.ml" 136 3204 3262 "bi_stream.ml" 136 3204 3273
+type(
+  int -> char -> string
+)
+ident(
+  ext_ref String.make
+)
+"bi_stream.ml" 136 3204 3274 "bi_stream.ml" 136 3204 3275
+type(
+  int
+)
+"bi_stream.ml" 136 3204 3276 "bi_stream.ml" 136 3204 3277
+type(
+  string
+)
+ident(
+  int_ref s "bi_stream.ml" 135 3184 3200 "bi_stream.ml" 135 3184 3201
+)
+"bi_stream.ml" 136 3204 3279 "bi_stream.ml" 136 3204 3280
+type(
+  int
+)
+ident(
+  int_ref i "bi_stream.ml" 136 3204 3242 "bi_stream.ml" 136 3204 3243
+)
+"bi_stream.ml" 136 3204 3276 "bi_stream.ml" 136 3204 3281
+type(
+  char
+)
+"bi_stream.ml" 136 3204 3261 "bi_stream.ml" 136 3204 3282
+call(
+  stack
+)
+type(
+  string
+)
+"bi_stream.ml" 136 3204 3247 "bi_stream.ml" 136 3204 3282
+type(
+  int
+)
+"bi_stream.ml" 136 3204 3237 "bi_stream.ml" 136 3204 3283
+type(
+  int -> int
+)
+"bi_stream.ml" 136 3204 3208 "bi_stream.ml" 136 3204 3283
+call(
+  tail
+)
+type(
+  int array
+)
+"bi_stream.ml" 138 3289 3295 "bi_stream.ml" 138 3289 3297
+type(
+  int Stream.t
+)
+ident(
+  def st "bi_stream.ml" 139 3320 3322 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 138 3289 3300 "bi_stream.ml" 138 3289 3314
+type(
+  int list -> int Stream.t
+)
+ident(
+  ext_ref Stream.of_list
+)
+"bi_stream.ml" 138 3289 3315 "bi_stream.ml" 138 3289 3316
+type(
+  int list
+)
+ident(
+  int_ref l "bi_stream.ml" 130 3030 3039 "bi_stream.ml" 130 3030 3040
+)
+"bi_stream.ml" 138 3289 3300 "bi_stream.ml" 138 3289 3316
+call(
+  stack
+)
+type(
+  int Stream.t
+)
+"bi_stream.ml" 139 3320 3326 "bi_stream.ml" 139 3320 3328
+type(
+  out_channel
+)
+ident(
+  def oc "bi_stream.ml" 140 3361 3363 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 139 3320 3331 "bi_stream.ml" 139 3320 3339
+type(
+  string -> out_channel
+)
+ident(
+  ext_ref Pervasives.open_out
+)
+"bi_stream.ml" 139 3320 3340 "bi_stream.ml" 139 3320 3357
+type(
+  string
+)
+"bi_stream.ml" 139 3320 3331 "bi_stream.ml" 139 3320 3357
+call(
+  stack
+)
+type(
+  out_channel
+)
+"bi_stream.ml" 140 3361 3363 "bi_stream.ml" 140 3361 3375
+type(
+  ?chunk_len:int ->
+  (int array -> string) -> out_channel -> int Stream.t -> unit
+)
+ident(
+  int_ref write_stream "bi_stream.ml" 106 2534 2538 "bi_stream.ml" 106 2534 2550
+)
+"bi_stream.ml" 140 3361 3387 "bi_stream.ml" 140 3361 3388
+type(
+  int
+)
+"bi_stream.ml" 140 3361 3389 "bi_stream.ml" 140 3361 3398
+type(
+  int array -> string
+)
+ident(
+  int_ref to_string "bi_stream.ml" 132 3095 3101 "bi_stream.ml" 132 3095 3110
+)
+"bi_stream.ml" 140 3361 3399 "bi_stream.ml" 140 3361 3401
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 139 3320 3326 "bi_stream.ml" 139 3320 3328
+)
+"bi_stream.ml" 140 3361 3402 "bi_stream.ml" 140 3361 3404
+type(
+  int Stream.t
+)
+ident(
+  int_ref st "bi_stream.ml" 138 3289 3295 "bi_stream.ml" 138 3289 3297
+)
+"bi_stream.ml" 140 3361 3363 "bi_stream.ml" 140 3361 3404
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 141 3406 3408 "bi_stream.ml" 141 3406 3417
+type(
+  out_channel -> unit
+)
+ident(
+  ext_ref Pervasives.close_out
+)
+"bi_stream.ml" 141 3406 3418 "bi_stream.ml" 141 3406 3420
+type(
+  out_channel
+)
+ident(
+  int_ref oc "bi_stream.ml" 139 3320 3326 "bi_stream.ml" 139 3320 3328
+)
+"bi_stream.ml" 141 3406 3408 "bi_stream.ml" 141 3406 3420
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 143 3423 3429 "bi_stream.ml" 143 3423 3431
+type(
+  in_channel
+)
+ident(
+  def ic "bi_stream.ml" 144 3463 3465 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 143 3423 3434 "bi_stream.ml" 143 3423 3441
+type(
+  string -> in_channel
+)
+ident(
+  ext_ref Pervasives.open_in
+)
+"bi_stream.ml" 143 3423 3442 "bi_stream.ml" 143 3423 3459
+type(
+  string
+)
+"bi_stream.ml" 143 3423 3434 "bi_stream.ml" 143 3423 3459
+call(
+  stack
+)
+type(
+  in_channel
+)
+"bi_stream.ml" 144 3463 3469 "bi_stream.ml" 144 3463 3472
+type(
+  int Stream.t
+)
+ident(
+  def st' "bi_stream.ml" 145 3503 3505 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 144 3463 3475 "bi_stream.ml" 144 3463 3486
+type(
+  (bytes -> int array) -> in_channel -> int Stream.t
+)
+ident(
+  int_ref read_stream "bi_stream.ml" 87 2073 2077 "bi_stream.ml" 87 2073 2088
+)
+"bi_stream.ml" 144 3463 3487 "bi_stream.ml" 144 3463 3496
+type(
+  bytes -> int array
+)
+ident(
+  int_ref of_string "bi_stream.ml" 135 3184 3190 "bi_stream.ml" 135 3184 3199
+)
+"bi_stream.ml" 144 3463 3497 "bi_stream.ml" 144 3463 3499
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 143 3423 3429 "bi_stream.ml" 143 3423 3431
+)
+"bi_stream.ml" 144 3463 3475 "bi_stream.ml" 144 3463 3499
+call(
+  stack
+)
+type(
+  int Stream.t
+)
+"bi_stream.ml" 145 3503 3509 "bi_stream.ml" 145 3503 3511
+type(
+  int list ref
+)
+ident(
+  def l' "bi_stream.ml" 146 3524 3526 "bi_stream.ml" 148 3584 3602
+)
+"bi_stream.ml" 145 3503 3514 "bi_stream.ml" 145 3503 3517
+type(
+  int list -> int list ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"bi_stream.ml" 145 3503 3518 "bi_stream.ml" 145 3503 3520
+type(
+  int list
+)
+"bi_stream.ml" 145 3503 3514 "bi_stream.ml" 145 3503 3520
+type(
+  int list ref
+)
+"bi_stream.ml" 146 3524 3526 "bi_stream.ml" 146 3524 3537
+type(
+  (int -> unit) -> int Stream.t -> unit
+)
+ident(
+  ext_ref Stream.iter
+)
+"bi_stream.ml" 146 3524 3543 "bi_stream.ml" 146 3524 3544
+type(
+  int
+)
+ident(
+  def i "bi_stream.ml" 146 3524 3548 "bi_stream.ml" 146 3524 3562
+)
+"bi_stream.ml" 146 3524 3548 "bi_stream.ml" 146 3524 3550
+type(
+  int list ref
+)
+ident(
+  int_ref l' "bi_stream.ml" 145 3503 3509 "bi_stream.ml" 145 3503 3511
+)
+"bi_stream.ml" 146 3524 3551 "bi_stream.ml" 146 3524 3553
+type(
+  int list ref -> int list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"bi_stream.ml" 146 3524 3554 "bi_stream.ml" 146 3524 3555
+type(
+  int
+)
+ident(
+  int_ref i "bi_stream.ml" 146 3524 3543 "bi_stream.ml" 146 3524 3544
+)
+"bi_stream.ml" 146 3524 3559 "bi_stream.ml" 146 3524 3560
+type(
+  int list ref -> int list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 146 3524 3560 "bi_stream.ml" 146 3524 3562
+type(
+  int list ref
+)
+ident(
+  int_ref l' "bi_stream.ml" 145 3503 3509 "bi_stream.ml" 145 3503 3511
+)
+"bi_stream.ml" 146 3524 3559 "bi_stream.ml" 146 3524 3562
+type(
+  int list
+)
+"bi_stream.ml" 146 3524 3554 "bi_stream.ml" 146 3524 3562
+type(
+  int list
+)
+"bi_stream.ml" 146 3524 3548 "bi_stream.ml" 146 3524 3562
+type(
+  unit
+)
+"bi_stream.ml" 146 3524 3538 "bi_stream.ml" 146 3524 3563
+type(
+  int -> unit
+)
+"bi_stream.ml" 146 3524 3564 "bi_stream.ml" 146 3524 3567
+type(
+  int Stream.t
+)
+ident(
+  int_ref st' "bi_stream.ml" 144 3463 3469 "bi_stream.ml" 144 3463 3472
+)
+"bi_stream.ml" 146 3524 3526 "bi_stream.ml" 146 3524 3567
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 147 3569 3571 "bi_stream.ml" 147 3569 3579
+type(
+  in_channel -> unit
+)
+ident(
+  ext_ref Pervasives.close_in
+)
+"bi_stream.ml" 147 3569 3580 "bi_stream.ml" 147 3569 3582
+type(
+  in_channel
+)
+ident(
+  int_ref ic "bi_stream.ml" 143 3423 3429 "bi_stream.ml" 143 3423 3431
+)
+"bi_stream.ml" 147 3569 3571 "bi_stream.ml" 147 3569 3582
+call(
+  stack
+)
+type(
+  unit
+)
+"bi_stream.ml" 148 3584 3586 "bi_stream.ml" 148 3584 3587
+type(
+  int list
+)
+ident(
+  int_ref l "bi_stream.ml" 130 3030 3039 "bi_stream.ml" 130 3030 3040
+)
+"bi_stream.ml" 148 3584 3588 "bi_stream.ml" 148 3584 3589
+type(
+  int list -> int list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"bi_stream.ml" 148 3584 3590 "bi_stream.ml" 148 3584 3598
+type(
+  int list -> int list
+)
+ident(
+  ext_ref List.rev
+)
+"bi_stream.ml" 148 3584 3599 "bi_stream.ml" 148 3584 3600
+type(
+  int list ref -> int list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"bi_stream.ml" 148 3584 3600 "bi_stream.ml" 148 3584 3602
+type(
+  int list ref
+)
+ident(
+  int_ref l' "bi_stream.ml" 145 3503 3509 "bi_stream.ml" 145 3503 3511
+)
+"bi_stream.ml" 148 3584 3599 "bi_stream.ml" 148 3584 3602
+type(
+  int list
+)
+"bi_stream.ml" 148 3584 3590 "bi_stream.ml" 148 3584 3602
+call(
+  stack
+)
+type(
+  int list
+)
+"bi_stream.ml" 148 3584 3586 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 147 3569 3571 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 146 3524 3526 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 145 3503 3505 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 144 3463 3465 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 143 3423 3425 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 141 3406 3408 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 140 3361 3363 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 139 3320 3322 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 138 3289 3291 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 135 3184 3186 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 132 3095 3097 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)
+"bi_stream.ml" 131 3043 3045 "bi_stream.ml" 148 3584 3602
+type(
+  bool
+)

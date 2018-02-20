@@ -1,0 +1,339 @@
+.TH "Scanf" 3 2018-02-20 OCamldoc "OCaml library"
+.SH NAME
+Scanf \- Formatted input functions.
+.SH Module
+Module   Scanf
+.SH Documentation
+.sp
+Module
+.BI "Scanf"
+ : 
+.B sig  end
+
+.sp
+Formatted input functions\&.
+
+.sp
+
+.sp
+.sp
+.I module Scanning : 
+.B sig  end
+
+.sp
+
+.sp
+.I type 
+.B ('a, 'b, 'c, 'd)
+.I scanner 
+= 
+.B ('a, Scanning.in_channel, 'b, 'c, 'a -> 'd, 'd) Pervasives.format6 ->
+.B   'c
+
+.sp
+The type of formatted input scanners: 
+.B (\&'a, \&'b, \&'c, \&'d) scanner
+is the type of a formatted input function that reads from some
+formatted input channel according to some format string; more
+precisely, if 
+.B scan
+is some formatted input function, then 
+.B scan
+.B     ic fmt f
+applies 
+.B f
+to the arguments specified by the format
+string 
+.B fmt
+, when 
+.B scan
+has read those arguments from the
+formatted input channel 
+.B ic
+\&.
+.sp
+For instance, the 
+.B scanf
+function below has type 
+.B (\&'a, \&'b, \&'c, \&'d)
+.B     scanner
+, since it is a formatted input function that reads from
+.B Scanning\&.stdin
+: 
+.B scanf fmt f
+applies 
+.B f
+to the arguments specified by
+.B fmt
+, reading those arguments from 
+.B Pervasives\&.stdin
+as expected\&.
+.sp
+If the format 
+.B fmt
+has some 
+.B %r
+indications, the corresponding input
+functions must be provided before the receiver 
+.B f
+argument\&. For
+instance, if 
+.B read_elem
+is an input function for values of type 
+.B t
+,
+then 
+.B bscanf ic "%r;" read_elem f
+reads a value 
+.B v
+of type 
+.B t
+followed
+by a 
+.B \&';\&'
+character, and returns 
+.B f v
+\&.
+
+.sp
+.B "Since"
+3.10.0
+
+.sp
+
+.I exception Scan_failure 
+.B of 
+.B string
+
+.sp
+The exception that formatted input functions raise when the input cannot
+be read according to the given format\&.
+
+.sp
+
+.I val bscanf 
+: 
+.B Scanning.in_channel -> ('a, 'b, 'c, 'd) scanner
+.sp
+
+.B bscanf ic fmt r1 \&.\&.\&. rN f
+reads arguments for the function 
+.B f
+, from the
+formatted input channel 
+.B ic
+, according to the format string 
+.B fmt
+, and
+applies 
+.B f
+to these values\&.
+The result of this call to 
+.B f
+is returned as the result of the entire
+.B bscanf
+call\&.
+For instance, if 
+.B f
+is the function 
+.B fun s i \-> i + 1
+, then
+.B Scanf\&.sscanf "x=  1" "%s = %i" f
+returns 
+.B 2
+\&.
+.sp
+Arguments 
+.B r1
+to 
+.B rN
+are user\-defined input functions that read the
+argument corresponding to the 
+.B %r
+conversions specified in the format
+string\&.
+
+.sp
+
+.I val fscanf 
+: 
+.B Pervasives.in_channel -> ('a, 'b, 'c, 'd) scanner
+.sp
+Same as 
+.B Scanf\&.bscanf
+, but reads from the given regular input channel\&.
+.sp
+Warning: since all formatted input functions operate from a formatted
+input channel, be aware that each 
+.B fscanf
+invocation will operate with a
+formatted input channel reading from the given channel\&. This extra level
+of bufferization can lead to a strange scanning behaviour if you use low
+level primitives on the channel (reading characters, seeking the reading
+position, and so on)\&.
+.sp
+As a consequence, never mix direct low level reading and high level
+scanning from the same regular input channel\&.
+
+.sp
+
+.I val sscanf 
+: 
+.B string -> ('a, 'b, 'c, 'd) scanner
+.sp
+Same as 
+.B Scanf\&.bscanf
+, but reads from the given string\&.
+
+.sp
+
+.I val scanf 
+: 
+.B ('a, 'b, 'c, 'd) scanner
+.sp
+Same as 
+.B Scanf\&.bscanf
+, but reads from the predefined formatted input
+channel 
+.B Scanf\&.Scanning\&.stdin
+that is connected to 
+.B Pervasives\&.stdin
+\&.
+
+.sp
+
+.I val kscanf 
+: 
+.B Scanning.in_channel ->
+.B   (Scanning.in_channel -> exn -> 'd) -> ('a, 'b, 'c, 'd) scanner
+.sp
+Same as 
+.B Scanf\&.bscanf
+, but takes an additional function argument
+.B ef
+that is called in case of error: if the scanning process or
+some conversion fails, the scanning function aborts and calls the
+error handling function 
+.B ef
+with the formatted input channel and the
+exception that aborted the scanning process as arguments\&.
+
+.sp
+
+.I val ksscanf 
+: 
+.B string ->
+.B   (Scanning.in_channel -> exn -> 'd) -> ('a, 'b, 'c, 'd) scanner
+.sp
+Same as 
+.B Scanf\&.kscanf
+but reads from the given string\&.
+
+.sp
+.B "Since"
+4.02.0
+
+.sp
+
+.I val kfscanf 
+: 
+.B Pervasives.in_channel ->
+.B   (Scanning.in_channel -> exn -> 'd) -> ('a, 'b, 'c, 'd) scanner
+.sp
+Same as 
+.B Scanf\&.kscanf
+, but reads from the given regular input channel\&.
+
+.sp
+.B "Since"
+4.02.0
+
+.sp
+
+.I val bscanf_format 
+: 
+.B Scanning.in_channel ->
+.B   ('a, 'b, 'c, 'd, 'e, 'f) Pervasives.format6 ->
+.B   (('a, 'b, 'c, 'd, 'e, 'f) Pervasives.format6 -> 'g) -> 'g
+.sp
+
+.B bscanf_format ic fmt f
+reads a format string token from the formatted
+input channel 
+.B ic
+, according to the given format string 
+.B fmt
+, and
+applies 
+.B f
+to the resulting format string value\&.
+Raise 
+.B Scan_failure
+if the format string value read does not have the
+same type as 
+.B fmt
+\&.
+
+.sp
+.B "Since"
+3.09.0
+
+.sp
+
+.I val sscanf_format 
+: 
+.B string ->
+.B   ('a, 'b, 'c, 'd, 'e, 'f) Pervasives.format6 ->
+.B   (('a, 'b, 'c, 'd, 'e, 'f) Pervasives.format6 -> 'g) -> 'g
+.sp
+Same as 
+.B Scanf\&.bscanf_format
+, but reads from the given string\&.
+
+.sp
+.B "Since"
+3.09.0
+
+.sp
+
+.I val format_from_string 
+: 
+.B string ->
+.B   ('a, 'b, 'c, 'd, 'e, 'f) Pervasives.format6 ->
+.B   ('a, 'b, 'c, 'd, 'e, 'f) Pervasives.format6
+.sp
+
+.B format_from_string s fmt
+converts a string argument to a format string,
+according to the given format string 
+.B fmt
+\&.
+Raise 
+.B Scan_failure
+if 
+.B s
+, considered as a format string, does not
+have the same type as 
+.B fmt
+\&.
+
+.sp
+.B "Since"
+3.10.0
+
+.sp
+
+.I val unescaped 
+: 
+.B string -> string
+.sp
+Return a copy of the argument with escape sequences, following the
+lexical conventions of OCaml, replaced by their corresponding
+special characters\&. If there is no escape sequence in the
+argument, still return a copy, contrary to String\&.escaped\&.
+
+.sp
+.B "Since"
+4.00.0
+
+.sp

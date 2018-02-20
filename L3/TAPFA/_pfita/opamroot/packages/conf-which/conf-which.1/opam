@@ -1,0 +1,17 @@
+opam-version: "1.2"
+maintainer: "Francois BERENGER <ligand@free.fr>"
+authors: "Carlo Wood"
+homepage: "http://www.gnu.org/software/which/"
+bug-reports: "https://github.com/ocaml/opam-repository/issues"
+license: "GPL-2+"
+dev-repo: "https://github.com/ocaml/opam-repository.git"
+build: ["which" "which"]
+depexts: [
+  [["archlinux"] ["which"]]
+  [["centos"] ["which"]]
+  [["debian"] ["debianutils"]]
+  [["fedora"] ["which"]]
+  [["nixpkgs"] ["which"]]
+  [["opensuse"] ["which"]]
+  [["ubuntu"] ["debianutils"]]
+]

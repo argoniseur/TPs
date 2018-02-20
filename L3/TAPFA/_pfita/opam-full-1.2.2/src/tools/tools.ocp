@@ -1,0 +1,31 @@
+begin program "opam-check"
+  files = [ "opam_check.ml" ]
+  requires = [ "opam-client" ]
+end
+
+begin program "opam-admin"
+  files = [
+    "opam_mk_repo.ml"
+    "opam_repo_check.ml"
+    "opam_stats.ml"
+    "opam_depexts_change.ml"
+    "opam_findlib.ml"
+    "opam_rename.ml"
+    "opam_admin.ml"
+  ]
+  requires = [ "opam-client" ]
+end
+
+begin program "opam-installer"
+  files = [
+    "opam_installer.ml"
+  ]
+  requires = [ "opam-client" ]
+end
+
+begin program "opamlfind"
+  files = [
+    "opamlfind.ml"
+  ]
+  requires = [ "unix" ]
+end
