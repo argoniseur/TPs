@@ -216,7 +216,8 @@ color3 shade(vec3 n, vec3 v, vec3 l, color3 lc, Material *mat ){
 //! if tree is not null, use intersectKdTree to compute the intersection instead of intersect scene
 color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {  
   color3 ret = color3(0,0,0);
-  Intersection intersection;
+  Intersection intersection, intersectionOmbre;
+  Ray rayOmbre;
   size_t lightsCount = scene->lights.size();
 
   if(intersectScene(scene, ray, &intersection)){
@@ -229,7 +230,11 @@ color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {
     for (int i = 0; i < (int)lightsCount; i++){
       lc = scene->lights[i]->color;
       l = normalize(scene->lights[i]->position - intersection.position);
-      ret = ret + shade(normal, v, l, lc, mat);
+      rayInit(&rayOmbre, intersection.position+acne_eps*l, l);
+      
+      if (!intersectScene(scene, &rayOmbre, &intersectionOmbre)){
+        ret = ret + shade(normal, v, l, lc, mat);
+      }
     }
 
   }else{
