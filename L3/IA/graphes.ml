@@ -162,8 +162,36 @@ let rec profondeur attente estBut etatsSuivants = match attente with
 					profondeur ((etatsSuivants x)@reste) estBut etatsSuivants);;
 
 (*pour G3 il boucle. Il faut une liste de dejaVus pour palier au problème.*)
-let getOP = fun(op;_;_) -> op;;
-let getCout = fun(_;cout;_) -> cout;;
-let getEtat = fun(_;_;etat) -> etat;;
+
+(*Algo A etoile*)
+
+let getOP = fun (op,_,_) -> op;;
+let getCout = fun (_,cout,_) -> cout;;
+let getEtat = fun (_,_,etat) -> etat;;
+
+
+let initGAe = "A" ;;
+let estButGAe = (function "H" -> true | "I" -> true | _ -> false) ;;
+let opPossGAe = (function
+    "A" -> [('n',3,"C");('e',4,"B")] 
+  | "B" -> [('s',7,"D");('e',4,"E")] 
+  | "C" -> [('n',9,"F");('o',2,"D")] 
+  | "D" -> [('e',6,"I")]
+  | "E" -> [('s',4,"I")]
+  | "F" -> [('e',7,"G");('n',9,"H");('o',7,"I")] 
+  |  _ -> [] );;
+let hEtatGAe = (function
+    "A" -> 7
+  | "B" -> 3	
+  | "C" -> 5
+  | "D" -> 2
+  | "E" -> 2
+  | "F" -> 2
+  | "G" -> 100
+  |  _ -> 0 );;
+
+getOP ('n',3,"C");;
 (*'a (etat) -> int (cout pour y arriver) -> (’a -> (’a * int * ’b) list) (opPoss) -> (’a -> int) (hEtat) -> (’a (etat) * int (g) * int (h)) list *)
-let creerLesFils etat cout opPoss hEtat = 
+(* let creerLesFils etat cout opPoss hEtat = *)
+
+(* ('a * int * int) list -> ('a * int * int) list -> ('a * int * int) list *) 
