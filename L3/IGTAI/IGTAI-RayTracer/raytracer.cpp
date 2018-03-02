@@ -35,6 +35,7 @@ bool intersectPlane(Ray *ray, Intersection *intersection, Object *obj) {
 
     intersection->normal = normal;
     intersection->position = rayAt(*ray, t);
+    intersection->mat = &(obj->mat);
     ray->tmax = t;
   
     return true;
@@ -77,6 +78,7 @@ bool intersectSphere(Ray *ray, Intersection *intersection, Object *obj) {
 	point3 p = rayAt(*ray, t);
     intersection->normal = normalize(p-center);
     intersection->position = p;
+    intersection->mat = &(obj->mat);
     ray->tmax = t;
   
     return true;
@@ -89,6 +91,16 @@ bool intersectScene(const Scene *scene, Ray *ray, Intersection *intersection) {
 
   //!\todo loop on each object of the scene to compute intersection
 
+  for (int i=0;i<(int)objectCount;i++){
+    if(scene->objects[i]->geom.type == SPHERE){
+        if(intersectSphere(ray, intersection, scene->objects[i]))
+          hasIntersection = true;
+    }
+    if(scene->objects[i]->geom.type == PLANE){
+        if(intersectPlane(ray, intersection, scene->objects[i]))
+          hasIntersection = true;
+    }
+  }
   return hasIntersection;
 }
 
@@ -187,21 +199,42 @@ color3 RDM_bsdf(float LdotH, float NdotH, float VdotH, float LdotN, float VdotN,
 
 color3 shade(vec3 n, vec3 v, vec3 l, color3 lc, Material *mat ){
   color3 ret = color3(0.f);
+  float dote = dot(l, n);
+  color3 tmp;
 
-  //! \todo compute bsdf, return the shaded color taking into account the
-  //! lightcolor
-  
-
-  return ret;
-	    
+  if (dote < 0)
+    ret = color3(0,0,0);
+  else{
+    tmp = color3(mat->diffuseColor / 3.141f);
+    tmp = tmp * dote;
+    tmp = tmp * lc;
+    ret = tmp;
+  }
+  return ret;	    
 }
 
 //! if tree is not null, use intersectKdTree to compute the intersection instead of intersect scene
 color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {  
   color3 ret = color3(0,0,0);
   Intersection intersection;
+  size_t lightsCount = scene->lights.size();
 
+  if(intersectScene(scene, ray, &intersection)){
+    vec3 normal = intersection.normal;
+    vec3 v = (-(1.f))*(ray->dir);
+    color3 lc;
+    vec3 l;
+    Material *mat = intersection.mat;
 
+    for (int i = 0; i < (int)lightsCount; i++){
+      lc = scene->lights[i]->color;
+      l = normalize(scene->lights[i]->position - intersection.position);
+      ret = ret + shade(normal, v, l, lc, mat);
+    }
+
+  }else{
+    ret = scene->skyColor;
+  }
 
 
 
