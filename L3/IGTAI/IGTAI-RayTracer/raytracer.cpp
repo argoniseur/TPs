@@ -230,7 +230,7 @@ color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {
     for (int i = 0; i < (int)lightsCount; i++){
       lc = scene->lights[i]->color;
       l = normalize(scene->lights[i]->position - intersection.position);
-      rayInit(&rayOmbre, intersection.position+acne_eps*l, l);
+      rayInit(&rayOmbre, intersection.position, l, acne_eps,distance(intersection.position,scene->lights[i]->position)-acne_eps);
       
       if (!intersectScene(scene, &rayOmbre, &intersectionOmbre)){
         ret = ret + shade(normal, v, l, lc, mat);
