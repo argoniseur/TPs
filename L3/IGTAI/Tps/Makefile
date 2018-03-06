@@ -14,7 +14,7 @@
 # Ne modifiez pas cette partie 
 # Exception : en cas de refus de l'option -Wpedantic, la remplacer par -pedantic
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -std=c90 -Wpedantic
+CFLAGS=-Wall -Werror -Wextra -std=c99 -Wpedantic
 LDFLAGS= $(CFLAGS)
 LDLIBS=-lm
 RM=rm -f
