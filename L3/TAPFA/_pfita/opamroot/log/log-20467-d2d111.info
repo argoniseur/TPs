@@ -1,7 +1,0 @@
-[33m#[m [33mopam-version[m 1.2.2
-[33m#[m [33mos[m           linux
-[33m#[m [33mcommand[m      patch -p0 -i /home/louis/Documents/GitHub/TPs/L3/TAPFA/_pfita/opamroot/4.02.2/build/ocamlfind.1.7.3-1/check-num-in-sitelib.patch --dry-run
-[33m#[m [33mpath[m         /home/louis/Documents/GitHub/TPs/L3/TAPFA/_pfita/opamroot/4.02.2/build/ocamlfind.1.7.3-1
-[33m#[m [33menv-file[m     /home/louis/Documents/GitHub/TPs/L3/TAPFA/_pfita/opamroot/log/log-20467-d2d111.env
-[33m#[m [33mstdout-file[m  /home/louis/Documents/GitHub/TPs/L3/TAPFA/_pfita/opamroot/log/log-20467-d2d111.out
-[33m#[m [33mstderr-file[m  /home/louis/Documents/GitHub/TPs/L3/TAPFA/_pfita/opamroot/log/log-20467-d2d111.err
