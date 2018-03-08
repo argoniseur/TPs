@@ -7,8 +7,8 @@
 #include "raytracer.h"
 #include "image.h"
 
-#define WIDTH 16000
-#define HEIGHT 12000
+#define WIDTH 800
+#define HEIGHT 600
 
 /* nickel :
  mat.diffuseColor = color3(0.014, 0.012, 0.012);
