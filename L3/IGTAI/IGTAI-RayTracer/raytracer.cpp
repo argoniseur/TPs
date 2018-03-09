@@ -140,7 +140,7 @@ float RDM_Beckmann(float NdotH, float alpha) {
 float RDM_Fresnel(float LdotH, float extIOR, float intIOR) {
 
   float cosTetaI;
-  cosTetaI=LdotH;
+  cosTetaI = LdotH;
 
   float sinTetaTCarre = ((extIOR/intIOR)*(extIOR/intIOR))*(1-(cosTetaI*cosTetaI));
   if (sinTetaTCarre>1)
@@ -168,7 +168,7 @@ float RDM_G1(float DdotH, float DdotN, float alpha) {
   float k = DdotH/DdotN;
 
 
-  if (k>0 && b<1.6)
+  if (k > 0 && b < 1.6)
   {
     float num = (3.535*b)+(2.181*(b*b));
     float denum = 1+2.276*b+2.577*(b*b);
@@ -206,7 +206,7 @@ color3 RDM_bsdf_s(float LdotH, float NdotH, float VdotH, float LdotN,
 }
 // diffuse term of the cook torrance bsdf
 color3 RDM_bsdf_d(Material *m) {
-  return  m->diffuseColor/3.1415f;
+  return  m->diffuseColor / 3.1415f;
 }
 
 // The full evaluation of bsdf(wi, wo) * cos (thetai)
@@ -242,18 +242,18 @@ color3 shade(vec3 n, vec3 v, vec3 l, color3 lc, Material *mat ){
   
   vec3 h = normalize(v+l);
   float LdotH,NdotH,VdotH,LdotN,VdotN;
-  LdotH=clamp(dot(l,h),acne_eps,1.f);
-  NdotH=clamp(dot(n,h),acne_eps,1.f);
-  VdotH=clamp(dot(v,h),acne_eps,1.f);
-  LdotN=clamp(dot(l,n),acne_eps,1.f);
-  VdotN=clamp(dot(v,n),acne_eps,1.f);
+  LdotH = clamp(dot(l,h),acne_eps,1.f);
+  NdotH = clamp(dot(n,h),acne_eps,1.f);
+  VdotH = clamp(dot(v,h),acne_eps,1.f);
+  LdotN = clamp(dot(l,n),acne_eps,1.f);
+  VdotN = clamp(dot(v,n),acne_eps,1.f);
 
   ret = RDM_bsdf(LdotH,NdotH,VdotH,LdotN,VdotN,mat)*lc*LdotN;
   return ret;	    
 }
 
 //! if tree is not null, use intersectKdTree to compute the intersection instead of intersect scene
-color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {  
+color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {
   color3 ret = color3(0,0,0);
   Intersection intersection, intersectionOmbre;
   Ray rayOmbre;
@@ -279,14 +279,14 @@ color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {
     }
     float LdotH;
     color3 cr=color3(0,0,0);
-    if (ray->depth<=10){
+    if (ray->depth <= 10){
       Ray reflection;
       vec3 v2 = normalize(ray->orig - intersection.position);
       rayInit(&reflection,intersection.position,normalize(reflect(ray->dir,intersection.normal)),0,100000,ray->depth+1);
-      reflection.orig=rayAt(reflection,acne_eps);
+      reflection.orig = rayAt(reflection,acne_eps);
       vec3 l2 = reflection.dir;
       vec3 h2 = normalize(v2+l2);
-      LdotH=clamp(dot(l2,h2),acne_eps,1.f);
+      LdotH = clamp(dot(l2,h2),acne_eps,1.f);
       cr = trace_ray(scene,&reflection,tree)*RDM_Fresnel(LdotH,1.f,intersection.mat->IOR)*intersection.mat->specularColor;
     }
     return ret + cr;
@@ -294,7 +294,7 @@ color3 trace_ray(Scene * scene, Ray *ray, KdTree *tree) {
   }else{
     ret = scene->skyColor;
   }
-
+  
   return ret;
 }
 
