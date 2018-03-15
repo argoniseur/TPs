@@ -36,6 +36,24 @@ typedef struct geometry_s {
             vec3 normal;
             float dist;
         } plane;
+        struct {
+          float radius;
+          vec3 center;
+          vec3 normal;
+        } mirror;
+        struct {
+            vec3 normal;
+            vec3 v0,v1,v2;
+        } triangle;
+        struct {
+          vec3 size;
+          vec3 center;
+        } ellipsoid;
+        struct {
+          vec3 center;
+          float radius;
+          float height;
+        } cylinder;
     };
 } Geometry;
 
