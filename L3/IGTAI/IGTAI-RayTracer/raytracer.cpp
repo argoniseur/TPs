@@ -5,7 +5,7 @@
 #include "image.h"
 #include "kdtree.h"
 #include <stdio.h>
-
+#include <time.h>
 
 /// acne_eps is a small constant used to prevent acne when computing intersection
 //  or boucing (add this amount to the position before casting a new ray !
@@ -85,6 +85,216 @@ bool intersectSphere(Ray *ray, Intersection *intersection, Object *obj) {
 }
 
 
+bool intersectMirror(Ray *ray, Intersection *intersection, Object* obj)
+{
+  float denom = dot(obj->geom.mirror.normal,ray->dir);
+  if (abs(denom) < acne_eps)
+    return false;
+
+  vec3 p0_l0 = obj->geom.mirror.center - ray->orig;
+  float res = dot(p0_l0, obj->geom.mirror.normal)/denom;
+  vec3 pos = ray->orig + (res) * ray->dir;
+
+  if (res < ray->tmin || res > ray->tmax || distance(pos, obj->geom.mirror.center) > obj->geom.mirror.radius * obj->geom.mirror.radius)
+  {
+    return false;
+  }
+  ray->tmax = res;
+  intersection->position = rayAt(*ray,res);
+  intersection->normal = obj->geom.mirror.normal;
+  intersection->mat = &(obj->mat);
+  return true;
+}
+
+bool intersectTriangle(Ray *ray, Intersection *intersection, Object *obj)
+{
+  vec3 edge1, edge2;
+  vec3 p,vec_q,vec_t;
+  float determinant, inv_determinant, u, v;
+  float res;
+
+  edge1 = obj->geom.triangle.v1 - obj->geom.triangle.v0;
+  edge2 = obj->geom.triangle.v2 - obj->geom.triangle.v0;
+  p = cross(ray->dir,edge2);
+  determinant = dot(edge1,p);
+  //parallèle
+  if (determinant > -acne_eps && determinant < acne_eps) return false;
+  inv_determinant = 1.f / determinant;
+
+  vec_t = ray->orig - obj->geom.triangle.v0;
+  u = dot(vec_t,p)*inv_determinant;
+  //en dehors du triangle
+  if (u < 0.f || u > 1.f) return false;
+
+  vec_q = cross(vec_t,edge1);
+  v=dot(ray->dir,vec_q)*inv_determinant;
+  //en dehors du triangle
+  if (v< 0.f || u+v > 1.f) return false;
+
+  res = dot(edge2,vec_q) * inv_determinant;
+
+  if (res>acne_eps && (res<=ray->tmax && res>= ray->tmin))
+  {
+    ray->tmax=res;
+    intersection->position = rayAt(*ray, res);
+    intersection->normal = normalize(obj->geom.triangle.normal);
+    intersection->mat = &(obj->mat);
+    return true;
+  }
+
+  return false;
+}
+
+bool intersectEllipsoid(Ray *ray, Intersection *intersection, Object *obj) {
+  vec3 vec_ray_center = ray->orig - obj->geom.ellipsoid.center;
+  float res;
+  float a = ((ray->dir.x * ray->dir.x) / (obj->geom.ellipsoid.size.x * obj->geom.ellipsoid.size.x)) +
+            ((ray->dir.y * ray->dir.y) / (obj->geom.ellipsoid.size.y * obj->geom.ellipsoid.size.y)) +
+            ((ray->dir.z * ray->dir.z) / (obj->geom.ellipsoid.size.z * obj->geom.ellipsoid.size.z));
+
+
+  float b = ((2.f * vec_ray_center.x * ray->dir.x) / (obj->geom.ellipsoid.size.x * obj->geom.ellipsoid.size.x)) +
+            ((2.f * vec_ray_center.y * ray->dir.y) / (obj->geom.ellipsoid.size.y * obj->geom.ellipsoid.size.y)) +
+            ((2.f * vec_ray_center.z * ray->dir.z) / (obj->geom.ellipsoid.size.z * obj->geom.ellipsoid.size.z));
+  
+
+  float c = ((vec_ray_center.x * vec_ray_center.x) / (obj->geom.ellipsoid.size.x * obj->geom.ellipsoid.size.x)) +
+            ((vec_ray_center.y * vec_ray_center.y) / (obj->geom.ellipsoid.size.y * obj->geom.ellipsoid.size.y)) +
+            ((vec_ray_center.z * vec_ray_center.z) / (obj->geom.ellipsoid.size.z * obj->geom.ellipsoid.size.z)) - 1.f;
+
+  float delta = ((b * b) - (4.f * a * c));
+  if (sqrt(delta) < 0) return false;
+
+  float t0 = (-b - sqrt(delta)) / (2.f * a);
+  float t1 = (-b + sqrt(delta)) / (2.f * a);
+
+  if ((t1 >= ray->tmin && t1 <= ray->tmax) ||
+      (t0 >= ray->tmin && t0 <= ray->tmax)) {
+    if (t0 < t1 && (t0 >= ray->tmin && t0 <= ray->tmax))
+      res = t0;
+    else if (t1 <= t0 && (t1 >= ray->tmin && t1 <= ray->tmax))
+      res = t1;
+  } else
+    res = -1.0;
+
+  if (res <= ray->tmax && res >= ray->tmin) {
+    ray->tmax = res;
+    intersection->position = rayAt(*ray, res+acne_eps);
+    intersection->normal =
+        normalize(intersection->position - obj->geom.ellipsoid.center);
+
+        intersection->normal.x = 2.f*intersection->normal.x/(obj->geom.ellipsoid.size.x*obj->geom.ellipsoid.size.x);
+        intersection->normal.y = 2.f*intersection->normal.y/(obj->geom.ellipsoid.size.y*obj->geom.ellipsoid.size.y);
+        intersection->normal.z = 2.f*intersection->normal.z/(obj->geom.ellipsoid.size.z*obj->geom.ellipsoid.size.z);
+    intersection->normal = normalize(intersection->normal);
+    intersection->mat = &(obj->mat);
+    return true;
+  } else
+    return false;
+}
+
+
+
+bool intersectCylinder (Ray *ray, Intersection *intersection, Object *obj)
+{
+  point3 p0 = point3(ray->orig.x-obj->geom.cylinder.center.x, ray->orig.y-obj->geom.cylinder.center.y, ray->orig.z-obj->geom.cylinder.center.z);
+
+  float a = ray->dir.x*ray->dir.x+ray->dir.z*ray->dir.z;
+  float b = 2.f*ray->dir.x*p0.x + 2.f*ray->dir.z*p0.z;
+  float c = p0.x*p0.x+p0.z*p0.z-(obj->geom.cylinder.radius*obj->geom.cylinder.radius);
+
+  double delta = b*b - 4*a*c;
+
+  if (delta < 0 || a==0)
+    return false;
+
+  float t0 = (-b - sqrt(delta))/(2*a);
+  float t1 = (-b + sqrt(delta))/(2*a);
+
+  if (t0 < ray->tmin && t1 < ray->tmin)
+    return false;
+
+  if (t1 < t0 && (t1 <= ray->tmax && t1 >= ray->tmin))
+  {
+    float tmp = t0;
+    t0=t1;
+    t1=tmp;
+}
+
+  float y0 = p0.y + t0*ray->dir.y;
+  float y1 = p0.y + t1*ray->dir.y;
+  
+  // si height = 1
+  if (y0<-obj->geom.cylinder.height)
+  {
+// if y0<-1 && y1<-1 pas d'intersection. 
+    if (y1<-obj->geom.cylinder.height)
+      return false;
+    else
+    {
+// if y0<-1 && y1>-1 intersection disque du bas
+      float th = t0 + (t1-t0) * (y0+obj->geom.cylinder.height) / (y0-y1);
+      if (th<=0-acne_eps)
+        return false;
+
+      if (th>=ray->tmin && th <= ray->tmax)
+      {
+        ray->tmax = th;
+        intersection->position = rayAt(*ray, th+acne_eps);
+        intersection->normal = vec3(0,-1,0);
+        intersection->mat=&(obj->mat);
+        return true;
+      }
+    }
+  }
+  else if (y0>=-obj->geom.cylinder.height && y0<=obj->geom.cylinder.height)
+  {
+// if y0<1 && y0>-1 intersection avec les côtés
+    if (t0<=0-acne_eps)
+      return false;
+    if (t0<=ray->tmax && t0>=ray->tmin)
+    {
+      ray->tmax = t0;
+      intersection->position = rayAt(*ray, t0+acne_eps);
+      vec3 tmp;
+      vec3 normal;
+      vec3 intersection_tmp;
+
+      tmp = obj->geom.cylinder.center;
+      intersection_tmp = intersection->position;
+      tmp.y = intersection_tmp.y;
+      normal = vec3(intersection->position.x - tmp.x, intersection->position.y - tmp.y, intersection->position.z - tmp.z);
+      intersection->normal = normalize(normal);
+      intersection->mat = &(obj->mat);
+      return true;
+    }
+  }
+  else if (y0>obj->geom.cylinder.height)
+  {
+    if (y1>obj->geom.cylinder.height)
+// if y0>1 && y1>1 pas d'intersection
+      return false;
+    else
+    {
+// if y0>1 && y1<1 intersection avec le disque du haut
+      float th = t0 + (t1-t0) * (y0-obj->geom.cylinder.height)/(y0-y1);
+      if (th<=0-acne_eps)
+        return false;
+
+      if (th<=ray->tmax && th>=ray->tmin)
+      {
+        ray->tmax = th;
+        intersection->position = rayAt(*ray, th+acne_eps);
+        intersection->normal = vec3(0,1,0);
+        intersection->mat = &(obj->mat);
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+
 bool intersectScene(const Scene *scene, Ray *ray, Intersection *intersection) {
   bool hasIntersection = false;
   size_t objectCount = scene->objects.size();
@@ -95,10 +305,21 @@ bool intersectScene(const Scene *scene, Ray *ray, Intersection *intersection) {
     if(scene->objects[i]->geom.type == SPHERE){
         if(intersectSphere(ray, intersection, scene->objects[i]))
           hasIntersection = true;
-    }
-    if(scene->objects[i]->geom.type == PLANE){
+    }else if(scene->objects[i]->geom.type == PLANE){
         if(intersectPlane(ray, intersection, scene->objects[i]))
           hasIntersection = true;
+    }else if (scene->objects[i]->geom.type == TRIANGLE) {
+      if (intersectTriangle(ray, intersection, scene->objects[i]))
+        hasIntersection = true;
+    }else if (scene->objects[i]->geom.type == ELLIPSOID){
+      if (intersectEllipsoid(ray, intersection, scene->objects[i]))
+        hasIntersection = true;
+    }else if (scene->objects[i]->geom.type == CYLINDER){
+      if (intersectCylinder(ray, intersection, scene->objects[i]))
+        hasIntersection = true;
+    }else if (scene->objects[i]->geom.type == MIRROR){
+      if (intersectMirror(ray, intersection, scene->objects[i]))
+        hasIntersection = true;
     }
   }
   return hasIntersection;
@@ -302,7 +523,8 @@ void renderImage(Image *img, Scene *scene) {
 
   //! This function is already operational, you might modify it for antialiasing and kdtree initializaion
   float aspect = 1.f/scene->cam.aspect;
-    
+  srand(time(NULL));
+  float x, y;
   KdTree *tree =  NULL;
 
 
@@ -326,14 +548,24 @@ void renderImage(Image *img, Scene *scene) {
     for(       ; cpt<100; cpt+=5) printf(" ");
     printf("]\n");
 #pragma omp parallel for
-    for(size_t i=0; i<img->width; i++) {
-      color3 *ptr = getPixelPtr(img, i,j);
-      vec3 ray_dir = scene->cam.center + ray_delta_x + ray_delta_y + float(i)*dx + float(j)*dy;
-
-      Ray rx;
-      rayInit(&rx, scene->cam.position, normalize(ray_dir));
-      *ptr = trace_ray(scene, &rx, tree);
-
+    for (size_t i = 0; i < img->width; i++) {
+    color3 somme=color3(0,0,0);
+    color3 *ptr;
+      for (int k = 0; k < 8; k++) {
+        
+        x = (((float)rand() / (float)RAND_MAX) - 0.5f );
+        y = (((float)rand() / (float)RAND_MAX) - 0.5f );
+        
+        ptr = getPixelPtr(img, i, j);
+        vec3 ray_dir = scene->cam.center + ray_delta_x + ray_delta_y +
+                     float(i+x) * dx + float(j+y) * dy ;
+        Ray rx;
+        rayInit(&rx, scene->cam.position, normalize(ray_dir));
+        somme += trace_ray(scene, &rx, tree);
+        
+      }
+      somme=somme/8.f;
+      (*ptr)=somme;
     }
   }
 }

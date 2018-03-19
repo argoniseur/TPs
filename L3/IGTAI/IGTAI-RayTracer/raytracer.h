@@ -22,9 +22,12 @@ typedef struct intersection_s {
 // Possible intersection are considered only between ray->tmin and ray->tmax
 // ray->tmax is updated during this process
 bool intersectScene(const Scene *scene, Ray *ray, Intersection *intersection );
-bool intersectCylinder (Ray *ray, Intersection *intersection, Object *cylinder);
 bool intersectPlane(Ray *ray, Intersection *intersection, Object *plane);
 bool intersectSphere(Ray *ray, Intersection *intersection, Object *sphere);
+bool intersectMirror(Ray *ray, Intersection *intersection, Object* obj);
+bool intersectTriangle(Ray *ray, Intersection *intersection, Object *triangle);
+bool intersectEllipsoid(Ray *ray, Intersection *intersection, Object *ellipsoid);
+bool intersectCylinder (Ray *ray, Intersection *intersection, Object *obj);
 
 void renderImage(Image *img, Scene *scene);
 
