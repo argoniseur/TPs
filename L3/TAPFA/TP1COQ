@@ -46,22 +46,28 @@ end.
 Check length.
 Eval compute in length nat [1;2;3;4;5;6].
 
-Fixpoint fold_left f a l :=
-match l with 
-|[] => a
-|n::l1 => fold_left f (f a n) l1
+Fixpoint append (T:Type) (l1:list T) (l2:list T) :=
+match l1 with
+|[] => l2
+|n::h => n::(append T h l2)
 end.
 
-Fixpoint reverse a l :=
+Fixpoint reverse (T:Type) (l:list T) :=
 match l with
 |[] => []
-|n::l1 => fold_left (fun x y => x::y) a l1
+|n::l1 => append T (reverse T l1) [n]
 end.
+Eval compute in reverse nat [1;2;3;4;5;6].
 
-Definition append  := fun (T:Type) (l1:list T) (l2:list T) =>
-match l1, l2 with
-|[],[] => []
-|l1,[] => l1
-|[],l2 => l2
-|l1,l2 => l1
-end.
+Module Type tVars.
+  Parameter V: Type.
+  Parameter veq: V -> V -> bool.
+  Parameter vinf: V -> V -> bool.
+End tVars.
+
+Module BDD (Vars : tVars).
+  Import Vars.
+
+End BDD.
+
+

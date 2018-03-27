@@ -8,22 +8,11 @@ let rec adjacent graphe sommet1 sommet2 = match graphe with
 					then true
 					else adjacent l sommet1 sommet2;;
 
-adjacent g1 "WA" "NA";;
-adjacent g1 "V" "Q";;
+let rec suppDoublons = function
+    |[] -> []
+    |x::l -> if List.exists (fun y -> x=y) l then suppDoublons l else x::(suppDoublons l);;
 
-let rec print_list_string = function
-[] -> print_string "\n"
-| x::reste -> print_string x;print_string " ";print_list_string reste;;
-
-
-let splitList graphe = let l = List.split graphe in
-			match l with
-			|([], _) -> failwith "Liste vide"
-			|(a, b) -> a@b;;
-
-let sommetGraphe graphe = List.sort_uniq compare (splitList graphe);;
-
-print_list_string (sommetGraphe g1);;
+let sommetGraphe graphe = let(l1,l2) = List.split graphe in suppDoublons (l1@l2);;
 
 let rec voisinsDouble graphe sommet = match graphe with
 	|[] -> []
@@ -31,4 +20,54 @@ let rec voisinsDouble graphe sommet = match graphe with
 					else if s2 = sommet then s1::(voisinsDouble l sommet)
 						else voisinsDouble l sommet;;
 
-voisinsDouble g1 "WA";;
+
+let rec colorSom coloration s =  
+    match coloration with 
+    |[] -> 0 
+    |(s1,c)::l -> if (s1 = s) then c else colorSom l s;;
+
+let colorVois g coloration s = 
+    let rec aux acc = function 
+        |[] -> acc 
+        |v::l -> let c = colorSom coloration v in if (c = 0) then aux acc l else aux (c::acc) l 
+    in aux [] (voisinsDouble g s);;
+
+
+let attributColor g s coloration =  
+    let rec attCol color = if (List.exists (fun e -> e =color) (colorVois g coloration s)) then attCol (color+1) else color 
+    in attCol 1;;
+    
+
+let gloutonSansH graphe =  
+    let rec g coloration nColor order = function 
+        |[] -> (coloration,nColor,order) 
+        |s::l -> let c = (attributColor graphe s coloration) in g (coloration@[(s,c)]) (if (c>nColor) then c else nColor) (order@[s]) l 
+    in g [] 0 [] (sommetGraphe graphe) 
+;;
+
+let nombreVoisinNonColor g s c = 
+    let rec aux acc = function 
+        |[] -> acc 
+        |e::l -> if (colorSom c e) =0 then aux acc l else aux (acc+1) l 
+    in List.length(voisinsDouble g s)-(aux 0 (voisinsDouble g s)) 
+;;
+
+let nbVoisins s g = List.length(voisinsDouble g s);;
+
+let gloutonDeg graphe =  
+    let rec g coloration nColor order = function 
+        |[] -> (coloration,nColor,order) 
+        |s::l -> let c = (attributColor graphe s coloration) in g (coloration@[(s,c)]) (if (c>nColor) then c else nColor) (order@[s]) l 
+    in g [] 0 [] (List.sort (fun x y -> (nbVoisins y graphe)-(nbVoisins x graphe)) (sommetGraphe graphe)) 
+;;
+
+let nombreColorVoisine g s c = List.length (colorVois g c s);; 
+ 
+let score g c s = 1000*(nombreColorVoisine g s c)+(nombreVoisinNonColor g s c);; 
+ 
+let gloutonDSat graphe =  
+    let rec g coloration nColor order = function 
+        |[] -> (coloration,nColor,order) 
+        |s::l -> let c = (attributColor graphe s coloration) in g (coloration@[(s,c)]) (if (c>nColor) then c else nColor) (order@[s])(List.sort (fun x y -> (score graphe coloration y)-(score graphe coloration x)) l) 
+    in g [] 0 [] (List.sort (fun x y -> (score graphe [] y)-(score graphe [] x)) (sommetGraphe graphe)) 
+;;
