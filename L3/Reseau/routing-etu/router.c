@@ -157,9 +157,42 @@ void init_routing_table(routing_table_t *rt) {
 /* ************************ A FAIRE PAR LES ETUDIANTS ********************** */
 /* ========================================================================= */
 int forward_packet(packet_data_t *packet, int psize, routing_table_t *rt) {
+	int relayage = 0;
+	
+	int sock_id, server_port;
+    char server_ip[16]; // address as a string
+    struct sockaddr_in server_adr;
+	
+	for (int i=0;i<rt->size;i++){
+		if ((unsigned char)rt->rt[i].dest == packet->dst_id){
+			relayage = 1;
+			strcpy(server_ip, rt->rt[i].nexthop.ipv4);
+			server_port = rt->rt[i].nexthop.port;
+				
+			sock_id = socket(AF_INET, SOCK_DGRAM, 0);
+			if ( sock_id < 0 ) {
+				perror("socket error");
+				exit(EXIT_FAILURE);
+			}
+			
+			memset(&server_adr, 0, sizeof(server_adr));
+			server_adr.sin_family = AF_INET;
+			server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
+			server_adr.sin_addr.s_addr = inet_addr(server_ip);
 
-    /* TODO */
-
+			if ( (sendto(sock_id, packet, sizeof(packet_data_t*), 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0) {
+				perror("sendto error");
+				exit(EXIT_FAILURE);
+			}
+				
+		}
+	}
+	
+	close(sock_id);
+	if (!relayage)
+		return 0;
+		
+	
     return 1;
 }
 /* ========================================================================= */
@@ -304,9 +337,15 @@ void *process_input_packets(void *args) {
                 else {
                     /* I am NOT the recipient ==> forward packet */
                     /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
-
-                    /* TODO */
-
+					pdata->ttl -= 1;
+					if (pdata->ttl == 0){
+						send_time_exceeded(pdata, pargs->rt);
+					}else{
+						if (forward_packet(pdata, sizeof(packet_data_t*), pargs->rt) == 0){
+							fprintf(stderr, "Erreur forward");
+							exit(EXIT_FAILURE);						
+						}
+					}
                     /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - FIN <<<<<<<<<< */
                 }
                 break;
