@@ -1,4 +1,4 @@
-FLAGS = -Wall -pedantic -std=gnu99 -lpthread
+FLAGS = -Wall -pedantic -std=gnu99 -pthread
 CC = gcc
 
 EXEC = router
