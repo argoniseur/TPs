@@ -212,11 +212,11 @@ int forward_packet(packet_data_t *packet, int psize, routing_table_t *rt) {
 void build_dv_packet(packet_ctrl_t *p, routing_table_t *rt) {
 
     p->type = CTRL;
-    p->src_id = rt->rt->dest;
+    p->src_id = rt->rt[0].dest;
     p->dv_size = rt->size;
     for (int i = 0; i<p->dv_size;i++){
-        p->dv->dest = rt->rt->dest;
-        p->dv->metric = rt->rt->metric;
+        p->dv[i].dest = rt->rt[i].dest;
+        p->dv[i].metric = rt->rt[i].metric;
     }
 }
 
@@ -266,6 +266,7 @@ void *hello(void *args) {
             server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
             server_adr.sin_addr.s_addr = inet_addr(server_ip);
             build_dv_packet(p, pargs->rt);
+            
             if ( (sendto(sock_id, p, sizeof(packet_ctrl_t*), 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0) {
                 perror("sendto error");
                 exit(EXIT_FAILURE);
@@ -293,7 +294,7 @@ void *hello(void *args) {
 int update_rt(routing_table_t *rt, overlay_addr_t *src, dv_entry_t dv[], int dv_size) {
 	int existe;
 	int nbEnt = 0;
-
+	
 	// Entrées de dv
     for(int i = 0;i<dv_size;i++){
 		existe = 0;
@@ -306,19 +307,15 @@ int update_rt(routing_table_t *rt, overlay_addr_t *src, dv_entry_t dv[], int dv_
 		}
 		
 		if(!existe){
-			rt->rt[rt->size].dest = dv[i].dest;
-			rt->rt[rt->size].nexthop = *src;
-			rt->rt[rt->size].metric = dv[i].metric + 1;
-			rt->rt[rt->size].time = time(NULL);
-			rt->size += 1;
-		}else if((rt->rt[nbEnt].metric > dv[i].metric+1) || (rt->rt[nbEnt].nexthop.id == src->id)){
+			add_route(rt, dv[i].dest, src, dv[i].metric+1);
+		}else if((rt->rt[nbEnt].metric > (dv[i].metric)+1) || (rt->rt[nbEnt].nexthop.id == src->id)){
 			rt->rt[nbEnt].dest = dv[i].dest;
 			rt->rt[nbEnt].nexthop = *src;
 			rt->rt[nbEnt].metric = dv[i].metric + 1;
 			rt->rt[nbEnt].time = time(NULL);
-		}
+		}	
 	}
-
+	
     return 1;
 }
 
@@ -412,14 +409,20 @@ void *process_input_packets(void *args) {
                 packet_ctrl_t *pctrl = (packet_ctrl_t *) buffer_in;
                 log_dv(pctrl, pctrl->src_id, 0);
                 /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
-				/*overlay_addr_t *src = malloc(sizeof(overlay_addr_t*));
+				overlay_addr_t *src = malloc(sizeof(overlay_addr_t*));
 				
 				src->id = pctrl->src_id;
 				inet_ntop(AF_INET, &(neigh_adr.sin_addr), src->ipv4, INET_ADDRSTRLEN);
 				src->port = neigh_adr.sin_port;
-				
-                update_rt(pargs->rt, src, pctrl->dv, pctrl->dv_size);
-*/
+				for(int i = 0;i<pctrl->dv_size;i++)
+					fprintf(stderr, "%d ", pctrl->dv[i].dest);
+				fprintf(stderr, "\n");
+				update_rt(pargs->rt, src, pctrl->dv, pctrl->dv_size);
+				for(int i = 0;i<pargs->rt->size;i++)
+					fprintf(stderr, "%d ", pargs->rt->rt[i].dest);
+				fprintf(stderr, "\n");
+                
+
                 /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - FIN <<<<<<<<<< */
                 break;
 
