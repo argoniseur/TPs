@@ -211,8 +211,13 @@ int forward_packet(packet_data_t *packet, int psize, routing_table_t *rt) {
 // Build distance vector packet
 void build_dv_packet(packet_ctrl_t *p, routing_table_t *rt) {
 
-    /* TODO */
-
+    p->type = CTRL;
+    p->src_id = rt->rt->dest;
+    p->dv_size = rt->size;
+    for (int i = 0; i<p->dv_size;i++){
+        p->dv->dest = rt->rt->dest;
+        p->dv->metric = rt->rt->metric;
+    }
 }
 
 // DV to prevent count to infinity problem
@@ -238,11 +243,37 @@ void *hello(void *args) {
 
     /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
     /* TODO */
+    int sock_id, server_port;
+    char server_ip[16]; // address as a string
+    struct sockaddr_in server_adr;
 
     while (1) {
 
         /* TODO */
+        for(int i = 0;i<pargs->nt->size;i++){
+            packet_ctrl_t *p = malloc(sizeof(packet_ctrl_t*));
+            strcpy(server_ip, pargs->nt->nt[i].ipv4);
+            server_port = pargs->nt->nt[i].port;
+                
+            sock_id = socket(AF_INET, SOCK_DGRAM, 0);
+            if ( sock_id < 0 ) {
+                perror("socket error");
+                exit(EXIT_FAILURE);
+            }
 
+            memset(&server_adr, 0, sizeof(server_adr));
+            server_adr.sin_family = AF_INET;
+            server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
+            server_adr.sin_addr.s_addr = inet_addr(server_ip);
+            build_dv_packet(p, pargs->rt);
+            if ( (sendto(sock_id, p, sizeof(packet_ctrl_t*), 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0) {
+                perror("sendto error");
+                exit(EXIT_FAILURE);
+            }
+            log_dv(p, pargs->nt->nt[i].id, 1);
+
+        }
+        close(sock_id);
         /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - FIN <<<<<<<<<< */
         sleep(BROADCAST_PERIOD);
         remove_obsolete_entries(pargs->rt);
