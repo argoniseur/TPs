@@ -291,8 +291,34 @@ void *hello(void *args) {
 
 // Update routing table from received distance vector
 int update_rt(routing_table_t *rt, overlay_addr_t *src, dv_entry_t dv[], int dv_size) {
+	int existe;
+	int nbEnt = 0;
 
-    /* TODO */
+	// Entrées de dv
+    for(int i = 0;i<dv_size;i++){
+		existe = 0;
+		// Entrées de rt
+		for(int j = 0;j<rt->size;j++){
+			if (dv[i].dest == rt->rt[j].dest){
+				existe = 1;
+				nbEnt = j;
+			}
+		}
+		
+		if(!existe){
+			rt->rt[rt->size].dest = dv[i].dest;
+			rt->rt[rt->size].nexthop = *src;
+			rt->rt[rt->size].metric = dv[i].metric + 1;
+			rt->rt[rt->size].time = time(NULL);
+			rt->size += 1;
+		}else if((rt->rt[nbEnt].metric > dv[i].metric+1) || (rt->rt[nbEnt].nexthop.id == src->id)){
+			rt->rt[nbEnt].dest = dv[i].dest;
+			rt->rt[nbEnt].nexthop = *src;
+			rt->rt[nbEnt].metric = dv[i].metric + 1;
+			rt->rt[nbEnt].time = time(NULL);
+		}
+	}
+
     return 1;
 }
 
@@ -386,9 +412,14 @@ void *process_input_packets(void *args) {
                 packet_ctrl_t *pctrl = (packet_ctrl_t *) buffer_in;
                 log_dv(pctrl, pctrl->src_id, 0);
                 /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
-
-                /* TODO */
-
+				/*overlay_addr_t *src = malloc(sizeof(overlay_addr_t*));
+				
+				src->id = pctrl->src_id;
+				inet_ntop(AF_INET, &(neigh_adr.sin_addr), src->ipv4, INET_ADDRSTRLEN);
+				src->port = neigh_adr.sin_port;
+				
+                update_rt(pargs->rt, src, pctrl->dv, pctrl->dv_size);
+*/
                 /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - FIN <<<<<<<<<< */
                 break;
 
