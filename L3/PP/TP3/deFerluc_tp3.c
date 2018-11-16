@@ -93,52 +93,68 @@ void egalisation_histo (grey_image_type * image){
 	int h = image->height;
 	int H[256] = {0};
 	start = omp_get_wtime();
-	for(int i = 0;i<w*h;i++){
-		H[image->pixels[i]] += 1;
-	}
 	int C[256] = {0};
-	C[0] = H[0];
-	for (int i = 1;i<256;i++){
-		C[i] = C[i-1] + H[i];
-	}
-	for(int i = 0;i<w*h;i++){
-		image->pixels[i] = 256*C[image->pixels[i]]/(w*h);
+	#pragma omp parallel num_threads(4)
+	{
+		#pragma omp for
+		for(int i = 0;i<w*h;i++){
+			H[image->pixels[i]] += 1;
+		}
+		
+		C[0] = H[0];
+		
+		for (int i = 1;i<256;i++){
+			C[i] = C[i-1] + H[i];
+		}
+		
+		#pragma omp for
+		for(int i = 0;i<w*h;i++){
+			image->pixels[i] = 256*C[image->pixels[i]]/(w*h);
+		}
 	}
 	stop=omp_get_wtime();
 	t=stop-start;
+	//0.079548 à 0.033194
 	saveGreyImage("image_grise_contrastee.pgm", image);
 	printf("\n%f\n",t);
 }
 
-void embossage(grey_image_type * image){
+grey_image_type * embossage(grey_image_type * image){
 	int w = image->width;
 	int h = image->height;
 	grey_image_type * tmp = createGreyImage(w, h);
-	for(int i = 0;i<w*h;i++)
-		tmp->pixels[i] = image->pixels[i];
-	int l;
 	start = omp_get_wtime();
-	for(int i = 1;i<h-1;i++){
-		l = i*w;
-		for(int j = 1;j<w-1;j++){
-			tmp->pixels[l+j] = image->pixels[l-w+(j-1)]*-2 + image->pixels[l-w+j]*-1 +
-				image->pixels[l+(j-1)]*-1 + image->pixels[l+(j+1)] + image->pixels[l+w+j] + image->pixels[l+w+(j+1)]*2 + 128;
+	//ici, vu que l'on a l'image tmp pour stocker le résultat, on ne modifie pas l'image source et donc la dépendance de i et j disparait et l'on peut paralleliser
+	#pragma omp parallel num_threads(4)
+	{
+		#pragma omp for
+		for(int i = 0;i<w*h;i++)
+			tmp->pixels[i] = image->pixels[i];
+		int l;
+		#pragma omp for
+		for(int i = 1;i<h-1;i++){
+			l = i*w;
+			for(int j = 1;j<w-1;j++){
+				tmp->pixels[l+j] = image->pixels[l-w+(j-1)]*-2 + image->pixels[l-w+j]*-1 +
+					image->pixels[l+(j-1)]*-1 + image->pixels[l+(j+1)] + image->pixels[l+w+j] + image->pixels[l+w+(j+1)]*2 + 128;
+			}
 		}
 	}
-	
 	stop=omp_get_wtime();
 	t=stop-start;
+	//0.046883 à 0.020974
 	saveGreyImage("image_grise_embossee.pgm", tmp);
 	printf("\n%f\n",t);
-	egalisation_histo(image);
+	return image;
 }
 
-void ppm_to_pgm(color_image_type *color){
+grey_image_type * ppm_to_pgm(color_image_type *color){
 	int w = color->width;
 	int h = color->height;
 	grey_image_type * image = createGreyImage(w, h);
 	int r, g, b;
 	start = omp_get_wtime();
+	// Ici le parallelisme créée un ralentissement. 0.035037 à 0.054439 avec 4 threads
 	//#pragma omp parallel num_threads(4)
 	//{
 		//#pragma omp for
@@ -153,15 +169,16 @@ void ppm_to_pgm(color_image_type *color){
 	t=stop-start;
 	saveGreyImage("image_grise.pgm", image);
 	printf("\n%f\n",t);
-	embossage(image);
+	return image;
 }
 
 int main(int argc, char ** argv){
 	
 	color_image_type * x = loadColorImage(argv[1]);
-	ppm_to_pgm(x);
-	
-	
+	grey_image_type * y = createGreyImage(x->width, x->height);
+	y = ppm_to_pgm(x);
+	y = embossage(y);
+	egalisation_histo(y);
 	
 	return 0;
 }

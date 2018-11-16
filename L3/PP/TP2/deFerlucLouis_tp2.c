@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <omp.h>
 
 int main(int argc, char ** argv){
 	
@@ -27,6 +27,7 @@ int main(int argc, char ** argv){
 	int N;
 	int i = 0, j;	
 	
+	//lecture fichier impossible à parallèliser
 	while(fscanf(fichier, "%c", &cptc) != EOF){
 		if(cptc == 'o'){
 			M = realloc(M, (i+1)*sizeof(int));
@@ -39,6 +40,9 @@ int main(int argc, char ** argv){
 	N = i;
 	int S[N][capacite+1];
 	
+	//aucune dépendance de boucle
+	#pragma omp parallel
+	#pragma omp for
 	for(i = 0;i<capacite+1;i++){
 		if(M[0] <= i)
 			S[0][i] = U[0];
@@ -47,24 +51,30 @@ int main(int argc, char ** argv){
 	}
 	
 	int x, y;
-	for(i = 1;i<N;i++){
-		for(j = 0;j<capacite+1;j++){
-			x = S[i-1][j-M[i]] + U[i];
-			y = S[i-1][j];
-			
-			if ((x>y) && (j-M[i] >= 0))
-				S[i][j] = x;
-			else 
-				S[i][j] = y;
+	// dépendant du j et du i donc non parallelisable
+		for(i = 1;i<N;i++){
+			for(j = 0;j<capacite+1;j++){
+				x = S[i-1][j-M[i]] + U[i];
+				y = S[i-1][j];
+				if ((x>y) && (j-M[i] >= 0))
+					S[i][j] = x;
+				else 
+					S[i][j] = y;
+			}
 		}
-	}
+		
+	// Affichage de la matrice obtenue
+	/*
 	for(i = 0;i<N;i++){
 		for(j = 0;j<(capacite+1);j++){
 			printf("%d ", S[i][j]);
 		}
 		printf("\n");
-	}
+	}*/
 	int E[N];
+	#pragma omp parallel
+	#pragma omp for
+	
 	for(i = 0;i<N;i++){
 		E[i] = 0;
 	}
@@ -72,15 +82,18 @@ int main(int argc, char ** argv){
 	i = N-1;
 	j = capacite;
 	
+	// dépendance du j
 	for(i = N-1;i>=0;i--){
 		if(S[i][j] == S[i-1][j]){
 			E[i] = 0;
 		}
-		else{
+		else if (S[i][j] != 0){
 			E[i]=1;
 			j=j-M[i];
 		}
 	}
+	
+	//affichage impossible à paralleliser
 	printf("Contenu du sac:");
 	for(i = 0;i<N;i++){
 		if(E[i] == 1)
