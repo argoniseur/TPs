@@ -1,0 +1,28 @@
+package protagoniste;
+
+import java.util.EnumMap;
+
+import attaque.Arme;
+import bataille.Bataille;
+
+public class Homme extends EtreVivant{
+	private EnumMap<ZoneDeCombat, Arme> armes;
+	
+	public Homme(String nom) {
+		super(nom, 70);
+	}
+
+	public void rejointBataille(Bataille bataille) {
+		super.rejointBataille(bataille);
+		this.bataille.ajouter(this);
+	}
+	
+	public void mourir() {
+		this.bataille.eliminer(this);
+	}
+	
+	@Override
+	public String toString() {
+		return "Homme: " + this.nom + " ayant " + this.forceDeVie + " points de vie";
+	}
+}

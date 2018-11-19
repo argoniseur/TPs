@@ -1,0 +1,6 @@
+
+ysquid:S1126I"AReplace this if-then-else statement by a single return statement.(‚τπωÿÿÿÿ8Φ‡—°α,HeRMINORZ
+CODE_SMELL
+squid:S3973/"YUse curly braces or indentation to denote the code conditionally executed by this "else".(ΤΝΨ8σ®°α,HfRCRITICALZ
+CODE_SMELL
+squid:S2272P"NAdd a "NoSuchElementException" for iteration beyond the end of the collection.(λϊρεύÿÿÿÿ8ώΚϋ―α,HgRMINORZBUG

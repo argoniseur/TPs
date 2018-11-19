@@ -1,0 +1,21 @@
+
+asquid:S1604"(Make this anonymous inner class a lambda(ë¹Êûÿÿÿÿ8Šèäè,HÔRMAJORZ
+CODE_SMELL
+hsquid:EmptyStatementUsageCheck"Remove this empty statement.(ôŸìúÿÿÿÿ8Šèäè,HÖRMINORZ
+CODE_SMELL
+squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(³Ù™ª8³µ¼è,HØRMINORZ
+CODE_SMELL
+squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŞüÕÌ8û¨İ“ñ,HÚRMINORZ
+CODE_SMELL
+csquid:S1452·"&Remove usage of generic wildcard type.(ö¡ƒàûÿÿÿÿ8û¨İ“ñ,HÜRCRITICALZ
+CODE_SMELL
+csquid:S1452¼"&Remove usage of generic wildcard type.(É´†Ûùÿÿÿÿ8û¨İ“ñ,HŞRCRITICALZ
+CODE_SMELL
+^squid:S1452Á"&Remove usage of generic wildcard type.(ÏÆêœ8û¨İ“ñ,HàRCRITICALZ
+CODE_SMELL
+…squid:CommentedOutCodeLineÆ"<This block of commented-out lines of code should be removed.(ï»üÿÿÿÿÿ8û¨İ“ñ,HâRMAJORZ
+CODE_SMELL
+…squid:CommentedOutCodeLineĞ"<This block of commented-out lines of code should be removed.(ÁÑœ¦üÿÿÿÿ8û¨İ“ñ,HäRMAJORZ
+CODE_SMELL
+asquid:S1604 "(Make this anonymous inner class a lambda(ë¹Êûÿÿÿÿ8û¨İ“ñ,HæRMAJORZ
+CODE_SMELL

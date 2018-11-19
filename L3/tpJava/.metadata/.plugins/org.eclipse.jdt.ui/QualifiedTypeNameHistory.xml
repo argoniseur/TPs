@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+<fullyQualifiedTypeName name="attaque.ForceDeCombat"/>
+<fullyQualifiedTypeName name="protagoniste.Domaine"/>
+<fullyQualifiedTypeName name="attaque.Lave"/>
+<fullyQualifiedTypeName name="attaque.BouleDeFeu"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="protagoniste.Monstre.GestionAttaque"/>
+<fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="bataille.Bataille"/>
+<fullyQualifiedTypeName name="protagoniste.Homme"/>
+<fullyQualifiedTypeName name="bataille.Camp"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="protagoniste.Heros"/>
+<fullyQualifiedTypeName name="livre.AideEcrivain"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="protagoniste.EtreVivant"/>
+<fullyQualifiedTypeName name="attaque.Pouvoir"/>
+<fullyQualifiedTypeName name="java.util.SortedSet"/>
+<fullyQualifiedTypeName name="java.util.TreeSet"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="attaque.Feu"/>
+<fullyQualifiedTypeName name="attaque.Tranchant"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.EnumMap"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="attaque.Arme"/>
+<fullyQualifiedTypeName name="protagoniste.Monstre"/>
+<fullyQualifiedTypeName name="protagoniste.ZoneDeCombat"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="javax.swing.JSpinner.ListEditor"/>
+<fullyQualifiedTypeName name="java.util.NavigableSet"/>
+<fullyQualifiedTypeName name="attaque.Arc"/>
+<fullyQualifiedTypeName name="attaque.LancePierre"/>
+</qualifiedTypeNameHistroy>

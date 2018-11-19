@@ -1,0 +1,45 @@
+
+‹squid:S1192H"VDefine a constant instead of duplicating this literal "\nmonstres de feu :\n" 4 times.(£¶‹–ıÿÿÿÿHÕRCRITICALZ
+CODE_SMELL
+e
+squid:S1069"9Replace this use of System.out or System.err by a logger.(Ñí³©HÖRMAJORZ
+CODE_SMELL
+j
+squid:S106:"9Replace this use of System.out or System.err by a logger.(¶Å„õÿÿÿÿÿH×RMAJORZ
+CODE_SMELL
+e
+squid:S106;"9Replace this use of System.out or System.err by a logger.(®¬‘íHØRMAJORZ
+CODE_SMELL
+j
+squid:S106>"9Replace this use of System.out or System.err by a logger.(ÛÂîÍıÿÿÿÿHÙRMAJORZ
+CODE_SMELL
+e
+squid:S106@"9Replace this use of System.out or System.err by a logger.(èÚÄñHÚRMAJORZ
+CODE_SMELL
+e
+squid:S106A"9Replace this use of System.out or System.err by a logger.(ÍÀHÛRMAJORZ
+CODE_SMELL
+j
+squid:S106B"9Replace this use of System.out or System.err by a logger.(²ü«ûÿÿÿÿHÜRMAJORZ
+CODE_SMELL
+j
+squid:S106C"9Replace this use of System.out or System.err by a logger.(ÌªâÌıÿÿÿÿHİRMAJORZ
+CODE_SMELL
+j
+squid:S106H"9Replace this use of System.out or System.err by a logger.(£¶‹–ıÿÿÿÿHŞRMAJORZ
+CODE_SMELL
+j
+squid:S106S"9Replace this use of System.out or System.err by a logger.(£¶‹–ıÿÿÿÿHßRMAJORZ
+CODE_SMELL
+j
+squid:S106["9Replace this use of System.out or System.err by a logger.(£¶‹–ıÿÿÿÿHàRMAJORZ
+CODE_SMELL
+j
+squid:S106j"9Replace this use of System.out or System.err by a logger.(£¶‹–ıÿÿÿÿHáRMAJORZ
+CODE_SMELL
+e
+squid:S106n"9Replace this use of System.out or System.err by a logger.(ÑŒÉŒHâRMAJORZ
+CODE_SMELL
+e
+squid:S106r"9Replace this use of System.out or System.err by a logger.(ˆ€š¹HãRMAJORZ
+CODE_SMELL

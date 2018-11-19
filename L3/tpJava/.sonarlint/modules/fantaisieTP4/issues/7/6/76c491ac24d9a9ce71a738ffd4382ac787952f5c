@@ -1,0 +1,21 @@
+
+asquid:EmptyStatementUsageCheck"Remove this empty statement.(ôŸŽìúÿÿÿÿHäRMINORZ
+CODE_SMELL
+†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(³Ù™ªHåRMINORZ
+CODE_SMELL
+†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÞüÕÌHæRMINORZ
+CODE_SMELL
+\squid:S1452·"&Remove usage of generic wildcard type.(ö¡ƒàûÿÿÿÿHçRCRITICALZ
+CODE_SMELL
+\squid:S1452¼"&Remove usage of generic wildcard type.(É´†ÛùÿÿÿÿHèRCRITICALZ
+CODE_SMELL
+Wsquid:S1452Á"&Remove usage of generic wildcard type.(ÏÆêœHéRCRITICALZ
+CODE_SMELL
+~squid:CommentedOutCodeLineÆ"<This block of commented-out lines of code should be removed.(ï»üÿÿÿÿÿHêRMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineÐ"<This block of commented-out lines of code should be removed.(ÁÑœ¦üÿÿÿÿHëRMAJORZ
+CODE_SMELL
+Zsquid:S1604"(Make this anonymous inner class a lambda(ë¹ÊûÿÿÿÿHìRMAJORZ
+CODE_SMELL
+Zsquid:S1604 "(Make this anonymous inner class a lambda(ë¹ÊûÿÿÿÿHíRMAJORZ
+CODE_SMELL

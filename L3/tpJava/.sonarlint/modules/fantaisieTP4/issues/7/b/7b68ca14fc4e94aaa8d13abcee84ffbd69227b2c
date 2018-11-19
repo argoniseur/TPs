@@ -1,0 +1,7 @@
+
+¡squid:S1319"mThe return type of this method should be an interface such as "Set" rather than the implementation "HashSet".(ë ¬É8–²û“ñ,H¬RMINORZ
+CODE_SMELL
+’squid:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(ó…­¡øÿÿÿÿ8¢ğÛò,H·RMINORZ
+CODE_SMELL
+hsquid:EmptyStatementUsageCheck$"Remove this empty statement.(ôŸìúÿÿÿÿ8¢ğÛò,H¶RMINORZ
+CODE_SMELL

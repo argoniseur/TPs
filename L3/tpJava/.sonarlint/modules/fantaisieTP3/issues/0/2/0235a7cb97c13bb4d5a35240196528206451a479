@@ -1,0 +1,4 @@
+
+hsquid:EmptyStatementUsageCheck0"Remove this empty statement.(ôŸŽìúÿÿÿÿ8‡ÎÜŽè,HéRMINORZ
+CODE_SMELL
+vsquid:S1206%"PThis class overrides "equals()" and should therefore also override "hashCode()".(óÞÇìHêRMINORZBUG

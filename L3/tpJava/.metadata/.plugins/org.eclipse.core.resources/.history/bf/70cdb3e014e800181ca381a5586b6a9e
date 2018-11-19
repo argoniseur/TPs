@@ -1,0 +1,16 @@
+package attaque;
+
+import java.util.HashSet;
+
+import protagoniste.ZoneDeCombat;
+
+public abstract class Arme extends ForceDeCombat{
+	private HashSet<ZoneDeCombat> zoneDeCombat;
+	public Arme(int pointDeDegat, String nom){
+		super(pointDeDegat, nom);
+	}
+	
+	public HashSet<ZoneDeCombat> getZoneDeCombat() {
+		return zoneDeCombat;
+	}
+}

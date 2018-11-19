@@ -1,0 +1,12 @@
+
+‰squid:S39730"YUse curly braces or indentation to denote the code conditionally executed by this "else".(ÔÍØH»RCRITICALZ
+CODE_SMELL
+ssquid:S1161=":Add the "@Override" annotation above this method signature(Èõı©üÿÿÿÿ8Î¨ôÎã,HÏRMAJORZ
+CODE_SMELL
+ssquid:S1126S"AReplace this if-then-else statement by a single return statement.(Ÿ‚ôğùÿÿÿÿH¼RMINORZ
+CODE_SMELL
+ysquid:S2272Z"NAdd a "NoSuchElementException" for iteration beyond the end of the collection.(ëúñåıÿÿÿÿH½RMINORZBUG
+dsquid:S2160	"+Override the "equals" method in this class.(å¿òÈúÿÿÿÿ8Î«™Ğã,H—RMINORZ
+CODE_SMELL
+nsquid:S11618":Add the "@Override" annotation above this method signature(şƒªÎ8Î«™Ğã,H˜RMAJORZ
+CODE_SMELL

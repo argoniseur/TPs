@@ -1,0 +1,5 @@
+
+xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á»›êHüRMAJORZ
+CODE_SMELL
+£squid:S1319"qThe return type of this method should be an interface such as "List" rather than the implementation "LinkedList".(´Áÿ­øÿÿÿÿHýRMINORZ
+CODE_SMELL
