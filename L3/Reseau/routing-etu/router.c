@@ -212,7 +212,7 @@ int forward_packet(packet_data_t *packet, int psize, routing_table_t *rt) {
 void build_dv_packet(packet_ctrl_t *p, routing_table_t *rt) {
 
     p->type = CTRL;
-    p->src_id = rt->rt[0].dest;
+    p->src_id = MY_ID;
     p->dv_size = rt->size;
     for (int i = 0; i<p->dv_size;i++){
         p->dv[i].dest = rt->rt[i].dest;
@@ -230,9 +230,14 @@ void build_dv_specific(packet_ctrl_t *p, routing_table_t *rt, node_id_t neigh) {
 
 // Remove old RT entries
 void remove_obsolete_entries(routing_table_t *rt) {
-
-    /* TODO */
-
+/*
+	for(int i = 0;i<rt->size;i++){
+		if(rt->rt[i].dest != MY_ID){
+			if(difftime(time(NULL), rt->rt[i].time) > BROADCAST_PERIOD){
+				fprintf(stderr, "%f ", difftime((time_t)10, rt->rt[i].time));
+			}
+		}
+	}*/
 }
 
 // Hello thread to broadcast state to neighbors
@@ -251,7 +256,7 @@ void *hello(void *args) {
 
         /* TODO */
         for(int i = 0;i<pargs->nt->size;i++){
-            packet_ctrl_t *p = malloc(sizeof(packet_ctrl_t*));
+            packet_ctrl_t p;
             strcpy(server_ip, pargs->nt->nt[i].ipv4);
             server_port = pargs->nt->nt[i].port;
                 
@@ -265,13 +270,13 @@ void *hello(void *args) {
             server_adr.sin_family = AF_INET;
             server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
             server_adr.sin_addr.s_addr = inet_addr(server_ip);
-            build_dv_packet(p, pargs->rt);
+            build_dv_packet(&p, pargs->rt);
             
-            if ( (sendto(sock_id, p, sizeof(packet_ctrl_t*), 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0) {
+            if ( (sendto(sock_id, &p, sizeof(packet_ctrl_t), 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0) {
                 perror("sendto error");
                 exit(EXIT_FAILURE);
             }
-            log_dv(p, pargs->nt->nt[i].id, 1);
+            log_dv(&p, pargs->nt->nt[i].id, 1);
 
         }
         close(sock_id);
@@ -294,7 +299,7 @@ void *hello(void *args) {
 int update_rt(routing_table_t *rt, overlay_addr_t *src, dv_entry_t dv[], int dv_size) {
 	int existe;
 	int nbEnt = 0;
-	
+	int modifie = 0;
 	// Entrées de dv
     for(int i = 0;i<dv_size;i++){
 		existe = 0;
@@ -306,17 +311,17 @@ int update_rt(routing_table_t *rt, overlay_addr_t *src, dv_entry_t dv[], int dv_
 			}
 		}
 		
-		if(!existe){
+		if(existe == 0){
 			add_route(rt, dv[i].dest, src, dv[i].metric+1);
-		}else if((rt->rt[nbEnt].metric > (dv[i].metric)+1) || (rt->rt[nbEnt].nexthop.id == src->id)){
-			rt->rt[nbEnt].dest = dv[i].dest;
+			modifie = 1;
+		}else if((rt->rt[nbEnt].metric > dv[i].metric+1) || (rt->rt[nbEnt].nexthop.id == src->id)){
 			rt->rt[nbEnt].nexthop = *src;
 			rt->rt[nbEnt].metric = dv[i].metric + 1;
 			rt->rt[nbEnt].time = time(NULL);
+			modifie = 1;
 		}	
 	}
-	
-    return 1;
+	return modifie;
 }
 
 // Server thread waiting for input packets
@@ -409,18 +414,13 @@ void *process_input_packets(void *args) {
                 packet_ctrl_t *pctrl = (packet_ctrl_t *) buffer_in;
                 log_dv(pctrl, pctrl->src_id, 0);
                 /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
-				overlay_addr_t *src = malloc(sizeof(overlay_addr_t*));
+				overlay_addr_t src;
 				
-				src->id = pctrl->src_id;
-				inet_ntop(AF_INET, &(neigh_adr.sin_addr), src->ipv4, INET_ADDRSTRLEN);
-				src->port = neigh_adr.sin_port;
-				for(int i = 0;i<pctrl->dv_size;i++)
-					fprintf(stderr, "%d ", pctrl->dv[i].dest);
-				fprintf(stderr, "\n");
-				update_rt(pargs->rt, src, pctrl->dv, pctrl->dv_size);
-				for(int i = 0;i<pargs->rt->size;i++)
-					fprintf(stderr, "%d ", pargs->rt->rt[i].dest);
-				fprintf(stderr, "\n");
+				src.id = pctrl->src_id;
+				inet_ntop(AF_INET, &(neigh_adr.sin_addr), src.ipv4, INET_ADDRSTRLEN);
+				src.port = PORT(src.id);
+				
+				update_rt(pargs->rt, &src, pctrl->dv, pctrl->dv_size);
                 
 
                 /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - FIN <<<<<<<<<< */
