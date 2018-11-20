@@ -1,14 +1,70 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import numpy.random as loi
 import scipy.stats as loiT
-import matplotlib.pyplot as plt
 
+a = np.array([1,4,2,9,14,3,16])
+print("Mat: ", a);
 
-# TP PROBAS et STATISTIQUES en PYTHON 2
-# EXERCICE 1 : comparaison de lois uniformes : theorique & pratique
+a = np.array([6,2,15,8,24,7])
+a = a.reshape(6,1)
+print("Mat:\n", a);
 
+a = np.mat([[1,4,5,7],[5,7,3,11],[18,4,9,2]])
+print("Mat:\n", a)
 
-# Loi uniforme
+a = np.arange(3,21,0.5)
+print("Mat:\n", a)
+
+a = np.eye(3)
+print("Mat:\n", a*4)
+
+a = np.eye(3)*2
+b = np.mat([[1,1],[1,1],[0,0]])
+c = np.concatenate((a,b), axis=1)
+print("Mat:\n", c)
+
+#B = np.random.random_integers(0, 20, (3, 5))
+#C = np.random.random_integers(0, 20, (3, 5))
+B = np.random.rand(3,5)
+C = np.random.rand(3,5)
+print("B:\n", B, "\nC:\n", C)
+F = B*C
+print("F:\n", F)
+G = np.dot(B,np.transpose(C))
+print("G:\n", G)
+
+print("\n", F[(F>0.2) & (F<0.6)])
+print("\n", G[G>=0.6])
+
+x = np.arange(-1,5,0.1)
+x1 = loiT.norm.pdf(x,2,1)
+# Affichage des points relies entre eux
+plt.figure()
+plt.plot(x, x1)
+plt.xlabel('axe des abcisses')
+plt.ylabel('axe desordonne')
+plt.show()
+
+# Affiche la courbe
+x = np.arange(0,10,0.1)
+x1 = loiT.norm.pdf(x,5,3)
+x2 = loiT.expon.pdf(x)
+
+plt.figure()
+plt.plot(x, x1)
+plt.plot(x, x2)
+plt.xlabel('axe des abcisses')
+plt.ylabel('axe desordonne')
+plt.show()
+
+x2 = loi.normal(5,1,size=1000)
+plt.figure()
+plt.hist(x2, 20)
+plt.xlabel('axe des abcisses')
+plt.ylabel('axe desordonne')
+plt.show()
+
 def loi_unif(nb_val, a, b, barres, pas): 
 
     # Loi pratique (valeurs aleatoires)
@@ -79,7 +135,7 @@ def loi_geo(nb_val, p, barres, pas):
     plt.ylabel('Probabilites')
     plt.legend()
     plt.show()
-    
+
 # Loi de Poisson
 def loi_poisson(nb_val, l, barres, pas):
 
@@ -103,7 +159,7 @@ def loi_poisson(nb_val, l, barres, pas):
     plt.ylabel('Probabilites')
     plt.legend()
     plt.show()
-
+    
 # Loi Normale
 def loi_normale(nb_val, esperance, ecart_type, barres, pas):
    
@@ -128,7 +184,7 @@ def loi_normale(nb_val, esperance, ecart_type, barres, pas):
     plt.ylabel('Probabilites')
     plt.legend()
     plt.show()
-    
+   
 # DEBUT DU PROGRAMME PRINCIPAL
 
 # Constante
@@ -136,7 +192,7 @@ nb_barres = 20
 pas_reel = 0.02
 pas_discret = 1
 
-# (a) Tests de la loi Uniforme : loi discrete ou reelle au choix...
+# (a) Tests de la loi Uniforme : loi reelle
 # 50 valeurs suivant une loi uniforme (min=0 & max=20)
 loi_unif(50, 0, 20, nb_barres, pas_reel)
 # 10000 valeurs suivant une loi uniforme (min=0 & max=20)
@@ -179,4 +235,3 @@ loi_normale(10000, 0, 1, nb_barres, pas_reel)
 loi_normale(10000, 5, 0.5, nb_barres, pas_reel)
 #10000 valeurs suivant une loi normale (esperance=50, ecart-type=500)
 loi_normale(10000, 50, 500, nb_barres, pas_reel)
-
