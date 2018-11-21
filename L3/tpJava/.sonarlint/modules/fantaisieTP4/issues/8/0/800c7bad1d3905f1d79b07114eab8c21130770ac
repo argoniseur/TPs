@@ -1,17 +1,7 @@
 
-’squid:S2293+"YReplace the type specification in this constructor call with the diamond operator ("<>").(âø‹ğùÿÿÿÿ8Šø»Ûò,HòRMINORZ
+’squid:S2293I"YReplace the type specification in this constructor call with the diamond operator ("<>").(á¾æ¸ıÿÿÿÿ8ä²Ñ”ñ,HìRMINORZ
 CODE_SMELL
-’squid:S2293D"YReplace the type specification in this constructor call with the diamond operator ("<>").(á¾æ¸ıÿÿÿÿ8ä²Ñ”ñ,H¡RMINORZ
+\squid:S1604J"(Make this anonymous inner class a lambda(›À¨ï8Šø»Ûò,HñRMAJORZ
 CODE_SMELL
-ksquid:S1481Q"2Remove this unused "armesAdaptees" local variable.(ºÈ‹Ñÿÿÿÿÿ8–ÆêÛò,H†RMINORZ
-CODE_SMELL
-\squid:S1604E"(Make this anonymous inner class a lambda(›À¨ï8Šø»Ûò,HóRMAJORZ
-CODE_SMELL
-dsquid:S2160"+Override the "equals" method in this class.(Ò•äúÿÿÿÿ8ù´ˆ”ñ,H£RMINORZ
-CODE_SMELL
-lsquid:S1161":Add the "@Override" annotation above this method signature(Èõı©üÿÿÿÿH RMAJORZ
-CODE_SMELL
-zsquid:S1854Q"ARemove this useless assignment to local variable "armesAdaptees".(ºÈ‹Ñÿÿÿÿÿ8–ÆêÛò,H‡RMAJORZ
-CODE_SMELL
-gsquid:S1161":Add the "@Override" annotation above this method signature(şƒªÎHŸRMAJORZ
+’squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‹ıºÕùÿÿÿÿ8Ê´å³ó,HïRMINORZ
 CODE_SMELL

@@ -1,0 +1,73 @@
+package testsfonctionnels;
+
+import java.util.List;
+
+import attaque.Arc;
+import attaque.Boomerang;
+import attaque.Epee;
+import attaque.Feu;
+import attaque.Griffe;
+import attaque.LameAcier;
+import attaque.LancePierre;
+import attaque.Lave;
+import attaque.Morsure;
+import attaque.Tranchant;
+import bataille.Bataille;
+//import bataille.GroupeHommes;
+import protagoniste.Domaine;
+import protagoniste.Heros;
+import protagoniste.Homme;
+import protagoniste.Monstre;
+import protagoniste.ZoneDeCombat;
+
+public class TestGestionArmes {
+
+	public static void main(String[] args) {
+		Monstre<Tranchant> vampirien1 = new Monstre<>("vampirien", 10, ZoneDeCombat.aérien, Domaine.tranchant,
+				new Morsure(10));
+		Monstre<Tranchant> guillotimort = new Monstre<>("guillotimort", 80, ZoneDeCombat.terrestre, Domaine.tranchant,
+				new LameAcier(10), new Griffe());
+		Monstre<Feu> aqualave = new Monstre<>("aqualave", 30, ZoneDeCombat.aquatique, Domaine.feu, new Lave(5));
+
+		Homme thomas = new Homme("Thomas");
+		Homme louis = new Homme("Louis");
+		Heros arthur = new Heros("Arthur");
+		Heros archibald = new Heros("Archibald");
+		Homme alain = new Homme("Alain");
+
+		thomas.ajouterArmes(new LancePierre(), new Boomerang());
+		louis.ajouterArmes(new LancePierre(), new Arc(10));
+		arthur.ajouterArmes(new Epee("excalibur"), new Arc(30));
+		archibald.ajouterArmes(new Epee("excalibur"), new Arc(30));
+		alain.ajouterArmes(new Boomerang(), new Arc(10));
+
+		arthur.choisirArme(guillotimort);
+		System.out.println(arthur.getArmeChoisie().toString());
+//		GroupeHommes compagnie = new GroupeHommes();
+//		compagnie.ajouterHommes(thomas, louis, arthur, archibald, alain);
+//
+//		
+//		Bataille bataille = new Bataille();
+//		bataille.ajouter(aqualave);
+//		List<Homme> campHomme1 = compagnie.choixCampHomme(bataille);
+//		System.out.println("Le camps des hommes pour combattre un aqualave (Aquatique, 30) : \n" + campHomme1);
+//		
+//		bataille.eliminer(aqualave);
+//		bataille.ajouter(vampirien1);
+//		List<Homme> campHomme2 = compagnie.choixCampHomme(bataille);
+//		System.out.println("Le camps des hommes pour combattre un vampirien (Aérien, 10) : \n" + campHomme2);
+//
+//		bataille.eliminer(vampirien1);
+//		bataille.ajouter(guillotimort);
+//		List<Homme> campHomme3 = compagnie.choixCampHomme(bataille);
+//		System.out.println("Le camps des hommes pour combattre un guillotimort (Terrestre, 80) : \n" + campHomme3);
+	}
+//		RESULTAT ATTENDU
+//		Le camps des hommes pour combattre un aqualave (Aquatique, 30) : 
+//		[Heros [nom=Archibald, forceDeVie=100], Heros [nom=Arthur, forceDeVie=100], Homme [nom=Alain, forceDeVie=70]]
+//		Le camps des hommes pour combattre un vampirien (Aérien, 10) : 
+//		[Homme [nom=Louis, forceDeVie=70], Homme [nom=Thomas, forceDeVie=70], Homme [nom=Alain, forceDeVie=70]]
+//		Le camps des hommes pour combattre un guillotimort (Terrestre, 80) : 
+//		[Heros [nom=Archibald, forceDeVie=100], Heros [nom=Arthur, forceDeVie=100], Homme [nom=Alain, forceDeVie=70]]
+
+}

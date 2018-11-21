@@ -1,7 +1,6 @@
 
-¡squid:S1319"mThe return type of this method should be an interface such as "Set" rather than the implementation "HashSet".(ë ¬É8–²û“ñ,H¬RMINORZ
+squid:S2293	"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ò´ù8õÑ¿³ó,HÅRMINORZ
 CODE_SMELL
-’squid:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(ó…­¡øÿÿÿÿ8¢ğÛò,H·RMINORZ
-CODE_SMELL
-hsquid:EmptyStatementUsageCheck$"Remove this empty statement.(ôŸìúÿÿÿÿ8¢ğÛò,H¶RMINORZ
-CODE_SMELL
+ƒsquid:S2159*"VRemove this call to "equals"; comparisons between unrelated types always return false.(À¬öĞ8õ÷Ï³ó,HÛRMAJORZBUG
+}squid:S1206("PThis class overrides "equals()" and should therefore also override "hashCode()".(ÜÑã8õ÷Ï³ó,HÜRMINORZBUG
+Lsquid:S2097("Add a type test to this method.(ÜÑã8õ÷Ï³ó,HİRMINORZBUG

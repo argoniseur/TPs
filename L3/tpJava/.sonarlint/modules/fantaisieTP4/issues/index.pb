@@ -25,3 +25,13 @@ D
 src/attaque/Arc.java,1\e\1eb03e26026799a0c072a00e89c762f62c624606
 L
 src/attaque/LancePierre.java,a\1\a1e212b3fa90f778cae779c120b919cc6338e25c
+]
+-src/testsfonctionnels/TestGestionAttaque.java,2\e\2e8f577d48af494b52cc9893a768b83e620ad45e
+E
+src/attaque/Epee.java,c\a\ca6623e882052d1e4c340b3a9a7c33bf0454c826
+J
+src/attaque/Boomerang.java,e\2\e2ce52c15f56fa1c1405dc6e05b57960d11ec944
+[
++src/testsfonctionnels/TestGestionArmes.java,8\6\8638f555a6742c94a787af0a61f6eb02e8d83009
+N
+src/bataille/GroupeHommes.java,f\3\f3af488e2ed08c3b1d3b94db2533c782eea7b820

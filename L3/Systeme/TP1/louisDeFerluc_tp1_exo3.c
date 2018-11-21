@@ -12,7 +12,7 @@
 
 #define NB_THREADS_MAX  10
 #define NB_FOIS         10
-pthread_mutex_t mutex;
+pthread_mutex_t mutex[N];
 int somme;
 /*------------------------------------------------------------------------
  * Affichage de l'identite de l'appelant 

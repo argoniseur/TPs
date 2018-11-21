@@ -1,21 +1,21 @@
 
-asquid:EmptyStatementUsageCheck"Remove this empty statement.(ôŸìúÿÿÿÿHäRMINORZ
+~squid:CommentedOutCodeLineĞ"<This block of commented-out lines of code should be removed.(ÁÑœ¦üÿÿÿÿHüRMAJORZ
 CODE_SMELL
-†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(³Ù™ªHåRMINORZ
+Zsquid:S1604 "(Make this anonymous inner class a lambda(ë¹ÊûÿÿÿÿHıRMAJORZ
 CODE_SMELL
-†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŞüÕÌHæRMINORZ
+Zsquid:S1604"(Make this anonymous inner class a lambda(ë¹ÊûÿÿÿÿHşRMAJORZ
 CODE_SMELL
-\squid:S1452·"&Remove usage of generic wildcard type.(ö¡ƒàûÿÿÿÿHçRCRITICALZ
+~squid:CommentedOutCodeLineÆ"<This block of commented-out lines of code should be removed.(ï»üÿÿÿÿÿHÿRMAJORZ
 CODE_SMELL
-\squid:S1452¼"&Remove usage of generic wildcard type.(É´†ÛùÿÿÿÿHèRCRITICALZ
+†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŞüÕÌH€RMINORZ
 CODE_SMELL
-Wsquid:S1452Á"&Remove usage of generic wildcard type.(ÏÆêœHéRCRITICALZ
+\squid:S1452¼"&Remove usage of generic wildcard type.(É´†ÛùÿÿÿÿHRCRITICALZ
 CODE_SMELL
-~squid:CommentedOutCodeLineÆ"<This block of commented-out lines of code should be removed.(ï»üÿÿÿÿÿHêRMAJORZ
+Wsquid:S1452Á"&Remove usage of generic wildcard type.(ÏÆêœH‚RCRITICALZ
 CODE_SMELL
-~squid:CommentedOutCodeLineĞ"<This block of commented-out lines of code should be removed.(ÁÑœ¦üÿÿÿÿHëRMAJORZ
+\squid:S1452·"&Remove usage of generic wildcard type.(ö¡ƒàûÿÿÿÿHƒRCRITICALZ
 CODE_SMELL
-Zsquid:S1604"(Make this anonymous inner class a lambda(ë¹ÊûÿÿÿÿHìRMAJORZ
+asquid:EmptyStatementUsageCheck"Remove this empty statement.(ôŸìúÿÿÿÿH„RMINORZ
 CODE_SMELL
-Zsquid:S1604 "(Make this anonymous inner class a lambda(ë¹ÊûÿÿÿÿHíRMAJORZ
+†squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(³Ù™ªH…RMINORZ
 CODE_SMELL

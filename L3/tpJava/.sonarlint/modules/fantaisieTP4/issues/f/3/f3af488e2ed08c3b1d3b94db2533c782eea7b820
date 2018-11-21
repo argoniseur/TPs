@@ -1,0 +1,9 @@
+
+^squid:S1068""%Remove this unused "m" private field.(Ü‚Ÿ–ûÿÿÿÿ8ç’µó,H®RMAJORZ
+CODE_SMELL
+nsquid:S3985"5Remove this unused private "ComparateurHommes" class.(¡İ£ùÿÿÿÿ8°Ó´ó,H¨RMAJORZ
+CODE_SMELL
+msquid:S3985!"4Remove this unused private "ComparateurArmes" class.(ú…¶Šıÿÿÿÿ8ç’µó,H¯RMAJORZ
+CODE_SMELL
+’squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¬ÕåÃşÿÿÿÿ8å¸´ó,HRMINORZ
+CODE_SMELL
