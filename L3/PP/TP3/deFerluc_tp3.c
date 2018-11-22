@@ -4,7 +4,8 @@
 #include <assert.h>
 #include <omp.h>
 #include <sys/time.h>
- 
+#define NUM_THD 4
+
 typedef struct color_pixel_struct {
     unsigned char r,g,b; 
 } color_pixel_type;
@@ -92,21 +93,24 @@ void egalisation_histo (grey_image_type * image){
 	int w = image->width;
 	int h = image->height;
 	int H[256] = {0};
+	printf("Egalisation:\n");
 	start = omp_get_wtime();
 	int C[256] = {0};
-	#pragma omp parallel num_threads(4)
+	#pragma omp parallel num_threads(NUM_THD)
 	{
 		#pragma omp for
 		for(int i = 0;i<w*h;i++){
+			#pragma omp atomic
 			H[image->pixels[i]] += 1;
 		}
 		
+		#pragma omp single
+		{
 		C[0] = H[0];
-		
 		for (int i = 1;i<256;i++){
 			C[i] = C[i-1] + H[i];
 		}
-		
+		}
 		#pragma omp for
 		for(int i = 0;i<w*h;i++){
 			image->pixels[i] = 256*C[image->pixels[i]]/(w*h);
@@ -114,18 +118,21 @@ void egalisation_histo (grey_image_type * image){
 	}
 	stop=omp_get_wtime();
 	t=stop-start;
+	printf("Fin egalisation:\n");
 	//0.079548 à 0.033194
-	saveGreyImage("image_grise_contrastee.pgm", image);
-	printf("\n%f\n",t);
+	printf("Image contrastée avec %d threads: %f\n", NUM_THD, t);
+	//saveGreyImage("image_grise_contrastee.pgm", image);
+	
 }
 
 grey_image_type * embossage(grey_image_type * image){
 	int w = image->width;
 	int h = image->height;
 	grey_image_type * tmp = createGreyImage(w, h);
+	printf("Embossage:\n");
 	start = omp_get_wtime();
 	//ici, vu que l'on a l'image tmp pour stocker le résultat, on ne modifie pas l'image source et donc la dépendance de i et j disparait et l'on peut paralleliser
-	#pragma omp parallel num_threads(4)
+	#pragma omp parallel num_threads(NUM_THD)
 	{
 		#pragma omp for
 		for(int i = 0;i<w*h;i++)
@@ -142,9 +149,11 @@ grey_image_type * embossage(grey_image_type * image){
 	}
 	stop=omp_get_wtime();
 	t=stop-start;
+	printf("Fin embossage:\n");
+	printf("Embossage avec %d threads: %f\n", NUM_THD, t);
 	//0.046883 à 0.020974
-	saveGreyImage("image_grise_embossee.pgm", tmp);
-	printf("\n%f\n",t);
+	//saveGreyImage("image_grise_embossee.pgm", tmp);
+	
 	return image;
 }
 
@@ -153,32 +162,38 @@ grey_image_type * ppm_to_pgm(color_image_type *color){
 	int h = color->height;
 	grey_image_type * image = createGreyImage(w, h);
 	int r, g, b;
+	printf("Grisage:\n");
 	start = omp_get_wtime();
 	// Ici le parallelisme créée un ralentissement. 0.035037 à 0.054439 avec 4 threads
-	//#pragma omp parallel num_threads(4)
-	//{
-		//#pragma omp for
+	#pragma omp parallel num_threads(NUM_THD)
+	{
+		#pragma omp for
 		for(int i = 0;i<w*h;i++){
 			r = color->pixels[i].r;
 			g = color->pixels[i].g;
 			b = color->pixels[i].b;
 			image->pixels[i] = (299*r + 587*g + 114*b)/1000;
+			image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;image->pixels[i] = (299*r + 587*g + 114*b)/1000;
 		}
-	//}
+	}
 	stop=omp_get_wtime();
 	t=stop-start;
-	saveGreyImage("image_grise.pgm", image);
-	printf("\n%f\n",t);
+	printf("Fin grisage:\n");
+	printf("Image grise avec %d threads: %f\n", NUM_THD, t);
+	//saveGreyImage("image_grise.pgm", image);
+	
 	return image;
 }
 
 int main(int argc, char ** argv){
 	
 	color_image_type * x = loadColorImage(argv[1]);
+	double d = omp_get_wtime();
 	grey_image_type * y = createGreyImage(x->width, x->height);
 	y = ppm_to_pgm(x);
 	y = embossage(y);
 	egalisation_histo(y);
-	
+	double a = omp_get_wtime();
+	printf("Temps programme: %f\n", a-d);
 	return 0;
 }
