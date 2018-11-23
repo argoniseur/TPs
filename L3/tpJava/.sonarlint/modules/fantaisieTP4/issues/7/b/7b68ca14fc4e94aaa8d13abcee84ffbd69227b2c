@@ -1,6 +1,4 @@
 
-çsquid:S2293	"YReplace the type specification in this constructor call with the diamond operator ("<>").(è“¥˘8ı—ø≥Û,H≈RMINORZ
+}squid:S1206("PThis class overrides "equals()" and should therefore also override "hashCode()".(ç‹—„8ı˜œ≥Û,H‘RMINORZBUG
+çsquid:S2293	"YReplace the type specification in this constructor call with the diamond operator ("<>").(è“¥˘8ı—ø≥Û,H”RMINORZ
 CODE_SMELL
-Ésquid:S2159*"VRemove this call to "equals"; comparisons between unrelated types always return false.(¿¨ˆ–8ı˜œ≥Û,H€RMAJORZBUG
-}squid:S1206("PThis class overrides "equals()" and should therefore also override "hashCode()".(ç‹—„8ı˜œ≥Û,H‹RMINORZBUG
-Lsquid:S2097("Add a type test to this method.(ç‹—„8ı˜œ≥Û,H›RMINORZBUG

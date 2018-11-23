@@ -1,7 +1,3 @@
 
-’squid:S2293I"YReplace the type specification in this constructor call with the diamond operator ("<>").(á¾æ¸ýÿÿÿÿ8ä²Ñ”ñ,HìRMINORZ
-CODE_SMELL
-\squid:S1604J"(Make this anonymous inner class a lambda(›À¨ï8Šø»Ûò,HñRMAJORZ
-CODE_SMELL
-’squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‹ýºÕùÿÿÿÿ8Ê´å³ó,HïRMINORZ
+\squid:S1604J"(Make this anonymous inner class a lambda(›À¨ï8Šø»Ûò,HóRMAJORZ
 CODE_SMELL

@@ -1,0 +1,89 @@
+package bataille;
+
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.NavigableSet;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import attaque.Arme;
+import protagoniste.Homme;
+import protagoniste.Monstre;
+
+public class GroupeHommes {
+	private Set<Homme> groupe = new TreeSet<>();
+	
+	public void ajouterHommes(Homme... hommes) {
+		for(Homme h : hommes) {
+			groupe.add(h);
+		}
+	}
+	
+	private class ComparateurHommes implements Comparator<Homme>{
+
+		@Override
+		public int compare(Homme o1, Homme o2) {
+			if(o1.getForceDeVie() == o2.getForceDeVie()) {
+				return o1.compareTo(o2);
+			}else {
+				return Integer.valueOf(o1.getForceDeVie()).compareTo(o2.getForceDeVie());
+			}
+		}
+		
+	}
+	
+	private class ComparateurArmes implements Comparator<Arme>{
+		private Monstre<?> m;
+		private TreeMap<Integer, Arme> mapArme = new TreeMap<>();
+		
+		public ComparateurArmes(Monstre<?> m) {
+			this.m = m;
+		}
+		@Override
+		public int compare(Arme o1, Arme o2) {
+			if(!Integer.valueOf(o1.getPointDeDegat()).equals(o2.getPointDeDegat())) {
+				mapArme.put(o1.getPointDeDegat(), o1);
+				mapArme.put(o2.getPointDeDegat(), o2);
+				Arme armeParfaite = mapArme.get(mapArme.ceilingKey(m.getForceDeVie()));
+				if(armeParfaite != null) {
+					if(armeParfaite.equals(o2)) {
+						return 1;
+					}else {
+						return -1;
+					}
+				}else {
+					armeParfaite = mapArme.get(mapArme.floorKey((m.getForceDeVie())));
+					if(armeParfaite.equals(o2)) {
+						return 1;
+					}else {
+						return -1;
+					}
+				}
+			}else {
+				return o1.compareTo(o2);
+			}
+		}	
+	}
+	
+	public void choixDuCamp(Bataille bataille) {
+		Monstre<?> m = bataille.getCampMonstres().selectionner();
+		TreeMap<Arme, NavigableSet<Homme>> hommesArmes = new TreeMap<>(new ComparateurArmes(m));
+		System.out.println(hommesArmes.hashCode());
+		
+		for(Homme h : groupe) {
+			h.choisirArme(m);
+			if(h.getArmeChoisie() != null) {
+				if(hommesArmes.containsKey(h.getArmeChoisie())) {
+					hommesArmes.get(h.getArmeChoisie()).add(h);
+				}else {
+					Set<Homme> s = new NavigableSet<Homme>() {};
+					hommesArmes.put(h.getArmeChoisie(), s.add(h));
+				}
+			}
+		}
+		
+		
+	}
+}

@@ -1,4 +1,3 @@
 
-vsquid:S1206%"PThis class overrides "equals()" and should therefore also override "hashCode()".(óÞÇìH’RMINORZBUG
-asquid:EmptyStatementUsageCheck0"Remove this empty statement.(ôŸŽìúÿÿÿÿH‘RMINORZ
+asquid:EmptyStatementUsageCheck;"Remove this empty statement.(ôŸŽìúÿÿÿÿHêRMINORZ
 CODE_SMELL

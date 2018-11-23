@@ -11,3 +11,5 @@ M
 src/protagoniste/Monstre.java,6\3\632f51519647cbe8e90d460120fd0764e2f7bd89
 K
 src/livre/AideEcrivain.java,7\6\76c491ac24d9a9ce71a738ffd4382ac787952f5c
+R
+"src/protagoniste/ZoneDeCombat.java,b\8\b885d0019744220973909b225b60edd1027a8a84

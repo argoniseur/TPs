@@ -105,8 +105,8 @@ public class AideEcrivain {
 	public String ordreMonstreDomaine() {
 		StringBuilder x = new StringBuilder();
 		updateMonstresDomaine();
-		Monstre<Tranchant> m1 = new Monstre<>("!", 10, ZoneDeCombat.aÃ©rien, Domaine.feu, new Morsure(10));
-		Monstre<Tranchant> m2 = new Monstre<>("~", 10, ZoneDeCombat.aÃ©rien, Domaine.feu, new Morsure(10));
+		Monstre<Tranchant> m1 = new Monstre<>("!", 10, ZoneDeCombat.aérien, Domaine.feu, new Morsure(10));
+		Monstre<Tranchant> m2 = new Monstre<>("~", 10, ZoneDeCombat.aérien, Domaine.feu, new Morsure(10));
 		NavigableSet<Monstre<?>> vueMonstre = monstresDomaineSet.subSet(m1, true, m2, true);
 		
 		x.append("FEU : \n");
@@ -115,8 +115,8 @@ public class AideEcrivain {
 			x.append(", ");
 		}
 		x.append("\n");
-		m1 = new Monstre<>("!", 10, ZoneDeCombat.aÃ©rien, Domaine.glace, new Morsure(10));
-		m2 = new Monstre<>("~", 10, ZoneDeCombat.aÃ©rien, Domaine.glace, new Morsure(10));
+		m1 = new Monstre<>("!", 10, ZoneDeCombat.aérien, Domaine.glace, new Morsure(10));
+		m2 = new Monstre<>("~", 10, ZoneDeCombat.aérien, Domaine.glace, new Morsure(10));
 		vueMonstre = monstresDomaineSet.subSet(m1, true, m2, true);
 		
 		x.append("GLACE : \n");
@@ -125,8 +125,8 @@ public class AideEcrivain {
 			x.append(", ");
 		}
 		x.append("\n");
-		m1 = new Monstre<>("!", 10, ZoneDeCombat.aÃ©rien, Domaine.tranchant, new Morsure(10));
-		m2 = new Monstre<>("~", 10, ZoneDeCombat.aÃ©rien, Domaine.tranchant, new Morsure(10));
+		m1 = new Monstre<>("!", 10, ZoneDeCombat.aérien, Domaine.tranchant, new Morsure(10));
+		m2 = new Monstre<>("~", 10, ZoneDeCombat.aérien, Domaine.tranchant, new Morsure(10));
 		vueMonstre = monstresDomaineSet.subSet(m1, true, m2, true);
 				
 		x.append("TRANCHANT : \n");
@@ -141,8 +141,8 @@ public class AideEcrivain {
 	public String ordreMonstreZone() {
 		StringBuilder x = new StringBuilder();
 		updateMonstresZone();
-		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aÃ©rien, Domaine.feu, new Morsure(10));
-		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aÃ©rien, Domaine.feu, new Morsure(10));
+		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aérien, Domaine.feu, new Morsure(10));
+		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aérien, Domaine.feu, new Morsure(10));
 		NavigableSet<Monstre<?>> vueMonstre = monstresZoneSet.subSet(m1, true, m2, true);
 		
 		x.append("AERIEN : \n");
@@ -213,20 +213,20 @@ public class AideEcrivain {
 //	}
 	
 	public void initMonstresDeFeu() {
-		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aÃ©rien, Domaine.feu, new Morsure(10));
-		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aÃ©rien, Domaine.feu, new Morsure(10));
+		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aérien, Domaine.feu, new Morsure(10));
+		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aérien, Domaine.feu, new Morsure(10));
 		monstresDeFeu = monstresDomaineSet.subSet(m1, true, m2, false);
 	}
 	
 	public void initMonstresDeGlace() {
-		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aÃ©rien, Domaine.glace, new Morsure(10));
-		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aÃ©rien, Domaine.glace, new Morsure(10));
+		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aérien, Domaine.glace, new Morsure(10));
+		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aérien, Domaine.glace, new Morsure(10));
 		monstresDeGlace = monstresDomaineSet.subSet(m1, true, m2, false);
 	}
 	
 	public void initMonstresTranchant() {
-		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aÃ©rien, Domaine.tranchant, new Morsure(10));
-		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aÃ©rien, Domaine.tranchant, new Morsure(10));
+		Monstre<Tranchant> m1 = new Monstre<>("!", 2000, ZoneDeCombat.aérien, Domaine.tranchant, new Morsure(10));
+		Monstre<Tranchant> m2 = new Monstre<>("~", 0, ZoneDeCombat.aérien, Domaine.tranchant, new Morsure(10));
 		monstresTranchants = monstresDomaineSet.subSet(m1, true, m2, false);
 	}
 }

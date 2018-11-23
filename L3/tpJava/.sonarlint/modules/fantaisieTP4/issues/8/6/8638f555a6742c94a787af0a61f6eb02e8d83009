@@ -1,21 +1,22 @@
 
-squid:CommentedOutCodeLine1"<This block of commented-out lines of code should be removed.(±˜€∞8»›ü≥Û,HûRMAJORZ
+l
+squid:S1068"9Replace this use of System.out or System.err by a logger.(˜™æÛ8¬‹éáÙ,H˙
+RMAJORZ
 CODE_SMELL
-Ñsquid:CommentedOutCodeLine?"<This block of commented-out lines of code should be removed.(ﬂ˘ƒÒ˝ˇˇˇˇ8»›ü≥Û,H°RMAJORZ
-CODE_SMELL
-Ñsquid:CommentedOutCodeLine5"<This block of commented-out lines of code should be removed.(˜ß–µ˚ˇˇˇˇ8»›ü≥Û,HüRMAJORZ
-CODE_SMELL
-squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÿÒ∏¿8»›ü≥Û,HùRMAJORZ
+q
+squid:S106="9Replace this use of System.out or System.err by a logger.(§∂‚ö˙ˇˇˇˇ8¬‹éáÙ,H˚
+RMAJORZ
 CODE_SMELL
 l
-squid:S106-"9Replace this use of System.out or System.err by a logger.(˙Î˙˙8»›ü≥Û,H¢RMAJORZ
-CODE_SMELL
-qsquid:S1854">Remove this useless assignment to local variable "vampirien1".(‘ÃŒ&8»›ü≥Û,H¶RMAJORZ
-CODE_SMELL
-squid:CommentedOutCodeLine:"<This block of commented-out lines of code should be removed.(¢äæ∫8»›ü≥Û,H†RMAJORZ
-CODE_SMELL
-bsquid:S1481"/Remove this unused "vampirien1" local variable.(‘ÃŒ&8»›ü≥Û,H£RMINORZ
+squid:S106?"9Replace this use of System.out or System.err by a logger.(«ü€æ8¬‹éáÙ,H¸
+RMAJORZ
 CODE_SMELL
 l
-squid:S1060"9Replace this use of System.out or System.err by a logger.(¡≥“™8¯∞Å¥Û,HáRMAJORZ
+squid:S106-"9Replace this use of System.out or System.err by a logger.(˙Î˙˙8»›ü≥Û,H⁄RMAJORZ
+CODE_SMELL
+q
+squid:S106D"9Replace this use of System.out or System.err by a logger.(≠ø∏‡˙ˇˇˇˇ8£˛ÏáÙ,HöRMAJORZ
+CODE_SMELL
+l
+squid:S1060"9Replace this use of System.out or System.err by a logger.(¡≥“™8¯∞Å¥Û,HﬁRMAJORZ
 CODE_SMELL

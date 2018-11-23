@@ -1,7 +1,7 @@
 package protagoniste;
 
 public enum ZoneDeCombat {
-	aÃ©rien,
+	aérien,
 	aquatique,
 	terrestre;
 }
