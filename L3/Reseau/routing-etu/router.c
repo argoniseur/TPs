@@ -224,20 +224,33 @@ void build_dv_packet(packet_ctrl_t *p, routing_table_t *rt) {
 // Build a DV that contains the routes that have not been learned via this neighbour
 void build_dv_specific(packet_ctrl_t *p, routing_table_t *rt, node_id_t neigh) {
 
-    /* TODO */
+    p->type = CTRL;
+    p->src_id = MY_ID;
+    int size = 0;
 
+    for (int i = 0; i<rt->size;i++){
+        if(rt->rt[i].nexthop.id != neigh){
+            p->dv[size].dest = rt->rt[i].dest;
+            p->dv[i].metric = rt->rt[i].metric;
+            size++;
+        }
+    }
+    p->dv_size = size;
 }
 
 // Remove old RT entries
 void remove_obsolete_entries(routing_table_t *rt) {
-/*
-	for(int i = 0;i<rt->size;i++){
+	
+    for(int i = 0;i<rt->size;i++){
 		if(rt->rt[i].dest != MY_ID){
 			if(difftime(time(NULL), rt->rt[i].time) > BROADCAST_PERIOD){
-				fprintf(stderr, "%f ", difftime((time_t)10, rt->rt[i].time));
+                rt->size--;
+                if(i != rt->size){
+                    rt->rt[i] = rt->rt[rt->size];
+                }
 			}
 		}
-	}*/
+	}
 }
 
 // Hello thread to broadcast state to neighbors
@@ -270,8 +283,9 @@ void *hello(void *args) {
             server_adr.sin_family = AF_INET;
             server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
             server_adr.sin_addr.s_addr = inet_addr(server_ip);
-            build_dv_packet(&p, pargs->rt);
-            
+            //build_dv_packet(&p, pargs->rt);
+            build_dv_specific(&p, pargs->rt, pargs->nt->nt[i].id);
+
             if ( (sendto(sock_id, &p, sizeof(packet_ctrl_t), 0, (struct sockaddr*) &server_adr, sizeof(server_adr))) < 0) {
                 perror("sendto error");
                 exit(EXIT_FAILURE);
@@ -279,6 +293,10 @@ void *hello(void *args) {
             log_dv(&p, pargs->nt->nt[i].id, 1);
 
         }
+
+
+
+
         close(sock_id);
         /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - FIN <<<<<<<<<< */
         sleep(BROADCAST_PERIOD);
