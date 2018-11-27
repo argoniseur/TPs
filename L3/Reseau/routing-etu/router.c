@@ -163,7 +163,9 @@ int forward_packet(packet_data_t *packet, int psize, routing_table_t *rt) {
     char server_ip[16]; // address as a string
     struct sockaddr_in server_adr;
 	
+	// on parcours les entrées de la table de routage pour trouver la bonne destination
 	for (int i=0;i<rt->size;i++){
+		// si on trouve la destination, on relaie le paquet
 		if ((unsigned char)rt->rt[i].dest == packet->dst_id){
 			relayage = 1;
 			strcpy(server_ip, rt->rt[i].nexthop.ipv4);
@@ -214,6 +216,8 @@ void build_dv_packet(packet_ctrl_t *p, routing_table_t *rt) {
     p->type = CTRL;
     p->src_id = MY_ID;
     p->dv_size = rt->size;
+    
+    // constructions de toutes les entrées dv à partir des entrées rt. D'où le dv_size = rt->size
     for (int i = 0; i<p->dv_size;i++){
         p->dv[i].dest = rt->rt[i].dest;
         p->dv[i].metric = rt->rt[i].metric;
@@ -227,8 +231,10 @@ void build_dv_specific(packet_ctrl_t *p, routing_table_t *rt, node_id_t neigh) {
     p->type = CTRL;
     p->src_id = MY_ID;
     int size = 0;
-
+	
+	// On parcours toutes les entrées de rt
     for (int i = 0; i<rt->size;i++){
+		// Si le prochain saut de rt n'est pas le voisin à qui j'envoie, alors je le mets dans dv
         if(rt->rt[i].nexthop.id != neigh){
             p->dv[size].dest = rt->rt[i].dest;
             p->dv[i].metric = rt->rt[i].metric;
@@ -241,8 +247,11 @@ void build_dv_specific(packet_ctrl_t *p, routing_table_t *rt, node_id_t neigh) {
 // Remove old RT entries
 void remove_obsolete_entries(routing_table_t *rt) {
 	
+	// je parcours les entrées de rt
     for(int i = 0;i<rt->size;i++){
+		// Je vérifie que l'entrée vérifiée n'est pas moi même
 		if(rt->rt[i].dest != MY_ID){
+			// Je compare la durée de vie de l'entrée à la durée de vie maximale autorisée et je réarange les entrées
 			if(difftime(time(NULL), rt->rt[i].time) > BROADCAST_PERIOD){
                 rt->size--;
                 if(i != rt->size){
@@ -260,14 +269,13 @@ void *hello(void *args) {
     struct th_args *pargs = (struct th_args *) args;
 
     /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
-    /* TODO */
     int sock_id, server_port;
     char server_ip[16]; // address as a string
     struct sockaddr_in server_adr;
 
     while (1) {
-
-        /* TODO */
+		
+		// Pour chaque voisin, on construit le vecteur distance et on le diffuse
         for(int i = 0;i<pargs->nt->size;i++){
             packet_ctrl_t p;
             strcpy(server_ip, pargs->nt->nt[i].ipv4);
@@ -283,6 +291,8 @@ void *hello(void *args) {
             server_adr.sin_family = AF_INET;
             server_adr.sin_port = htons(server_port); // htons: host to net byte order (short int)
             server_adr.sin_addr.s_addr = inet_addr(server_ip);
+            
+            // Commenter ou décommenter l'une des deux fonctions
             //build_dv_packet(&p, pargs->rt);
             build_dv_specific(&p, pargs->rt, pargs->nt->nt[i].id);
 
@@ -318,6 +328,7 @@ int update_rt(routing_table_t *rt, overlay_addr_t *src, dv_entry_t dv[], int dv_
 	int existe;
 	int nbEnt = 0;
 	int modifie = 0;
+	
 	// Entrées de dv
     for(int i = 0;i<dv_size;i++){
 		existe = 0;
@@ -329,6 +340,8 @@ int update_rt(routing_table_t *rt, overlay_addr_t *src, dv_entry_t dv[], int dv_
 			}
 		}
 		
+		// Si l'entrée n'existe pas, on crée la route.
+		//Sinon, on la met à jour à condition qu'elle soit > à metric+1 ou qu'elle vienne du prochain saut
 		if(existe == 0){
 			add_route(rt, dv[i].dest, src, dv[i].metric+1);
 			modifie = 1;
@@ -415,6 +428,7 @@ void *process_input_packets(void *args) {
                     /* I am NOT the recipient ==> forward packet */
                     /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
 					pdata->ttl -= 1;
+					// On décrémente le ttl. Si il atteint 0, on ne forwarde pas
 					if (pdata->ttl == 0){
 						send_time_exceeded(pdata, pargs->rt);
 					}else{
@@ -434,6 +448,7 @@ void *process_input_packets(void *args) {
                 /* >>>>>>>>>> A COMPLETER PAR LES ETUDIANTS - DEB <<<<<<<<<< */
 				overlay_addr_t src;
 				
+				// On recrée la source à partir de l'emetteur et de l'id du paquet de ctrl, puis on update
 				src.id = pctrl->src_id;
 				inet_ntop(AF_INET, &(neigh_adr.sin_addr), src.ipv4, INET_ADDRSTRLEN);
 				src.port = PORT(src.id);
