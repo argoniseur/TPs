@@ -64,3 +64,4 @@ xt = loiT.expon.pdf(vec, loc=0, scale=1/0.5)
 print("Esperance: ", 1/0.5, " Variance: ", 1/0.25, "\n\n")
 
 print("Les valeurs réelles et théoriques sont très proches les unes des autres. Le tirage réel permet donc de valider la loi théorique")
+print("Plus le nombre de tirage est important, plus les valeurs sont proches de la valeur théorique")
