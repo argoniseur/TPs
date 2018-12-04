@@ -15,7 +15,7 @@ x, y = ligne_regression(0,9,10)
 mX = np.mean(x)
 mY = np.mean(y)
 varX = np.var(x)
-covXY = np.cov(x,y)[0,0]
+covXY = np.cov(x,y)[0,1]
 Y = (covXY/varX)*(x-mX)+mY
 
 plt.figure()
@@ -31,7 +31,7 @@ x, y = ligne_regression(0,9,100)
 mX = np.mean(x)
 mY = np.mean(y)
 varX = np.var(x)
-covXY = np.cov(x,y)[0,0]
+covXY = np.cov(x,y)[0,1]
 Y = (covXY/varX)*(x-mX)+mY
 
 plt.figure()
@@ -47,7 +47,7 @@ x, y = ligne_regression(0,9,1000)
 mX = np.mean(x)
 mY = np.mean(y)
 varX = np.var(x)
-covXY = np.cov(x,y)[0,0]
+covXY = np.cov(x,y)[0,1]
 Y = (covXY/varX)*(x-mX)+mY
 
 plt.figure()
