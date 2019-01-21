@@ -1,0 +1,11 @@
+let rec tete = function
+[] -> []
+|([])::l -> []
+|(e::l1)::l -> l1::(tete l);;
+
+let rec reste = function
+[] -> []
+|([])::l -> []
+|(e::l1)::l -> l1::(reste l);;
+
+let rec trans = function
